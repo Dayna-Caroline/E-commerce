@@ -1,6 +1,7 @@
 <!--Dayna Caroline Domiciaon do Prado
+    Alterado por João Gabriel Noce Laureano (24/08)
     Criação: 18/08
-    Última alteração: 21/08
+    Última alteração: 24/08
  -->
  <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,7 +28,7 @@
                 <form action="" method="post" class="form">
                     <input type="email" name="email" placeholder="Email">
                     <input type="password" name="senha" placeholder="Senha"> 
-                    <a href="" class="esqueceu-senha">Esqueceu sua senha?</a>
+                    <a href="esquece_senha.php" class="esqueceu-senha">Esqueceu sua senha?</a>
                     <button type="submit" class="btn btn-segundo">Entrar</button>  
                 </form>             
             </div>
@@ -43,17 +44,17 @@
 
             <div class="segundo-coluna">
                 <h2 class="titulo titulo-segundo">Fazer cadastro</h2>
-                <form action="" method="post" class="form">
-                    <input type="text" name="nome" placeholder="Nome">
-                    <input type="text" name="sobrenome" placeholder="Sobrenome">
-                    <input type="text" name="sexo" placeholder="Sexo">
-                    <input type="tel" name="data_nascimento" placeholder="Data de nascimento">
-                    <input type="tel" name="cpf" placeholder="CPF">
-                    <input type="tel" name="telefone" placeholder="Telefone">
-                    <input type="tel" name="cep" placeholder="CEP">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="password" name="senha" placeholder="Senha">
-                    <input type="password" name="confima-senha" placeholder="Confirme sua senha">
+                <form action="user_cad.php" method="post" class="form">
+                    <input type="text" name="nome" placeholder="Nome" required>
+                    <input type="text" name="sobrenome" placeholder="Sobrenome" required>
+                    <input type="text" name="sexo" placeholder="Sexo" required>
+                    <input type="tel" name="data_nascimento" placeholder="Data de nascimento" required>
+                    <input type="tel" name="cpf" placeholder="CPF" required>
+                    <input type="tel" name="telefone" placeholder="Telefone" required>
+                    <input type="tel" name="cep" placeholder="CEP" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="senha" placeholder="Senha" required>
+                    <input type="password" name="confirma-senha" placeholder="Confirme sua senha" required>
                     <button type="submit" class="btn btn-segundo">Cadastrar</button>
                 </form>
             </div>
