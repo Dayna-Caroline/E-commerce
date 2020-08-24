@@ -1,11 +1,11 @@
-/* TABELAS - CUPS&MUGS */
+/* TABELAS - CUP&MUG */
 
 /*------------------------------------------------------------------*/
 
 DROP TABLE IF EXISTS "user";
 CREATE TABLE "user"
 (
-    id_user             BIGINT PRIMARY KEY      NOT NULL,
+    id_user             SERIAL PRIMARY KEY      NOT NULL,
     nome                VARCHAR(40)             NOT NULL,
     sobrenome           VARCHAR(40)             NOT NULL,
     sexo                VARCHAR(01)             NOT NULL,
@@ -36,7 +36,8 @@ CREATE TABLE "produto"
     material            VARCHAR(40)             NOT NULL,
     cor                 VARCHAR(40)             NOT NULL,
     tamanho             CHARACTER(01)           NOT NULL,
-    excluido            BOOLEAN                 DEFAULT FALSE
+    excluido            BOOLEAN                 DEFAULT FALSE,
+    data_exclusao       DATE                    DEFAULT NULL
 );
 
 /*------------------------------------------------------------------*/
@@ -45,7 +46,7 @@ DROP TABLE IF EXISTS "compra";
 CREATE TABLE "compra"
 (
     id_compra           SERIAL PRIMARY KEY      NOT NULL,
-    id_user             BIGINT                  REFERENCES "user"(id_user),
+    id_user             SERIAL                  REFERENCES "user"(id_user),
     id_produto          SERIAL                  REFERENCES "produto"(id_produto),
     quantidade          INT                     NOT NULL,
     data_compra         DATE,
