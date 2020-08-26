@@ -26,14 +26,28 @@
     $email=$_POST['email'];
     $senha=$_POST['senha'];
     $confirma_senha=$_POST['confirma-senha'];
-    $sql="INSERT INTO user VALUES(3, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', false, null, true);";
-    $resultado = pg_query($conecta, $sql);
-    $linhas=pg_affected_rows($resultado);
-    echo $sql."a".$resultado."a". $linhas;
-    if ($linhas > 0)
-            echo "<br><br><br><br><br><br>Usuário registrado com sucesso!!!<br><br>";
-        else	
-            echo "<br><br><br><br><br><br>Erro: usário não pode ser registrado";
+    if($sexo!='M'&&$sexo!='m'&&$sexo!='F'&&$sexo!='f')
+    {
+        echo"Sexo deve ser M ou F!";
+    }
+    else{
+        if($confirma_senha == $senha)
+        {
+            $sql="INSERT INTO user VALUES(3, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', false, null, true);";
+            $resultado = pg_query($conecta, $sql);
+            $linhas=pg_affected_rows($resultado);
+            echo $sql."a".$resultado."a". $linhas;
+            if ($linhas > 0)
+                echo "Usuário registrado com sucesso!!!";
+            else	
+                echo "Erro: usário não pode ser registrado";
+        }
+        else
+        {
+            echo"Senhas não coincidem!";
+        }
+    }
+    
 ?>
 </body>
 </html>
