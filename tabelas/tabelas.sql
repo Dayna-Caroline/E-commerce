@@ -2,6 +2,9 @@
 
 /*------------------------------------------------------------------*/
 
+DROP TABLE IF EXISTS "carrinho";
+DROP TABLE IF EXISTS "compra";
+DROP TABLE IF EXISTS "produto";
 DROP TABLE IF EXISTS "user";
 CREATE TABLE "user"
 (
@@ -25,7 +28,7 @@ VALUES (1, 'Augusto', 'Creppe', 'M', '23/07/2004', '455491018-07', 'augusto.crep
 
 /*------------------------------------------------------------------*/
 
-DROP TABLE IF EXISTS "produto";
+
 CREATE TABLE "produto"
 (
     id_produto          SERIAL PRIMARY KEY      NOT NULL,
@@ -42,7 +45,7 @@ CREATE TABLE "produto"
 
 /*------------------------------------------------------------------*/
 
-DROP TABLE IF EXISTS "compra";
+
 CREATE TABLE "compra"
 (
     id_compra           SERIAL PRIMARY KEY      NOT NULL,
@@ -55,7 +58,7 @@ CREATE TABLE "compra"
 
 /*------------------------------------------------------------------*/
 
-DROP TABLE IF EXISTS "carrinho";
+
 CREATE TABLE "carrinho"
 (
     id_user             BIGINT                  REFERENCES "user"(id_user),
