@@ -1,7 +1,7 @@
 
 <!--João Gabriel Noce Laureano
     Criação: 24/08
-    Última alteração: 24/08
+    Última alteração: 31/08
  -->
  <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,7 +15,7 @@
 
 <body>
 <?php
-    include "back/conexao.php"; 
+    include "conexao.php"; 
     $nome=$_POST['nome'];
     $sobrenome=$_POST['sobrenome'];
     $sexo=$_POST['sexo'];
@@ -26,14 +26,28 @@
     $email=$_POST['email'];
     $senha=$_POST['senha'];
     $confirma_senha=$_POST['confirma-senha'];
-    $sql="INSERT INTO user VALUES(3, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', false, null, true);";
-    $resultado = pg_query($conecta, $sql);
-    $linhas=pg_affected_rows($resultado);
-    echo $sql."a".$resultado."a". $linhas;
-    if ($linhas > 0)
+    
+    if($senha == $confirma_senha)
+    {
+        $sql="INSERT INTO \"user\" VALUES(DEFAULT, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', false, null, true);";
+    
+        $resultado = pg_query($conecta, $sql);
+        $linhas = pg_affected_rows($resultado);
+
+        if ($linhas > 0)
+        {
             echo "<br><br><br><br><br><br>Usuário registrado com sucesso!!!<br><br>";
+            ?><a href="..\index.php">Retornar ao menu</a><br><br><?php
+        }
         else	
-            echo "<br><br><br><br><br><br>Erro: usário não pode ser registrado";
+        {
+            echo "<br><br><br><br><br><br>Erro: Usuário não pode ser registrado";   
+        }
+    }
+    else
+    {
+        echo "<br><br><br><br><br><br>Erro: Senhas diferentes";
+    }
 ?>
 </body>
 </html>
