@@ -1,66 +1,179 @@
-<!--Dayna Caroline Domiciaon do Prado
-    Alterado por João Gabriel Noce Laureano (24/08)
-    Criação: 18/08
-    Última alteração: 24/08
- -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Empresa</title>
-    
+    <title>Cup&Mug</title>
     <link rel="stylesheet" href="./styles/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-        <div class="conteudo primeiro-conteudo">
-            <div class="primeiro-coluna">
-                <h2 class="titulo titulo-primario">Não tem um cadastro?</h2>
-                <p class="descricao descricao-primario">Cadastre-se com seus dados pessoais</p>
-                <p class="descricao descricao-primario">e aproveite suas compras na Empresa</p>
-                <button id="cadastro" class="btn btn-primario">Cadastrar</button>
-            </div>  
 
-            <div class="segundo-coluna">
-                <h2 class="titulo titulo-segundo">Fazer login</h2>
-                <form action="" method="post" class="form">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="password" name="senha" placeholder="Senha"> 
-                    <a href="./front/esquece_senha.php" class="esqueceu-senha">Esqueceu sua senha?</a>
-                    <button type="submit" class="btn btn-segundo">Entrar</button>  
-                </form>             
+    <!--Cabeçalho------------------------------------------------------------------------------------------------------->
+
+        <div class="header">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <img src="./imgs/index/logo.png" alt="" width="125px" heigth="125px">
+                    </div>
+                    <nav>
+                        <ul id="MenuItems">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Produtos</a></li>
+                            <li><a href="">Sobre</a></li>
+                        </ul>
+                    </nav>
+                    <a href="./front/login_e_cadastro.php"><img src="./imgs/index/conta.png" alt="" width="30px" heigth="30px"></a>
+                    <a href=""><img src="./imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Copos e canecas personalizadas, <br>compre na Cup&Mug!!</h1>
+                        <p>A Cup&Mug traz pra você copos e canecas lindas e coloridas, adquira o seu!!</p>
+                        <a href="" class="btn">Fazer compras &#8594;</a>
+                    </div>
+                    <div class="col-2">
+                        <img src="./imgs/index/header.png" alt="">
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="conteudo segundo-conteudo">
-            <div class="primeiro-coluna">
-                <h2 class="titulo titulo-primario">Já tem um cadastro?</h2>
-                <p class="descricao descricao-primario">Entre com seu email e senha</p>
-                <p class="descricao descricao-primario">para fazer suas compras na Empresa</p>
-                <button id="login" class="btn btn-primario">Entrar</button>
-            </div>
+    <!--Fotos e caracteríticas dos produtos------------------------------------------------------------------------------->
 
-            <div class="segundo-coluna">
-                <h2 class="titulo titulo-segundo">Fazer cadastro</h2>
-                <form action="./back/user_cad.php" method="post" class="form">
-                    <input type="text" name="nome" placeholder="Nome" required>
-                    <input type="text" name="sobrenome" placeholder="Sobrenome" required>
-                    <input type="text" name="sexo" placeholder="Sexo" required>
-                    <input type="tel" name="data_nascimento" placeholder="Data de nascimento" required>
-                    <input type="tel" name="cpf" placeholder="CPF" required>
-                    <input type="tel" name="telefone" placeholder="Telefone" required>
-                    <input type="tel" name="cep" placeholder="CEP" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="password" name="senha" placeholder="Senha" required>
-                    <input type="password" name="confirma-senha" placeholder="Confirme sua senha" required>
-                    <button type="submit" class="btn btn-segundo">Cadastrar</button>
-                </form>
+        <div class="categories">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                    <div class="fig">
+                        <img src="./imgs/index/caracteristica1.jpg" alt="">
+
+                        <div class="caracteristica">
+                            <p>Produtos com uma grande variedade de cores no Cup&Mug!!</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="fig">
+                            <img src="./imgs/index/caracteristica2.jpg" alt="">
+
+                            <div class="caracteristica">
+                                <p>Frases pensadas com muito cuidado para agradar vocês!!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="fig">
+                            <img src="./imgs/index/caracteristica3.jpg" alt="">
+
+                            <div class="caracteristica">
+                                <p>Grande variedade de tamanhos e modelos só na Cup&Mug!!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="./back/index.js"></script>
+    <!--Vídeo-------------------------------------------------------------------------------------------------------------->
+        <div class="offer">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-2">
+                        <iframe class="offer-img" src="https://www.youtube.com/embed/VRYVe8Ar6g4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-2">
+                        <p>Canecas e copos exclusivos!</p>
+                        <h1>Compre na Cup&Mug</h1>
+                        <small>Frases escritas com carinho, que estão em tendência nos bailes!!</small>
+                        <a href="" class="btn">Comprar &#8594;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!--Alguns copos----------------------------------------------------------------------------------------------------->
+        <div class="small-container">
+            <h2 class="title">Alguns copos</h2>
+            <div class="row">
+                <div class="col-4">
+                    <img src="./imgs/index/copo1.jpg" alt="">
+                    <h4>Caneca...........</h4>
+                    <p>R$30,00</p>
+                </div>
+                <div class="col-4">
+                    <img src="./imgs/index/copo2.jpg" alt="">
+                    <h4>Caneca...........</h4>
+                    <p>R$30,00</p>
+                </div>
+                <div class="col-4">
+                    <img src="./imgs/index/copo3.jpg" alt="">
+                    <h4>Caneca...........</h4>
+                    <p>R$30,00</p>
+                </div>
+                <div class="col-4">
+                    <img src="./imgs/index/copo4.jpg" alt="">
+                    <h4>Caneca...........</h4>
+                    <p>R$30,00</p>
+                </div>
+            </div>
+        </div>
+
+    <!--Algumas canecas--------------------------------------------------------------------------------------------------->
+        <div class="small-container">
+                <h2 class="title">Algumas canecas</h2>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="./imgs/index/caneca1.jpg" alt="">
+                        <h4>Caneca...........</h4>
+                        <p>R$30,00</p>
+                    </div>
+                    <div class="col-4">
+                        <img src="./imgs/index/caneca2.jpg" alt="">
+                        <h4>Caneca...........</h4>
+                        <p>R$30,00</p>
+                    </div>
+                    <div class="col-4">
+                        <img src="./imgs/index/caneca3.jpg" alt="">
+                        <h4>Caneca...........</h4>
+                        <p>R$30,00</p>
+                    </div>
+                    <div class="col-4">
+                        <img src="./imgs/index/caneca4.jpg" alt="">
+                        <h4>Caneca...........</h4>
+                        <p>R$30,00</p>
+                    </div>
+                </div>
+            </div>
+
+    <!--Footer-------------------------------------------------------------------------------------------------------------------->
+        <div class="footer">
+            <div class="navbar">
+                    <section>
+                        <ul id="MenuItems">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Produtos</a></li>
+                            <li><a href="">Sobre</a></li>
+                        </ul>
+                        <a href="./front/login_e_cadastro.php"><img src="./imgs/index/conta_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                        <a href=""><img src="./imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                    </section>
+            </div>
+            <div class="footer-col-1">
+                <ul>
+                    <li>03 - Ana Júlia,</li>
+                    <li>06 - Augusto Creppe,</li>
+                    <li>11 - Dayna Caroline,</li>
+                    <li>19 - João Gabriel,</li>
+                    <li>20 - João Pedro,</li>
+                    <li>28 - Maria Isabel</li>
+                </ul>
+            </div>
+            <div class="inicio">
+                <a href="index.php">Voltar ao inicio</a>
+            </div>
+        </div>
+        
+        <script src="./baxk/index.js"></script>
 </body>
 </html>
