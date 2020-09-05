@@ -3,15 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-  
+
 body{
-    width: 100%;
+    background: radial-gradient(#fff, #d6ddff);
+}
+  
+.tudo{
+    width: 1200px;
     height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(#fff, #d6ddff);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 .cont{
@@ -122,6 +127,10 @@ button{
     font-weight: 600;
     color: #0c0101;
     cursor: pointer;
+}
+
+a{
+    text-decoration: none;
 }
   
 .forgot-pass:hover{

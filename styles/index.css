@@ -5,9 +5,18 @@
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #edeef1;
+    align-items: center;
 }
 
+.tudo{
+    width: 1200px;
+    min-height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
 /*Cabeçalho----------------------------------------------------------------------------------------------------*/
 
 .navbar{
@@ -226,4 +235,3 @@ section img{
     margin-right: 20px;
     font-size: 12px;
 }
-
