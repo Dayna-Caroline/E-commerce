@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
     <head>
         <title>Cup&Mug</title>
@@ -6,11 +7,23 @@
         <link rel="stylesheet" href="../styles/login_e_cadastro.css"> 
     </head>
 
+    <?php
+        if(isset($_GET['success'])) 
+        {
+            if($_GET['success'] == 'false') 
+            {
+                echo '<script language="javascript">';
+                echo "alert('Email ou senha inválidos! Tente novamente...')";
+                echo '</script>';
+            }
+        }
+    ?>
+
     <body>
         <div class="tudo">
             <div class="cont">
                 <div class="form sign-in">
-                    <form action="" method="post" class="login">
+                    <form action="../back/login.php" method="post" class="login">
                         <h2>Login</h2>
                         <label>
                             <span>Email</span>
@@ -22,7 +35,7 @@
                             <input type="password" name="senha">
                         </label>
                         <a href="esquece_senha.php"><p class="forgot-pass">Esqueceu a senha?</p></a>
-                        <button class="submit" type="button">Entrar</button>
+                        <button class="submit" type="submit" >Entrar</button>
                     </form>
                 </div>
 
@@ -46,7 +59,7 @@
 
                 <div class="form sign-up">
                     <h2>Cadastro</h2>
-                    <form action="../back/user_cad.php" method="post">
+                    <form action="../back/cadastrar_user.php" method="post">
                         <label>
                             <input type="text" name="nome" placeholder="Nome">
                         </label>
@@ -58,8 +71,8 @@
                         <label>
                             <span>Sexo</span>
                             <div class="col-sexo">
-                                <input type="radio" name="feminino"><p>Feminino</p>
-                                <input type="radio" name="masculino"><p>Masculino</p>
+                                <input type="radio" name="feminino" value="F"><p>Feminino</p>
+                                <input type="radio" name="masculino" value="M"><p>Masculino</p>
                             </div>
                         </label>
                         

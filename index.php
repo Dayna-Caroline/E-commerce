@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+
+<?php
+    $logado = null;
+
+    session_start();
+    
+    if(isset($_SESSION['email']))
+    {
+        $logado = $_SESSION['email'];
+        $adm = $_SESSION['adm'];
+        $nome = $_SESSION['nome']; 
+        $sexo = $_SESSION['sexo'];
+    }
+?>
+
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -23,13 +38,49 @@
                                     <li><a href="">Sobre</a></li>
                                 </ul>
                             </nav>
-                            <a href="./front/login_e_cadastro.php"><img src="./imgs/index/conta.png" alt="" width="30px" heigth="30px"></a>
-                            <a href=""><img src="./imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
+                            <a href="
+                            
+                            <?php
+                                if($logado ==  null)
+                                    echo "./front/login_e_cadastro.php";
+                                else
+                                //echo " LINK DA PAGINA DA CONTA ";
+                            ?>
+                            
+                            "><img src="./imgs/index/conta.png" alt="" width="30px" heigth="30px"></a>
+                            <a href="
+                            
+                            <?php
+                                if($logado ==  null)
+                                    echo "./front/login_e_cadastro.php";
+                                else
+                                  //echo " LINK DA PAGINA DO CARRINHO ";
+                            ?>
+                            
+                            "><img src="./imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
                         </div>
                         
                         <div class="row">
                             <div class="col-2">
-                                <h1>Copos e canecas personalizadas, <br>compre na Cup&Mug!!</h1>
+                                <h1>
+                                 
+                                <?php
+                                    echo "Bem vind";
+                                    
+                                    if($logado != NULL)
+                                    {
+                                        if($sexo == 'M')
+                                            echo "o, ".$nome."!";
+                                        if($sexo == 'F')
+                                        echo "a, ".$nome."!";
+                                    }
+                                    else
+                                    {
+                                        echo "@, estranh@!";
+                                    }
+                                ?>
+                                
+                                <br>Compre na Cup&Mug!!</h1>
                                 <p>A Cup&Mug traz pra você copos e canecas lindas e coloridas, adquira o seu!!</p>
                                 <a href="" class="btn">Fazer compras &#8594;</a>
                             </div>
@@ -174,8 +225,26 @@
                                     <li><a href="">Produtos</a></li>
                                     <li><a href="">Sobre</a></li>
                                 </ul>
-                                <a href="./front/login_e_cadastro.php"><img src="./imgs/index/conta_branco.jpg" alt="" width="30px" heigth="30px"></a>
-                                <a href=""><img src="./imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                <a href="
+                                
+                                <?php
+                                    if($logado ==  null)
+                                        echo "./front/login_e_cadastro.php";
+                                    else
+                                    //echo " LINK DA PAGINA DA CONTA ";
+                                ?>
+                                
+                                "><img src="./imgs/index/conta_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                <a href="
+                                
+                                <?php
+                                    if($logado ==  null)
+                                        echo "./front/login_e_cadastro.php";
+                                    else
+                                    //echo " LINK DA PAGINA DO CARRINHO ";
+                                ?>
+                                
+                                "><img src="./imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
                             </section>
                         </div>
                             
@@ -188,6 +257,8 @@
                                 <li>20 - João Pedro,</li>
                                 <li>28 - Maria Isabel</li>
                             </ul>
+
+                            <a href="./back/logout.php">LOGOUT</a>
                         </div>
 
                         <div class="inicio">
@@ -196,7 +267,7 @@
                     </div>
             </div>            
         
-            <script src="./baxk/index.js"></script>
+            <script src="./back/index.js"></script>
         
         </div>
     </body>

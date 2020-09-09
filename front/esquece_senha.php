@@ -1,8 +1,5 @@
-<!--João Gabriel Noce Laureano
-    Criação: 24/08
-    Última alteração: 24/08
- -->
- <!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +11,7 @@
 
 <body>
     <h2 class="titulo titulo-segundo">Digite o email</h2>
-    <form action="./back/envia_email.php" method="post" class="form">
+    <form action="../back/envia_email.php" method="post" class="form">
         <input type="email" name="email" placeholder="Email" required>
         <button type="submit" class="btn btn-segundo">Enviar</button>  
     </form>   
