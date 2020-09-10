@@ -10,7 +10,7 @@
     $cep = $_POST['cep'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $confirma_senha = $_POST['confirma-senha'];
+    $confirma_senha = $_POST['confirma_senha'];
     
     if($senha == $confirma_senha)
     {
