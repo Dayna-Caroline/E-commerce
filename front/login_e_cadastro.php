@@ -79,8 +79,8 @@
                             <div class="icon"><i class="fas fa-venus-mars"></i></div>
                             <span>Sexo</span>
                             <div class="col-sexo">
-                                <input type="radio" name="feminino" value="F"><p>Feminino</p>
-                                <input type="radio" name="masculino" value="M"><p>Masculino</p>
+                                <input type="radio" name="opcao" value="F"><p>Feminino</p>
+                                <input type="radio" name="opcao" value="M"><p>Masculino</p>
                             </div>
                         </label>
                         
