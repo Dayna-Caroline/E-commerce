@@ -1,3 +1,7 @@
+<!--Dayna Caroline - N°11 - Criação: 04/09-->
+<!--Augusto Creppe - N°06 e Dayna Caroline - N°11 - Atualização: 09/09-->
+
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -5,6 +9,7 @@
         <title>Cup&Mug</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../styles/login_e_cadastro.css"> 
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
     <?php
@@ -26,13 +31,13 @@
                     <form action="../back/login.php" method="post" class="login">
                         <h2>Login</h2>
                         <label>
-                            <span>Email</span>
-                            <input type="email" name="email">
+                            <div class="icon"><i class="fas fa-envelope-open-text"></i></div>
+                            <input type="email" name="email" placeholder="Email" autocomplete="off">
                         </label>
                     
                         <label>
-                            <span>Senha</span>
-                            <input type="password" name="senha">
+                            <div class="icon"><i class="fas fa-lock"></i></div>
+                            <input type="password" name="senha" placeholder="Senha" autocomplete="off">
                         </label>
                         <a href="esquece_senha.php"><p class="forgot-pass">Esqueceu a senha?</p></a>
                         <button class="submit" type="submit" >Entrar</button>
@@ -61,14 +66,17 @@
                     <h2>Cadastro</h2>
                     <form action="../back/cadastrar_user.php" method="post">
                         <label>
-                            <input type="text" name="nome" placeholder="Nome">
+                            <div class="icon"><i class="fas fa-user"></i></div>
+                            <input type="text" name="nome" placeholder="Nome" autocomplete="off">
                         </label>
                         
                         <label>
-                            <input type="text" name="sobrenome" placeholder="Sobrenome">
+                            <div class="icon"><i class="fas fa-user"></i></div>
+                            <input type="text" name="sobrenome" placeholder="Sobrenome" autocomplete="off">
                         </label>
                         
                         <label>
+                            <div class="icon"><i class="fas fa-venus-mars"></i></div>
                             <span>Sexo</span>
                             <div class="col-sexo">
                                 <input type="radio" name="feminino" value="F"><p>Feminino</p>
@@ -77,31 +85,39 @@
                         </label>
                         
                         <label>
-                            <input type="text" name="data_nascimento" placeholder="Data de nascimento">
+                            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                            <input type="number" name="data_nascimento" placeholder="Data de nascimento" autocomplete="off">
                         </label>
                         
                         <label>
-                            <input type="number" name="cpf" placeholder="CPF">
+                            <div class="icon"><i class="fas fa-address-card"></i></div>
+                            <input type="number" name="cpf" id="cpf" placeholder="CPF" autocomplete="off" maxlength="14" onkeyup="mascaraCpf()">
                         </label>
                         
                         <label>
-                            <input type="number" name="cep" placeholder="CEP">
+                            <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
+                            <input type="number" name="cep" placeholder="CEP" autocomplete="off">
                         </label>
                         
                         <label>
-                            <input type="number" name="telefone" placeholder="Telefone">
+                            <div class="icon"><i class="fas fa-mobile"></i></div>
+                            <input type="number" name="telefone" placeholder="Telefone" autocomplete="off">
                         </label>
                         
                         <label>
-                            <input type="email" name="email" placeholder="Email"> 
+                            <div class="icon"><i class="fas fa-envelope-open-text"></i></div>
+                            <input type="email" name="email" placeholder="Email" autocomplete="off"> 
                         </label>
                         
                         <label>
-                            <input type="password" name="senha" placeholder="Senha">
+                            <div class="icon"><i class="fas fa-lock"></i></div>   
+                            <input type="password" name="senhaForca" id="senhaForca" placeholder="Senha" onkeyup="validarSenhaForca()">
+                            <div id="erroSenhaForca" class="forca"></div>
                         </label>
                         
                         <label>
-                            <input type="password" name="confirma_senha" placeholder="Confirme sua senha">
+                            <div class="icon"><i class="fas fa-lock"></i></div>
+                            <input type="password" name="confirma_senha" placeholder="Confirme sua senha" autocomplete="off">
                         </label>
                         
                         <button type="submit" class="submit">Cadastrar</button>

@@ -59,7 +59,7 @@ label{
     display: block;
     width: 260px;
     margin: 25px auto 0;
-    text-align: center;
+    text-align: left;
 }
   
 label span{
@@ -67,9 +67,18 @@ label span{
     font-weight: 600;
     color: #505f75;
     text-transform: uppercase;
+    padding-left: 20%;
+}
+
+.icon{
+    position: absolute;
+    color: #505f75;
+    margin-left: 3%;
 }
   
 .col-sexo{
+    margin-top: 7%;
+    margin-left: -7%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -91,8 +100,9 @@ input{
     margin-top: 5px;
     font-size: 16px;
     padding-bottom: 5px;
+    padding-left: 20%;
     border-bottom: 1px solid rgba(109, 93, 93, 0.4);
-    text-align: center;
+    text-align: left;
     font-family: 'Nunito', sans-serif; 
 }
   
@@ -135,6 +145,10 @@ a{
   
 .forgot-pass:hover{
     color: #483bff;
+}
+
+.forca{
+    margin-top: 5%;
 }
 
 /*Parte cadastro------------------------------------------------------------------------------------------*/
