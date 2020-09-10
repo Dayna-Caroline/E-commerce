@@ -1,3 +1,6 @@
+<!--Dayna Caroline - N°11 - Criação: 02/09-->
+<!--Augusto Creppe - N°06 e Dayna Caroline - N°11 - Atualização: 09/09-->
+
 <!DOCTYPE html>
 
 <?php
