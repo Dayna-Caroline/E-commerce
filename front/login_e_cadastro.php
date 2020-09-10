@@ -64,7 +64,7 @@
 
                 <div class="form sign-up">
                     <h2>Cadastro</h2>
-                    <form action="../back/cadastrar_user.php" method="post">
+                    <form action="../back/cadastrar_user.php" name="form1" method="post">
                         <label>
                             <div class="icon"><i class="fas fa-user"></i></div>
                             <input type="text" name="nome" placeholder="Nome" autocomplete="off">
@@ -86,22 +86,22 @@
                         
                         <label>
                             <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-                            <input type="number" name="data_nascimento" placeholder="Data de nascimento" autocomplete="off">
+                            <input type="text" name="data" onKeyPress="MascaraData(form1.data);" maxlength="10" placeholder="Data de Nascimento" autocomplete="off">
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-address-card"></i></div>
-                            <input type="number" name="cpf" id="cpf" placeholder="CPF" autocomplete="off" maxlength="14" onkeyup="mascaraCpf()">
+                            <input type="text" name="cpf" onKeyPress="MascaraCPF(form1.cpf);" maxlength="14" placeholder="CPF" autocomplete="off">
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
-                            <input type="number" name="cep" placeholder="CEP" autocomplete="off">
+                            <input type="text" name="cep" onKeyPress="MascaraCep(form1.cep);" maxlength="10" placeholder="CEP" autocomplete="off">
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-mobile"></i></div>
-                            <input type="number" name="telefone" placeholder="Telefone" autocomplete="off">
+                            <input type="text" name="tel" onKeyPress="MascaraTelefone(form1.tel);" maxlength="14" placeholder="Telefone" autocomplete="off">
                         </label>
                         
                         <label>

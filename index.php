@@ -32,7 +32,7 @@
                     <div class="container">
                         <div class="navbar">
                             <div class="logo">
-                                <img src="./imgs/index/melhor.png" alt="" width="60px" heigth="60px">
+                                <img src="./imgs/index/melhor.jpg" alt="" width="100px" heigth="100px">
                             </div>
                             <nav>
                                 <ul id="MenuItems">
