@@ -266,10 +266,7 @@
                             <a href="index.php">Voltar ao inicio</a>
                         </div>
                     </div>
-            </div>            
-        
-            <script src="./back/index.js"></script>
-        
+            </div>                  
         </div>
     </body>
 </html>
