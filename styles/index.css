@@ -17,6 +17,28 @@ body{
     margin-right: auto;
     background-color: white;
 }
+
+/*Barra de rolagem------------------------------------------------------------*/
+body::-webkit-scrollbar{
+    width: 8px;
+    background-color: rgb(236, 234, 234);
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: grey;
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(214, 68, 68);
+}
+
+body::-webkit-scrollbar-button{
+    width: 0;
+    height: 0;
+}
+/*------------------------------------------------------------------------------*/
+
 /*Cabeçalho----------------------------------------------------------------------------------------------------*/
 
 .navbar{
@@ -39,6 +61,11 @@ nav ul li{
     display: inline-block;
     margin-right: 20px;
 }
+
+nav span{
+    color: red;
+}
+
 .navbar img{
     margin-right: 20px;
 }
