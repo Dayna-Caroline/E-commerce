@@ -79,8 +79,8 @@
                             <div class="icon"><i class="fas fa-venus-mars"></i></div>
                             <span>Sexo</span>
                             <div class="col-sexo">
-                                <input type="radio" name="opcao" value="F"><p>Feminino</p>
-                                <input type="radio" name="opcao" value="M"><p>Masculino</p>
+                                <input type="radio" name="sexo" value="F"><p>Feminino</p>
+                                <input type="radio" name="sexo" value="M"><p>Masculino</p>
                             </div>
                         </label>
                         
@@ -101,7 +101,7 @@
                         
                         <label>
                             <div class="icon"><i class="fas fa-mobile"></i></div>
-                            <input type="text" name="tel" onKeyPress="MascaraTelefone(form1.tel);" maxlength="14" placeholder="Telefone" autocomplete="off">
+                            <input type="text" name="telefone" onKeyPress="MascaraTelefone(form1.telefone);" maxlength="14" placeholder="Telefone" autocomplete="off">
                         </label>
                         
                         <label>

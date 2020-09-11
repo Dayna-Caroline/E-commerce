@@ -262,6 +262,8 @@
                             </ul>
                         </div>
 
+                        <a href="./back/logout.php">LOGOUT</a>
+
                         <div class="inicio">
                             <a href="index.php">Voltar ao inicio</a>
                         </div>

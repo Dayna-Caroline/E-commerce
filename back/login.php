@@ -4,7 +4,7 @@
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $result = pg_query("SELECT * FROM public.user WHERE email ='$email' AND senha = '$senha'");
+    $result = pg_query("SELECT * FROM usuario WHERE email ='$email' AND senha = '$senha'");
     
     $linha = pg_fetch_array($result);
     $adm = $linha['adm'];
@@ -24,6 +24,6 @@
     }
     else
     {
-        header('Location: ../front/login_e_cadastro.php?success=false');
+        header("Location: ../front/login_e_cadastro.php?success=false");
     }
 ?>

@@ -2,11 +2,11 @@
 
 /*------------------------------------------------------------------*/
 
-DROP TABLE IF EXISTS "carrinho";
-DROP TABLE IF EXISTS "compra";
-DROP TABLE IF EXISTS "produto";
-DROP TABLE IF EXISTS "user";
-CREATE TABLE "user"
+DROP TABLE IF EXISTS carrinho;
+DROP TABLE IF EXISTS compra;
+DROP TABLE IF EXISTS produto;
+DROP TABLE IF EXISTS usuario;
+CREATE TABLE usuario
 (
     id_user             SERIAL PRIMARY KEY      NOT NULL,
     nome                VARCHAR(40)             NOT NULL,
@@ -23,13 +23,13 @@ CREATE TABLE "user"
     adm                 BOOLEAN                 DEFAULT FALSE
 );
 
-INSERT INTO "user"  (id_user, nome, sobrenome, sexo, data_nascimento, cpf, email, senha, telefone, cep, excluido, data_exclusao, adm)
-VALUES (1, 'Augusto', 'Creppe', 'M', '23/07/2004', '455491018-07', 'augusto.creppe@gmail.com', 'augusto123', '14996786342', '17018-786', false, null, true);
+INSERT INTO usuario  (id_user, nome, sobrenome, sexo, data_nascimento, cpf, email, senha, telefone, cep, excluido, data_exclusao, adm)
+VALUES (DEFAULT, 'Augusto', 'Creppe', 'M', '23/07/2004', '455491018-07', 'augusto.creppe@gmail.com', 'augusto123', '14996786342', '17018-786', false, null, true);
 
 /*------------------------------------------------------------------*/
 
 
-CREATE TABLE "produto"
+CREATE TABLE produto
 (
     id_produto          SERIAL PRIMARY KEY      NOT NULL,
     descricao           VARCHAR(40)             NOT NULL,
@@ -46,11 +46,11 @@ CREATE TABLE "produto"
 /*------------------------------------------------------------------*/
 
 
-CREATE TABLE "compra"
+CREATE TABLE compra
 (
     id_compra           SERIAL PRIMARY KEY      NOT NULL,
-    id_user             SERIAL                  REFERENCES "user"(id_user),
-    id_produto          SERIAL                  REFERENCES "produto"(id_produto),
+    id_user             SERIAL                  REFERENCES usuario(id_user),
+    id_produto          SERIAL                  REFERENCES produto(id_produto),
     quantidade          INT                     NOT NULL,
     data_compra         DATE,
     excluido            BOOLEAN                 DEFAULT FALSE
@@ -59,9 +59,9 @@ CREATE TABLE "compra"
 /*------------------------------------------------------------------*/
 
 
-CREATE TABLE "carrinho"
+CREATE TABLE carrinho
 (
-    id_user             BIGINT                  REFERENCES "user"(id_user),
-    id_produto          BIGINT                  REFERENCES "produto"(id_produto),
+    id_user             BIGINT                  REFERENCES usuario(id_user),
+    id_produto          BIGINT                  REFERENCES produto(id_produto),
     quantidade          INT                     NOT NULL
 );
