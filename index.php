@@ -37,7 +37,7 @@
                             <nav>
                                 <ul id="MenuItems">
                                     <li><a href=""><span>Home</span></a></li>
-                                    <li><a href="">Produtos</a></li>
+                                    <li><a href="./front/produtos.php">Produtos</a></li>
                                     <li><a href="">Sobre</a></li>
                                 </ul>
                             </nav>
@@ -85,7 +85,7 @@
                                 
                                 <br>Compre na Cup&Mug!!</h1>
                                 <p>A Cup&Mug traz pra você copos e canecas lindas e coloridas, adquira o seu!!</p>
-                                <a href="" class="btn">Fazer compras &#8594;</a>
+                                <a href="./front/produtos.php" class="btn">Fazer compras &#8594;</a>
                             </div>
                         
                             <div class="col-2">
@@ -147,7 +147,7 @@
                                     <p>Canecas e copos exclusivos!</p>
                                     <h1>Compre na Cup&Mug</h1>
                                     <small>Frases escritas com carinho, que estão em tendência nos bailes!!</small>
-                                    <a href="" class="btn">Comprar &#8594;</a>
+                                    <a href="./front/produtos.php" class="btn">Comprar &#8594;</a>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +225,7 @@
                             <section>
                                 <ul id="MenuItems">
                                     <li><a href="">Home</a></li>
-                                    <li><a href="">Produtos</a></li>
+                                    <li><a href="./front/produtos.php">Produtos</a></li>
                                     <li><a href="">Sobre</a></li>
                                 </ul>
                                 <a href="
@@ -261,8 +261,6 @@
                                 <li>28 - Maria Isabel</li>
                             </ul>
                         </div>
-
-                        <a href="./back/logout.php">LOGOUT</a>
 
                         <div class="inicio">
                             <a href="index.php">Voltar ao inicio</a>
