@@ -19,7 +19,7 @@ function formataCampo(campo, Mascara, evento) {
     var NovoValorCampo="";
     var TamanhoMascara = campoSoNumeros.length;; 
 
-    if (Digitato != 8) { // backspace 
+    if (Digitato != 9) { // backspace 
             for(i=0; i<= TamanhoMascara; i++) { 
                     boleanoMascara  = ((Mascara.charAt(i) == "-") || (Mascara.charAt(i) == ".")
                                                             || (Mascara.charAt(i) == "/")) 
