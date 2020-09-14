@@ -39,7 +39,7 @@
                                 <ul id="MenuItems">
                                     <li><a href="../index.php">Home</a></li>
                                     <li><a href="../front/produtos.php">Produtos</a></li>
-                                    <li><a href="">Sobre</a></li>
+                                    <li><a href="../front/sobre.php">Sobre</a></li>
                                 </ul>
                             </nav>
                             <a href="
@@ -48,7 +48,7 @@
                                 if($logado ==  null)
                                     echo "../front/login_e_cadastro.php";
                                 else
-                                //echo " LINK DA PAGINA DA CONTA ";
+                                    echo "../front/conta.php";
                             ?>
                             
                             "><img src="../imgs/index/conta.png" alt="" width="30px" heigth="30px"></a>
@@ -58,7 +58,7 @@
                                 if($logado ==  null)
                                     echo "../front/login_e_cadastro.php";
                                 else
-                                  //echo " LINK DA PAGINA DO CARRINHO ";
+                                    echo "../front/carrinho.php";
                             ?>
                             
                             "><img src="../imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
@@ -134,7 +134,7 @@
                                 <ul id="MenuItems">
                                     <li><a href="../index.php">Home</a></li>
                                     <li><a href="../front/podutos.php">Produtos</a></li>
-                                    <li><a href="">Sobre</a></li>
+                                    <li><a href="../front/sobre.php">Sobre</a></li>
                                 </ul>
                                 <a href="
                                 
@@ -142,7 +142,7 @@
                                     if($logado ==  null)
                                         echo "../front/login_e_cadastro.php";
                                     else
-                                    //echo " LINK DA PAGINA DA CONTA ";
+                                        echo "../front/carrinho.php";
                                 ?>
                                 
                                 "><img src="../imgs/index/conta_branco.jpg" alt="" width="30px" heigth="30px"></a>
@@ -152,7 +152,7 @@
                                     if($logado ==  null)
                                         echo "../front/login_e_cadastro.php";
                                     else
-                                    //echo " LINK DA PAGINA DO CARRINHO ";
+                                        echo "../front/carrinho.php";
                                 ?>
                                 
                                 "><img src="../imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
