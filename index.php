@@ -165,7 +165,7 @@
                                 <button><a href="
                                         <?php
                                             if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
+                                                echo "./front/login_e_cadastro.php";
                                             else
                                                 //echo "LINK PARA O CADASTRO NO CARRINHO";
                                         ?>
@@ -179,7 +179,7 @@
                                 <button><a href="
                                         <?php
                                             if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
+                                                echo "./front/login_e_cadastro.php";
                                             else
                                                 //echo "LINK PARA O CADASTRO NO CARRINHO";
                                         ?>
@@ -193,7 +193,7 @@
                                 <button><a href="
                                         <?php
                                             if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
+                                                echo "./front/login_e_cadastro.php";
                                             else
                                                 //echo "LINK PARA O CADASTRO NO CARRINHO";
                                         ?>
@@ -207,7 +207,7 @@
                                 <button><a href="
                                         <?php
                                             if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
+                                                echo "./front/login_e_cadastro.php";
                                             else
                                                 //echo "LINK PARA O CADASTRO NO CARRINHO";
                                         ?>
@@ -228,7 +228,7 @@
                                  <button><a href="
                                         <?php
                                             if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
+                                                echo "./front/login_e_cadastro.php";
                                             else
                                                 //echo "LINK PARA O CADASTRO NO CARRINHO";
                                         ?>
@@ -242,7 +242,7 @@
                                 <button><a href="
                                         <?php
                                             if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
+                                                echo "./front/login_e_cadastro.php";
                                             else
                                                 //echo "LINK PARA O CADASTRO NO CARRINHO";
                                         ?>
@@ -256,7 +256,7 @@
                                 <button><a href="
                                         <?php
                                             if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
+                                                echo "./front/login_e_cadastro.php";
                                             else
                                                 //echo "LINK PARA O CADASTRO NO CARRINHO";
                                         ?>
@@ -270,7 +270,7 @@
                                 <button><a href="
                                         <?php
                                             if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
+                                                echo "./front/login_e_cadastro.php";
                                             else
                                                 //echo "LINK PARA O CADASTRO NO CARRINHO";
                                         ?>
