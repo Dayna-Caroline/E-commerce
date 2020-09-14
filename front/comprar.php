@@ -145,7 +145,7 @@
                                     //echo " LINK DA PAGINA DA CONTA ";
                                 ?>
                                 
-                                "><img src="../imgs/index/conta_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                "><img src="../imgs/index/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
                                 <a href="
                                 
                                 <?php
@@ -155,7 +155,7 @@
                                     //echo " LINK DA PAGINA DO CARRINHO ";
                                 ?>
                                 
-                                "><img src="../imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                "><img src="../imgs/index/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
                             </section>
                         </div>
                             

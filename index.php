@@ -201,7 +201,7 @@
                             </div>
                                     
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/caneca2.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/caneca2.JPG" alt=""></a>
                                 <h4>Caneca de porcelana</h4>
                                 <p>R$30,00</p>
                                 <button>Adicionar ao carrinho</button>
@@ -245,7 +245,7 @@
                                     //echo " LINK DA PAGINA DA CONTA ";
                                 ?>
                                 
-                                "><img src="./imgs/index/conta_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                "><img src="./imgs/index/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
                                 <a href="
                                 
                                 <?php
@@ -255,7 +255,7 @@
                                     echo "./front/carrinho.php";
                                 ?>
                                 
-                                "><img src="./imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                "><img src="./imgs/index/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
                             </section>
                         </div>
                             

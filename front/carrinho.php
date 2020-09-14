@@ -164,7 +164,7 @@
 
                             <div class="produtos">
                                 <div class="produto completa">
-                                    <img src="../imgs/index/caneca2.jpg" alt="" width="50px">
+                                    <img src="../imgs/index/caneca2.JPG" alt="" width="50px">
                                     <div class="descricao">
                                     <br>
                                         <p>Copo twistter</p>
