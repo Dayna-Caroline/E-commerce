@@ -33,7 +33,7 @@
                     <div class="container">
                         <div class="navbar">
                             <div class="logo">
-                                <img src="../imgs/index/melhor.jpg" alt="" width="100px" heigth="100px">
+                                <a href="../index.php"><img src="../imgs/tudo/melhor.JPG" alt="" width="100px" heigth="100px"></a>
                             </div>
                             <nav>
                                 <ul id="MenuItems">
@@ -51,7 +51,7 @@
                                     echo "../front/conta.php";
                             ?>
                             
-                            "><img src="../imgs/index/conta.png" alt="" width="30px" heigth="30px"></a>
+                            "><img src="../imgs/tudo/conta.png" alt="" width="30px" heigth="30px"></a>
                             <a href="
                             
                             <?php
@@ -61,7 +61,7 @@
                                     echo "../front/carrinho.php";
                             ?>
                             
-                            "><img src="../imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
+                            "><img src="../imgs/tudo/carrinho.png" alt="" width="30px" heigth="30px"></a>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                     <div class="small-container">
                         <div class="row">
                             <div class="col-2">
-                                <img src="../imgs/index/copo1.jpg" width="100%">
+                                <img src="../imgs/tudo/copo1.jpg" width="100%">
                             </div>
                             <div class="col-2">
                                 <div class="descricao">
@@ -101,7 +101,7 @@
                     <h2 class="title">Outros produtos</h2>
                         <div class="row outros">
                             <div class="col-4">
-                                <a href="../front/comprar.php"><img src="../imgs/index/caneca1.jpg" alt=""></a>
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/caneca1.jpg" alt=""></a>
                                 <h4>Copo twistter</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -115,7 +115,7 @@
                             </div>
                                 
                             <div class="col-4">
-                                <a href="../front/comprar.php"><img src="../imgs/index/copo2.jpg" alt=""></a>
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo2.jpg" alt=""></a>
                                 <h4>Copo brilhante</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -129,7 +129,7 @@
                             </div>
                                 
                             <div class="col-4">
-                                <a href="../front/comprar.php"><img src="../imgs/index/copo3.jpg" alt=""></a>
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo3.jpg" alt=""></a>
                                 <h4>Copo com canudo</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -143,7 +143,7 @@
                             </div>
                                 
                             <div class="col-4">
-                                <a href="../front/comprar.php"><img src="../imgs/index/copo4.jpg" alt=""></a>
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo4.jpg" alt=""></a>
                                 <h4>Copo long colorido</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -168,7 +168,7 @@
                             <section>
                                 <ul id="MenuItems">
                                     <li><a href="../index.php">Home</a></li>
-                                    <li><a href="../front/podutos.php">Produtos</a></li>
+                                    <li><a href="../front/produtos.php">Produtos</a></li>
                                     <li><a href="../front/sobre.php">Sobre</a></li>
                                 </ul>
                                 <a href="
@@ -180,7 +180,7 @@
                                         echo "../front/conta.php";
                                 ?>
                                 
-                                "><img src="../imgs/index/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
+                                "><img src="../imgs/tudo/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
                                 <a href="
                                 
                                 <?php
@@ -190,7 +190,7 @@
                                         echo "../front/carrinho.php";
                                 ?>
                                 
-                                "><img src="../imgs/index/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
+                                "><img src="../imgs/tudo/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
                             </section>
                         </div>
                             

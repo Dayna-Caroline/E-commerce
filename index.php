@@ -32,7 +32,7 @@
                     <div class="container">
                         <div class="navbar">
                             <div class="logo">
-                                <img src="./imgs/index/melhor.jpg" alt="" width="100px" heigth="100px">
+                                <img src="./imgs/tudo/melhor.JPG" alt="" width="100px" heigth="100px">
                             </div>
                             <nav>
                                 <ul id="MenuItems">
@@ -50,7 +50,7 @@
                                     echo "./front/conta.php";
                             ?>
                             
-                            "><img src="./imgs/index/conta.png" alt="" width="30px" heigth="30px"></a>
+                            "><img src="./imgs/tudo/conta.png" alt="" width="30px" heigth="30px"></a>
                             <a href="
                             
                             <?php
@@ -60,7 +60,7 @@
                                   echo "./front/carrinho.php";
                             ?>
                             
-                            "><img src="./imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
+                            "><img src="./imgs/tudo/carrinho.png" alt="" width="30px" heigth="30px"></a>
                         </div>
                         
                         <div class="row">
@@ -89,7 +89,7 @@
                             </div>
                         
                             <div class="col-2">
-                                <img src="./imgs/index/header.png" alt="">
+                                <img src="./imgs/tudo/header.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                             <div class="row">
                                 <div class="col-3">
                                     <div class="fig">
-                                        <img src="./imgs/index/caracteristica1.jpg" alt="">
+                                        <img src="./imgs/tudo/caracteristica1.jpg" alt="">
 
                                         <div class="caracteristica">
                                             <p>Produtos com uma grande variedade de cores no Cup&Mug!!</p>
@@ -114,7 +114,7 @@
                                     
                                 <div class="col-3">
                                     <div class="fig">
-                                        <img src="./imgs/index/caracteristica2.jpg" alt="">
+                                        <img src="./imgs/tudo/caracteristica2.jpg" alt="">
 
                                         <div class="caracteristica">
                                             <p>Frases pensadas com muito cuidado para agradar vocês!!</p>
@@ -124,7 +124,7 @@
                                     
                                 <div class="col-3">
                                     <div class="fig">
-                                        <img src="./imgs/index/caracteristica3.jpg" alt="">
+                                        <img src="./imgs/tudo/caracteristica3.jpg" alt="">
 
                                         <div class="caracteristica">
                                             <p>Grande variedade de tamanhos e modelos só na Cup&Mug!!</p>
@@ -159,7 +159,7 @@
 
                         <div class="row">
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/copo1.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/tudo/copo1.jpg" alt=""></a>
                                 <h4>Copo twistter</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -173,7 +173,7 @@
                             </div>
                                 
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/copo2.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/tudo/copo2.jpg" alt=""></a>
                                 <h4>Copo brilhante</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -187,7 +187,7 @@
                             </div>
                                 
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/copo3.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/tudo/copo3.jpg" alt=""></a>
                                 <h4>Copo com canudo</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -201,7 +201,7 @@
                             </div>
                                 
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/copo4.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/tudo/copo4.jpg" alt=""></a>
                                 <h4>Copo long colorido</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -222,7 +222,7 @@
                         
                         <div class="row">
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/caneca1.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/tudo/caneca1.jpg" alt=""></a>
                                 <h4>Caneca de alumínio</h4>
                                  <p>R$30,00</p>
                                  <button><a href="
@@ -236,7 +236,7 @@
                             </div>
                                     
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/caneca2.JPG" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/tudo/caneca2.JPG" alt=""></a>
                                 <h4>Caneca de porcelana</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -250,7 +250,7 @@
                             </div>
                                     
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/caneca3.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/tudo/caneca3.jpg" alt=""></a>
                                 <h4>Caneca de Acrílico</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -264,7 +264,7 @@
                             </div>
                                     
                             <div class="col-4">
-                                <a href="./front/comprar.php"><img src="./imgs/index/caneca4.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/tudo/caneca4.jpg" alt=""></a>
                                 <h4>Caneca Winx</h4>
                                 <p>R$30,00</p>
                                 <button><a href="
@@ -301,7 +301,7 @@
                                         echo "./front/conta.php";
                                 ?>
                                 
-                                "><img src="./imgs/index/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
+                                "><img src="./imgs/tudo/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
                                 <a href="
                                 
                                 <?php
@@ -311,7 +311,7 @@
                                     echo "./front/carrinho.php";
                                 ?>
                                 
-                                "><img src="./imgs/index/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
+                                "><img src="./imgs/tudo/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
                             </section>
                         </div>
                             

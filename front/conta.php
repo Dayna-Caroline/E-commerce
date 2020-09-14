@@ -33,7 +33,7 @@
                     <div class="container">
                         <div class="navbar">
                             <div class="logo">
-                                <img src="../imgs/index/melhor.jpg" alt="" width="100px" heigth="100px">
+                                <a href="../index.php"><img src="../imgs/tudo/melhor.JPG" alt="" width="100px" heigth="100px"></a>
                             </div>
                             <nav>
                                 <ul id="MenuItems">
@@ -51,7 +51,7 @@
                                     echo "../front/conta.php";
                             ?>
                             
-                            "><img src="../imgs/index/conta.png" alt="" width="30px" heigth="30px"></a>
+                            "><img src="../imgs/tudo/conta.png" alt="" width="30px" heigth="30px"></a>
                             <a href="
                             
                             <?php
@@ -61,7 +61,7 @@
                                     echo "../front/carrinho.php";
                             ?>
                             
-                            "><img src="../imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
+                            "><img src="../imgs/tudo/carrinho.png" alt="" width="30px" heigth="30px"></a>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                             <section>
                                 <ul id="MenuItems">
                                     <li><a href="../index.php">Home</a></li>
-                                    <li><a href="../front/podutos.php">Produtos</a></li>
+                                    <li><a href="../front/produtos.php">Produtos</a></li>
                                     <li><a href="../front/sobre.php">Sobre</a></li>
                                 </ul>
                                 <a href="
@@ -142,10 +142,10 @@
                                     if($logado ==  null)
                                         echo "../front/login_e_cadastro.php";
                                     else
-                                        echo "../front/carrinho.php";
+                                        echo "../front/conta.php";
                                 ?>
                                 
-                                "><img src="../imgs/index/conta_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                "><img src="../imgs/tudo/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
                                 <a href="
                                 
                                 <?php
@@ -155,7 +155,7 @@
                                         echo "../front/carrinho.php";
                                 ?>
                                 
-                                "><img src="../imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                "><img src="../imgs/tudo/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
                             </section>
                         </div>
                             

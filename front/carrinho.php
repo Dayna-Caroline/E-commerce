@@ -33,7 +33,7 @@
                     <div class="container">
                         <div class="navbar">
                             <div class="logo">
-                                <img src="../imgs/index/melhor.jpg" alt="" width="100px" heigth="100px">
+                                <a href="../index.php"><img src="../imgs/tudo/melhor.JPG" alt="" width="100px" heigth="100px"></a>
                             </div>
                             <nav>
                                 <ul id="MenuItems">
@@ -42,8 +42,8 @@
                                     <li><a href="../front/sobre.php">Sobre</a></li>
                                 </ul>
                             </nav>
-                            <a href="../front/login_e_cadastro.php"><img src="../imgs/index/conta.png" alt="" width="30px" heigth="30px"></a>
-                            <a href="../front/login_e_cadastro.php"><img src="../imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
+                            <a href="../front/conta.php"><img src="../imgs/tudo/conta.png" alt="" width="30px" heigth="30px"></a>
+                            <a href="../front/carrinho.php"><img src="../imgs/tudo/carrinho.png" alt="" width="30px" heigth="30px"></a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
 
                             <div class="produtos">
                                 <div class="produto completa">
-                                    <img src="../imgs/index/copo1.jpg" alt="" width="50px">
+                                    <img src="../imgs/tudo/copo1.jpg" alt="" width="50px">
                                     <div class="descricao">
                                     <br>
                                         <p>Copo twistter</p>
@@ -78,7 +78,7 @@
 
                             <div class="produtos">
                                 <div class="produto completa">
-                                    <img src="../imgs/index/copo2.jpg" alt="" width="50px">
+                                    <img src="../imgs/tudo/copo2.jpg" alt="" width="50px">
                                     <div class="descricao">
                                     <br>
                                         <p>Copo twistter</p>
@@ -95,7 +95,7 @@
 
                             <div class="produtos">
                                 <div class="produto completa">
-                                    <img src="../imgs/index/copo3.jpg" alt="" width="50px">
+                                    <img src="../imgs/tudo/copo3.jpg" alt="" width="50px">
                                     <div class="descricao">
                                     <br>
                                         <p>Copo twistter</p>
@@ -112,7 +112,7 @@
 
                             <div class="produtos">
                                 <div class="produto completa">
-                                    <img src="../imgs/index/copo4.jpg" alt="" width="50px">
+                                    <img src="../imgs/tudo/copo4.jpg" alt="" width="50px">
                                     <div class="descricao">
                                     <br>
                                         <p>Copo twistter</p>
@@ -129,7 +129,7 @@
 
                             <div class="produtos">
                                 <div class="produto completa">
-                                    <img src="../imgs/index/caneca1.jpg" alt="" width="50px">
+                                    <img src="../imgs/tudo/caneca1.jpg" alt="" width="50px">
                                     <div class="descricao">
                                     <br>
                                         <p>Copo twistter</p>
@@ -146,7 +146,7 @@
 
                             <div class="produtos">
                                 <div class="produto completa">
-                                    <img src="../imgs/index/caneca2.JPG" alt="" width="50px">
+                                    <img src="../imgs/tudo/caneca2.JPG" alt="" width="50px">
                                     <div class="descricao">
                                     <br>
                                         <p>Copo twistter</p>
@@ -181,11 +181,11 @@
                             <section>
                                 <ul id="MenuItems">
                                     <li><a href="../index.php">Home</a></li>
-                                    <li><a href="../front/podutos.php">Produtos</a></li>
+                                    <li><a href="../front/produtos.php">Produtos</a></li>
                                     <li><a href="../front/sobre.php">Sobre</a></li>
                                 </ul>
-                                <a href="../front/login_e_cadastro.php"><img src="../imgs/index/conta_branco.jpg" alt="" width="30px" heigth="30px"></a>
-                                <a href="../front/login_e_cadastro.php"><img src="../imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
+                                <a href="../front/conta.php"><img src="../imgs/tudo/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
+                                <a href="../front/carrinho.php"><img src="../imgs/tudo/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
                             </section>
                         </div>
                             
