@@ -57,7 +57,7 @@
                                 if($logado ==  null)
                                     echo "./front/login_e_cadastro.php";
                                 else
-                                  //echo " LINK DA PAGINA DO CARRINHO ";
+                                  echo "./front/carrinho.php";
                             ?>
                             
                             "><img src="./imgs/index/carrinho.png" alt="" width="30px" heigth="30px"></a>
@@ -252,7 +252,7 @@
                                     if($logado ==  null)
                                         echo "./front/login_e_cadastro.php";
                                     else
-                                    //echo " LINK DA PAGINA DO CARRINHO ";
+                                    echo "./front/carrinho.php";
                                 ?>
                                 
                                 "><img src="./imgs/index/carrinho_branco.jpg" alt="" width="30px" heigth="30px"></a>
