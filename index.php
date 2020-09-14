@@ -159,27 +159,31 @@
 
                         <div class="row">
                             <div class="col-4">
-                                <a href=""><img src="./imgs/index/copo1.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/copo1.jpg" alt=""></a>
                                 <h4>Copo twistter</h4>
                                 <p>R$30,00</p>
+                                <button>Adicionar ao carrinho</button>
                             </div>
                                 
                             <div class="col-4">
-                                <a href=""><img src="./imgs/index/copo2.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/copo2.jpg" alt=""></a>
                                 <h4>Copo brilhante</h4>
                                 <p>R$30,00</p>
+                                <button>Adicionar ao carrinho</button>
                             </div>
                                 
                             <div class="col-4">
-                                <a href=""><img src="./imgs/index/copo3.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/copo3.jpg" alt=""></a>
                                 <h4>Copo com canudo</h4>
                                 <p>R$30,00</p>
+                                <button>Adicionar ao carrinho</button>
                             </div>
                                 
                             <div class="col-4">
-                                <a href=""><img src="./imgs/index/copo4.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/copo4.jpg" alt=""></a>
                                 <h4>Copo long colorido</h4>
                                 <p>R$30,00</p>
+                                <button>Adicionar ao carrinho</button>
                             </div>
                         </div>
                     </div>
@@ -190,27 +194,31 @@
                         
                         <div class="row">
                             <div class="col-4">
-                                <a href=""><img src="./imgs/index/caneca1.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/caneca1.jpg" alt=""></a>
                                 <h4>Caneca de alumínio</h4>
                                  <p>R$30,00</p>
+                                 <button>Adicionar ao carrinho</button>
                             </div>
                                     
                             <div class="col-4">
-                                <a href=""><img src="./imgs/index/caneca2.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/caneca2.jpg" alt=""></a>
                                 <h4>Caneca de porcelana</h4>
                                 <p>R$30,00</p>
+                                <button>Adicionar ao carrinho</button>
                             </div>
                                     
                             <div class="col-4">
-                                <a href=""><img src="./imgs/index/caneca3.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/caneca3.jpg" alt=""></a>
                                 <h4>Caneca de Acrílico</h4>
                                 <p>R$30,00</p>
+                                <button>Adicionar ao carrinho</button>
                             </div>
                                     
                             <div class="col-4">
-                                <a href=""><img src="./imgs/index/caneca4.jpg" alt=""></a>
+                                <a href="./front/comprar.php"><img src="./imgs/index/caneca4.jpg" alt=""></a>
                                 <h4>Caneca Winx</h4>
                                 <p>R$30,00</p>
+                                <button>Adicionar ao carrinho</button>
                             </div>
                         </div>
                     </div>

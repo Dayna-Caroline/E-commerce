@@ -219,6 +219,9 @@ button:hover{
 
 /*Footer--------------------------------------------------------------------------------------------------*/
 .footer{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
     color: #fff;
     background-color: black;
     padding: 20px 0;
