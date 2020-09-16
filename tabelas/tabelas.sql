@@ -32,13 +32,14 @@ VALUES (DEFAULT, 'Augusto', 'Creppe', 'M', '23/07/2004', '455491018-07', 'august
 CREATE TABLE produto
 (
     id_produto          SERIAL PRIMARY KEY      NOT NULL,
-    descricao           VARCHAR(40)             NOT NULL,
+    produto             VARCHAR(30)             NOT NULL,
+    descricao           VARCHAR(100)            NOT NULL,
     quantidade          INT                     NOT NULL,
     preco               FLOAT                   NOT NULL,
     imagem              CHARACTER VARYING(120)  NOT NULL,
     material            VARCHAR(40)             NOT NULL,
     cor                 VARCHAR(40)             NOT NULL,
-    tamanho             CHARACTER(01)           NOT NULL,
+    tamanho             CHARACTER(03)           NOT NULL,
     excluido            BOOLEAN                 DEFAULT FALSE,
     data_exclusao       DATE                    DEFAULT NULL
 );
