@@ -12,13 +12,43 @@
     $senha = $_POST['senhaForca'];
     $confirma_senha = $_POST['confirma_senha'];
     
-    if($senha == $confirma_senha)
+    if($senha != $confirma_senha)
     {
+        echo '<script language="javascript">';
+        echo "alert('Erro: senhas diferentes!')";
+        echo '</script>';
+    }
+    else if(strlen($data_nascimento) != 10)
+    {
+        echo '<script language="javascript">';
+        echo "alert('Erro: data de nascimento incorreta!(dd/mm/aaaa)')";
+        echo '</script>';
+    }
+    else if(strlen($cpf) != 14)
+    {
+        echo '<script language="javascript">';
+        echo "alert('Erro: cpf incorreto!')";
+        echo '</script>';
+    }
+    else if(strlen($cep) != 10)
+    {
+        echo '<script language="javascript">';
+        echo "alert('Erro: cep incorreto!')";
+        echo '</script>';
+    }
+    else if(strlen($telefone) != 15)
+    {
+        echo '<script language="javascript">';
+        echo "alert('Erro: telefone incorreto! ((ddd) xxxxx-xxxx)')";
+        echo '</script>';
+    }
+    else
+    {
+        
         $sql = "INSERT INTO usuario VALUES(DEFAULT, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', false, null, false);";
-    
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
-
+        echo $linhas;
         if($linhas > 0)
         {
             session_start();
@@ -36,11 +66,6 @@
             echo "alert('Usuário não pode ser registrado!')";
             echo '</script>';
         }
-    }
-    else
-    {
-        echo '<script language="javascript">';
-        echo "alert('Erro: senhas diferentes!')";
-        echo '</script>';
+        
     }
 ?>
