@@ -2,6 +2,7 @@
     include "conexao.php";
     
     $produto = $_POST['produto'];
+    $cupormug = $_POST["cupormug"];
     $descricao = $_POST['descricao'];
     $qtdd = $_POST['qtdd'];
     $preco = $_POST['preco'];
@@ -10,7 +11,7 @@
     $cor = $_POST['cor'];
     $tamanho = $_POST['tamanho'];
 
-    $sql = "INSERT INTO produto VALUES(DEFAULT, '$produto', '$descricao', '$qtdd', '$preco', '$imagem', '$material', '$cor', '$tamanho', false, null);";
+    $sql = "INSERT INTO produto VALUES(DEFAULT, '$produto', '$cupormug', '$descricao', '$qtdd', '$preco', '$imagem', '$material', '$cor', '$tamanho', false, null);";
     
     $resultado = pg_query($conecta, $sql);
     $linhas = pg_affected_rows($resultado);

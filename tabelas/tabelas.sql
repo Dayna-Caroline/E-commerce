@@ -33,6 +33,7 @@ CREATE TABLE produto
 (
     id_produto          SERIAL PRIMARY KEY      NOT NULL,
     produto             VARCHAR(30)             NOT NULL,
+    cupormug            CHARACTER(02)           NOT NULL,
     descricao           VARCHAR(100)            NOT NULL,
     quantidade          INT                     NOT NULL,
     preco               FLOAT                   NOT NULL,
