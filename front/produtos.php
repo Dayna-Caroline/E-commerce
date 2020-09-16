@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 
 <?php
-    include "conexao.php";
     $logado = null;
 
     session_start();
@@ -87,42 +86,186 @@
                         </div>
 
                         <div class="row">
-                            <?php
-                                $sql="SELECT * FROM produto WHERE excluido = 'FALSE';";
-                                $resultado = pg_query($conecta, $sql);
-                                $qtde = pg_num_rows($resultado);
-                                if($qtde > 0){
-                                    if($logado == null){
-                                        for($cont=0; $cont < $qtde; $cont++){
-                                            $linha=pg_fetch_array($resultado);
-                                            echo "<div class='col-4'>
-                                            <a href='./front/comprar.php?id_produto=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
-                                            <h4>$linha[produto]</h4>
-                                            <p>$linha[preco],00</p>
-                                            <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
-                                        </div>";
-                                        }
-                                    }
-                                    else{
-                                        for($cont=0; $cont < 5; $cont++){
-                                            $linha=pg_fetch_array($resultado);
-                                            echo "<div class='col-4'>
-                                            <a href='./front/comprar.php?id_produto=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
-                                            <h4>$linha[produto]</h4>
-                                            <p>$linha[preco],00</p>
-                                            <button><a href='./front/add_carrinho.php?id_produto=$linha[id_produto]'>Adicionar ao carrinho</a></button>
-                                        </div>";
-                                        }
-                                    }
-                                }
-                                else{
-                                    echo "Não há produtos cadastrados";
-                                }
-                            ?>
+                            <div class="col-4">
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo1.jpg" alt=""></a>
+                                <h4>Copo twistter</h4>
+                                <p>R$30,00</p>
+                                <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                            </div>
+                                
+                            <div class="col-4">
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo2.jpg" alt=""></a>
+                                <h4>Copo brilhante</h4>
+                                <p>R$30,00</p>
+                                <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                            </div>
+                                
+                            <div class="col-4">
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo3.jpg" alt=""></a>
+                                <h4>Copo com canudo</h4>
+                                <p>R$30,00</p>
+                                <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                            </div>
+                                
+                            <div class="col-4">
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo4.jpg" alt=""></a>
+                                <h4>Copo long colorido</h4>
+                                <p>R$30,00</p>
+                                <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                            </div>
                         </div>
                     </div>
 
-                   
+                    <div class="small-container">
+                        
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/caneca1.jpg" alt=""></a>
+                                <h4>Caneca de alumínio</h4>
+                                 <p>R$30,00</p>
+                                 <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                            </div>
+                                    
+                            <div class="col-4">
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/caneca2.JPG" alt=""></a>
+                                <h4>Caneca de porcelana</h4>
+                                <p>R$30,00</p>
+                                <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                            </div>
+                                    
+                            <div class="col-4">
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/caneca3.jpg" alt=""></a>
+                                <h4>Caneca de Acrílico</h4>
+                                <p>R$30,00</p>
+                                <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                            </div>
+                                    
+                            <div class="col-4">
+                                <a href="../front/comprar.php"><img src="../imgs/tudo/caneca4.jpg" alt=""></a>
+                                <h4>Caneca Winx</h4>
+                                <p>R$30,00</p>
+                                <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="small-container"> 
+                        <div class="row">
+                                <div class="col-4">
+                                    <a href="../front/comprar.php"><img src="../imgs/tudo/copo1.jpg" alt=""></a>
+                                    <h4>Copo twistter</h4>
+                                    <p>R$30,00</p>
+                                    <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                                </div>
+                                    
+                                <div class="col-4">
+                                    <a href="../front/comprar.php"><img src="../imgs/tudo/copo2.jpg" alt=""></a>
+                                    <h4>Copo brilhante</h4>
+                                    <p>R$30,00</p>
+                                    <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                                </div>
+                                    
+                                <div class="col-4">
+                                    <a href="../front/comprar.php"><img src="../imgs/tudo/copo3.jpg" alt=""></a>
+                                    <h4>Copo com canudo</h4>
+                                    <p>R$30,00</p>
+                                    <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                                </div>
+                                    
+                                <div class="col-4">
+                                    <a href="../front/comprar.php"><img src="../imgs/tudo/copo4.jpg" alt=""></a>
+                                    <h4>Copo long colorido</h4>
+                                    <p>R$30,00</p>
+                                    <button><a href="
+                                        <?php
+                                            if($logado ==  null)
+                                                echo "../front/login_e_cadastro.php";
+                                            else
+                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
+                                        ?>
+                                    ">Adicionar ao carrinho</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
             </div> <!--Internas-->
 
             <div class="rodape">
