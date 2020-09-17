@@ -82,6 +82,7 @@
                             </div>
 
                             <select>
+                                <option>Todos</option>
                                 <option>Copos</option>
                                 <option>Canecas</option>
                             </select>
