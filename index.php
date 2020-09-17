@@ -223,7 +223,7 @@
                                             <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
                                             <h4>$linha[produto]</h4>
                                             <p>R$$linha[preco],00</p>
-                                            <button><a href='./front/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
+                                            <button><a href='./back/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
                                     }

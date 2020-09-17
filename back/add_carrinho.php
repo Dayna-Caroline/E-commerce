@@ -14,19 +14,34 @@
 
     $qtde = '1';
 
-    $sql = "INSERT INTO carrinho VALUES('$id_user', '$id_prod', '$qtde');";
+    $sql = "SELECT * FROM carrinho WHERE id_produto = '$id_prod'";
     
     $resultado = pg_query($conecta, $sql);
     $linhas = pg_affected_rows($resultado);
 
-    if($linhas > 0)
-    {
-        
+    if($linhas > 0){
+        header(sprintf('location: %s', $_SERVER['HTTP_REFERER']));
+        exit;
     }
-    else	
-    {
-        echo '<script language="javascript">';
-        echo "alert('Não pode ser registrado!')";
-        echo '</script>';
+    
+    else{
+        $sql = "INSERT INTO carrinho VALUES('$id_user', '$id_prod', '$qtde');";
+    
+        $resultado = pg_query($conecta, $sql);
+        $linhas = pg_affected_rows($resultado);
+
+        if($linhas > 0)
+        {
+            header(sprintf('location: %s', $_SERVER['HTTP_REFERER']));
+            exit;
+        }
+        else	
+        {
+            echo '<script language="javascript">';
+            echo "alert('Erro ao adicionar no carrinho!')";
+            echo '</script>';
+            header(sprintf('location: %s', $_SERVER['HTTP_REFERER']));
+            exit;
+        }
     }
 ?>
