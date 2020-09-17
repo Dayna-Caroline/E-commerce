@@ -60,7 +60,7 @@
                                 <div class="quant">Quantidade</div>
                                 <div class="preco">Preço Unitário</div>
                             </div>
-
+                            
                             <?php
                                 $sql="SELECT * FROM produto, carrinho WHERE carrinho.id_user = '$id_user' AND produto.id_produto = carrinho.id_produto";
                                 $resultado = pg_query($conecta, $sql);
@@ -79,7 +79,7 @@
                                                 </div>
                                             </div>
                                             <div class='quantidade'>
-                                                $linha[quantidade]
+                                                <input type='number' name='quant' value='1' autocomplete='off'>
                                             </div>
                                             <div class='preco'>
                                                 R$$linha[preco],00

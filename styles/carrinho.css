@@ -188,12 +188,16 @@ p{
     margin-right: 10px;
 }
 
-.total{
-    text-align: center;
+.botao{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 3%;
 }
 
 button{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
     padding: 5px 10px;
     border-radius: 4px;  
     background: rgb(243, 126, 126);  
