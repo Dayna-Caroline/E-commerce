@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <?php
-    include "conexao.php";
+    include "./back/conexao.php";
     
     $logado = null;
 
@@ -161,29 +161,29 @@
 
                         <div class="row">
                             <?php
-                                $sql="SELECT * FROM produto WHERE cupormug = '1' AND excluido = 'FALSE';";
+                                $sql="SELECT * FROM produto WHERE cupormug = '1' AND excluido = FALSE";
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
                                 if($qtde > 0){
                                     if($logado == null){
-                                        for($cont=0; $cont < 5; $cont++){
+                                        for($cont=0; $cont < 4; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='./front/comprar.php'><img src='$linha[imagem]' alt=''></a>
+                                            <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
                                             <h4>$linha[produto]</h4>
-                                            <p>$linha[preco],00</p>
+                                            <p>R$$linha[preco],00</p>
                                             <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
                                     }
                                     else{
-                                        for($cont=0; $cont < 5; $cont++){
+                                        for($cont=0; $cont < 4; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='./front/comprar.php'><img src='$linha[imagem]' alt=''></a>
+                                            <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
                                             <h4>$linha[produto]</h4>
-                                            <p>$linha[preco],00</p>
-                                            <button><a href='./front/add_carrinho.php?id_produto=$linha[id_produto]'>Adicionar ao carrinho</a></button>
+                                            <p>R$$linha[preco],00</p>
+                                            <button><a href='./back/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
                                     }
@@ -201,29 +201,29 @@
                         <div class="row">
                             
                             <?php
-                                $sql="SELECT * FROM produto WHERE cupormug = '2' AND excluido = 'FALSE';";
+                                $sql="SELECT * FROM produto WHERE cupormug = '2' AND excluido = FALSE";
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
                                 if($qtde > 0){
                                     if($logado == null){
-                                        for($cont=0; $cont < 5; $cont++){
+                                        for($cont=0; $cont < 4; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='./front/comprar.php?id_produto=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
+                                            <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
                                             <h4>$linha[produto]</h4>
-                                            <p>$linha[preco],00</p>
+                                            <p>R$$linha[preco],00</p>
                                             <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
                                     }
                                     else{
-                                        for($cont=0; $cont < 5; $cont++){
+                                        for($cont=0; $cont < 4; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='./front/comprar.php?id_produto=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
+                                            <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
                                             <h4>$linha[produto]</h4>
-                                            <p>$linha[preco],00</p>
-                                            <button><a href='./front/add_carrinho.php?id_produto=$linha[id_produto]'>Adicionar ao carrinho</a></button>
+                                            <p>R$$linha[preco],00</p>
+                                            <button><a href='./front/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
                                     }

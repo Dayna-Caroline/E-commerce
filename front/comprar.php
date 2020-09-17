@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 
 <?php
+    include "../back/conexao.php";
+    $id_prod = $_GET["id_prod"];
+
     $logado = null;
 
     session_start();
@@ -72,25 +75,52 @@
                     
                     <div class="small-container">
                         <div class="row">
-                            <div class="col-2">
-                                <img src="../imgs/tudo/copo1.jpg" width="100%">
-                            </div>
-                            <div class="col-2">
-                                <div class="descricao">
-                                    <h1>Copo twistter</h1>
-                                    <p>Descrição.................</p>
-                                    <h4>R$30,00</h4>
-                                    <input type="number" name="" placeholder="Quantidade"> <br>
-                                    <button><a href="
-                                        <?php
-                                            if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
-                                            else
-                                                //echo "LINK PARA A COMPRA";
-                                        ?>
-                                    ">Comprar</a></button>
-                                </div>
-                            </div>
+                            <?php
+                                $sql="SELECT * FROM produto WHERE id_produto = '$id_prod' AND excluido = FALSE";
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                if($qtde > 0){
+                                    if($logado == null){
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            $cupormug=$linha[cupormug];
+                                            echo "<div class='col-2'>
+                                            <img src='.$linha[imagem]' width='100%'>
+                                        </div>
+                                        <div class='col-2'>
+                                            <div class='descricao'>
+                                                <h1>$linha[produto]</h1>
+                                                <p>$linha[descricao]</p>
+                                                <h4>R$$linha[preco],00</h4>
+                                                <input type='number' name='qtde' placeholder='Quantidade'> <br>
+                                                <button><a href='../front/login_e_cadastro.php'>Comprar</a></button>
+                                            </div>
+                                        </div>";
+                                        }
+                                    }
+                                    else{
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            $cupormug=$linha[cupormug];
+                                            echo "<div class='col-2'>
+                                            <img src='.$linha[imagem]' width='100%'>
+                                        </div>
+                                        <div class='col-2'>
+                                            <div class='descricao'>
+                                                <h1>$linha[produto]</h1>
+                                                <p>$linha[descricao]</p>
+                                                <h4>R$$linha[preco],00</h4>
+                                                <input type='number' name='qtde' placeholder='Quantidade'> <br>
+                                                <button><a href='../front/link_comprar.php?id_prod=$id_prod'>Comprar</a></button>
+                                            </div>
+                                        </div>";
+                                        }
+                                    }
+                                }
+                                else{
+                                    echo "Erro ao encontrar o produto";
+                                }
+                            ?>
                         </div>
                     </div>
                 
@@ -100,61 +130,38 @@
                     <div class="small-container">
                     <h2 class="title">Outros produtos</h2>
                         <div class="row outros">
-                            <div class="col-4">
-                                <a href="../front/comprar.php"><img src="../imgs/tudo/caneca1.jpg" alt=""></a>
-                                <h4>Copo twistter</h4>
-                                <p>R$30,00</p>
-                                <button><a href="
-                                        <?php
-                                            if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
-                                            else
-                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
-                                        ?>
-                                    ">Adicionar ao carrinho</a></button>
-                            </div>
-                                
-                            <div class="col-4">
-                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo2.jpg" alt=""></a>
-                                <h4>Copo brilhante</h4>
-                                <p>R$30,00</p>
-                                <button><a href="
-                                        <?php
-                                            if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
-                                            else
-                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
-                                        ?>
-                                    ">Adicionar ao carrinho</a></button>
-                            </div>
-                                
-                            <div class="col-4">
-                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo3.jpg" alt=""></a>
-                                <h4>Copo com canudo</h4>
-                                <p>R$30,00</p>
-                                <button><a href="
-                                        <?php
-                                            if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
-                                            else
-                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
-                                        ?>
-                                    ">Adicionar ao carrinho</a></button>
-                            </div>
-                                
-                            <div class="col-4">
-                                <a href="../front/comprar.php"><img src="../imgs/tudo/copo4.jpg" alt=""></a>
-                                <h4>Copo long colorido</h4>
-                                <p>R$30,00</p>
-                                <button><a href="
-                                        <?php
-                                            if($logado ==  null)
-                                                echo "../front/login_e_cadastro.php";
-                                            else
-                                                //echo "LINK PARA O CADASTRO NO CARRINHO";
-                                        ?>
-                                    ">Adicionar ao carrinho</a></button>
-                            </div>
+                            <?php
+                                $sql="SELECT * FROM produto WHERE cupormug = '$cupormug' AND id_produto != '$id_prod' AND excluido = FALSE";
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                if($qtde > 0){
+                                    if($logado == null){
+                                        for($cont=0; $cont < 4; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='comprar.php?id_prod=$linha[id_produto]'><img src='.$linha[imagem]' alt=''></a>
+                                            <h4>$linha[produto]</h4>
+                                            <p>R$$linha[preco],00</p>
+                                            <button><a href='login_e_cadastro.php'>Adicionar ao carrinho</a></button>
+                                        </div>";
+                                        }
+                                    }
+                                    else{
+                                        for($cont=0; $cont < 4; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='comprar.php?id_prod=$linha[id_produto]'><img src='.$linha[imagem]' alt=''></a>
+                                            <h4>$linha[produto]</h4>
+                                            <p>R$$linha[preco],00</p>
+                                            <button><a href='../back/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
+                                        </div>";
+                                        }
+                                    }
+                                }
+                                else{
+                                    echo "Não há produtos cadastrados";
+                                }
+                            ?>
                         </div>
                     </div>
 
