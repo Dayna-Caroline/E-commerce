@@ -84,16 +84,15 @@
                                         for($cont=0; $cont < $qtde; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             $sexo = 'F';
-                                            if($linha[sexo] == $sexo){
-                                                $sexo = 'Feminino';
+                                            if($linha['sexo'] == $sexo)
+                                            {
+                                                $sexo = 'F';
                                             }
-                                            else{
-                                                $sexo = 'Masculino';
+                                            else
+                                            {
+                                                $sexo = 'M';
                                             }
-
-                                            $data = date('d/m/Y',  strtotime($linha[data_nascimento]));
-
-
+                                            $data = date('d/m/Y',  strtotime($linha['data_nascimento']));
 
                                             echo "<label>
                                             <div class='icon'><i class='fas fa-user'></i></div>
@@ -147,7 +146,6 @@
                                         </label>";
                                         }
                                 }
-
                             ?>
 
                     <div class="botoes">
