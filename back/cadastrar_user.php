@@ -18,6 +18,12 @@
         echo "alert('Erro: senhas diferentes!')";
         echo '</script>';
     }
+    else if(strlen($senha) < 8)
+    {
+        echo '<script language="javascript">';
+        echo "alert('Erro: senha deve ter no mínimo 8 caracteres!')";
+        echo '</script>';
+    }
     else if(strlen($data_nascimento) != 10)
     {
         echo '<script language="javascript">';
