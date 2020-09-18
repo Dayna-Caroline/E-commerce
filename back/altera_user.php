@@ -1,5 +1,5 @@
 <?php
-    include "conexao.php";
+    include "../back/conexao.php";
 
     $logado = null;
 
