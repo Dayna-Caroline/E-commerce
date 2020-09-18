@@ -148,6 +148,15 @@ p{
     border-radius: 10px;
 }
 
+form{
+    margin: 10% auto;
+    width: 640px;
+    height: 100%;
+    padding: 30px 10px;
+    border: 6px solid #f1e0e0;
+    border-radius: 10px;
+}
+
 h2{
     text-align: center;
 }
@@ -171,6 +180,16 @@ p{
     margin-left: -15%;
 }
 
+form .icon{
+    margin-right: 30%;
+}
+
+input{
+    width: 60%;
+    margin-left: -22.5%;
+    padding-left: 5px;
+}
+
 .botoes{
     display: grid;
     grid-template-columns: 1fr;
@@ -184,6 +203,7 @@ button{
     border: 1px solid white;
     background-color: #f1e0e0;
     outline: none;
+    color: #555;
 }
 
 button:hover{

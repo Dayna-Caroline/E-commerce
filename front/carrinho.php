@@ -58,36 +58,35 @@
                             <div class="titulos">
                                 <div class="produto">Produto</div>
                                 <div class="quant">Quantidade</div>
-                                <div class="preco">Preço Unitário</div>
+                                <div class="preco">Preço</div>
                             </div>
-                            
+
                             <?php
-                                $sql="SELECT * FROM produto, carrinho WHERE carrinho.id_user = '$id_user' AND produto.id_produto = carrinho.id_produto";
+                                $sql="SELECT * FROM carrinho WHERE id_user = '$id_user' AND excluido = 'FALSE';";
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
                                 if($qtde > 0){
                                         for($cont=0; $cont < $qtde; $cont++){
                                             $linha=pg_fetch_array($resultado);
-                                            $preco=$linha[preco];
                                             echo "<div class='produtos'>
                                             <div class='produto completa'>
                                                 <img src='.$linha[imagem]' alt='' width='50px'>
                                                 <div class='descricao'>
                                                 <br>
                                                     <p>$linha[produto]</p>
-                                                    <a href='../back/remove_prod_carrinho.php?id_prod=$linha[id_produto]'>Remover</a>
+                                                    <a href='remove_prod_carrinho.php?id_produto=$linha[id_produto]'>Remover</a>
                                                 </div>
                                             </div>
-                                            <div class='quantidade'>
-                                                <input type='number' name='quant' value='1' autocomplete='off'>
-                                            </div>
                                             <div class='preco'>
-                                                R$$linha[preco],00
+                                                R$$linha[preco];
                                             </div>
                                             </div>";
                                         }
 
                                         echo "<div class='total'>
+                                        <div class='preco'>
+                                            <h4>Preço Total: R$</h4>
+                                        </div>
                                         <div class='botao'>
                                             <button>Finalizar compra</button>
                                         </div>
@@ -98,6 +97,15 @@
                                 }
 
                             ?>
+
+                            <div class="total">
+                                <div class="preco">
+                                    <h4>Preço Total: R$180,00</h4>
+                                </div>
+                                <div class="botao">
+                                    <button>Finalizar compra</button>
+                                </div>
+                            </div>
                         </div>  
                     </div>
             </div> <!--Internas-->

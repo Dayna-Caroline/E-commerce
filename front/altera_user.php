@@ -5,6 +5,7 @@
 
 <?php
     include "../back/conexao.php";
+
     $logado = null;
 
     session_start();
@@ -71,8 +72,9 @@
 
             <div class="internas">
                 <!--Conta - Informações-------------------------------------------------------------------------------------------------------->
-                <div class="small-container">
+                <form action="../back/altera_user.php" method="post" class="small-container">
                     <h2>Informações da conta</h2>
+
                             <?php
                                 $sql="SELECT * FROM usuario WHERE email = '$logado' AND excluido = FALSE";
                                 $resultado = pg_query($conecta, $sql);
@@ -91,61 +93,68 @@
 
                                             $data = date('d/m/Y',  strtotime($linha[data_nascimento]));
 
+
+
                                             echo "<label>
                                             <div class='icon'><i class='fas fa-user'></i></div>
-                                            <p>$linha[nome]</p>
+                                            <input type='text' name='nome' value='$linha[nome]' autocomplete='off'>
                                         </label>
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-user'></i></div>
-                                            <p>$linha[sobrenome]</p>
+                                            <input type='text' name='sobrenome' value='$linha[sobrenome]' autocomplete='off'>
                                         </label>
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-venus-mars'></i></div>
-                                            <p>$sexo</p>
+                                            <input type='text' name='sexo' value='$sexo' autocomplete='off'>
                                         </label>
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-calendar-alt'></i></div>
-                                            <p>$data</p>
+                                            <input type='text' name='data' onKeyPress='MascaraData(form1.data);' maxlength='10' value='$data' autocomplete='off'>
                                         </label>
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-address-card'></i></div>
-                                            <p>$linha[cpf]</p>
+                                            <input type='text' name='cpf' onKeyPress='MascaraCPF(form1.cpf);' maxlength='14' value='$linha[cpf]' autocomplete='off'>
                                         </label>
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-map-marked-alt'></i></div>
-                                            <p>$linha[cep]</p>
+                                            <input type='text' name='cep' onKeyPress='MascaraCep(form1.cep);' maxlength='10' value='$linha[cep]' autocomplete='off'>
                                         </label>
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-mobile'></i></div>
-                                            <p>$linha[telefone]</p>
+                                            <input type='text' name='telefone' onKeyPress='MascaraTelefone(form1.telefone);' maxlength='15' value='$linha[telefone]' autocomplete='off'>
                                         </label>
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-envelope-open-text'></i></div>
-                                            <p>$linha[email]</p> 
+                                            <input type='email' name='email' value='$linha[email]' autocomplete='off'> 
                                         </label>
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-lock'></i></div>   
-                                            <p>$linha[senha]</p>
+                                            <input type='password' name='senhaForca' id='senhaForca' value='$linha[senha]' onkeyup='validarSenhaForca()'>
+                                            <div id='erroSenhaForca' class='forca'></div>
+                                        </label>
+                                        
+                                        <label>
+                                            <div class='icon'><i class='fas fa-lock'></i></div>
+                                            <input type='password' name='confirma_senha' value='$linha[senha]' autocomplete='off'>
                                         </label>";
                                         }
                                 }
 
                             ?>
+
                     <div class="botoes">
-                        <button><a href="../front/altera_user.php">Alterar informação</a></button>
-                        <button>Ver histórico</button>
-                        <button><a href="../back/logout.php">Sair</a></button>
-                    </div>
-                    
-                </div>   
+                        <button type="submit">Salvar Alterações</button>
+                        <button><a href="../front/conta.php">Voltar</a></button>
+                    </div>  
+                </form>   
             </div> <!--Internas-->
 
             <div class="rodape">
@@ -199,5 +208,7 @@
                     </div>
             </div>                  
         </div>
+
+        <script type="text/javascript" src="../back/login_e_cadastro.js"></script>
     </body>
 </html>
