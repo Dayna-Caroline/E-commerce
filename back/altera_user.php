@@ -58,7 +58,7 @@
     else
     {
         
-        $sql = "UPDATE usuario SET nome = '$nome', sobrenome = '$sobrenome', sexo = '$sexo', data_nascimento = '$data_nascimento', cpf = '$cpf', cep = '$cep', telefone = '$telefone', email = '$email', senha = '$senha' WHERE id_user = '$id_user'";
+        $sql = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', sexo='$sexo', data_nascimento='$data_nascimento', cpf='$cpf', cep='$cep', telefone='$telefone', email='$email', senha='$senha' WHERE id_user='$id_user'";
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
         echo $linhas;
@@ -76,7 +76,7 @@
         else	
         {
             echo '<script language="javascript">';
-            echo "alert('Usuário não pode ser registrado!')";
+            echo "alert('Não foi possível alterar as informações!')";
             echo '</script>';
         }
         
