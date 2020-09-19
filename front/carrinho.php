@@ -65,7 +65,7 @@
                                 $sql="SELECT c.id_user, c.id_produto, c.quantidade, c.excluido, 
                                       p.id_produto, p.produto, p.descricao, p.preco, p.imagem 
                                       FROM carrinho AS c JOIN produto AS p ON c.id_produto = p.id_produto 
-                                      WHERE c.id_user = 2 AND c.excluido = FALSE;";
+                                      WHERE c.id_user = $id_user AND c.excluido = FALSE;";
                                 
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
@@ -84,11 +84,11 @@
                                         echo "
                                         <div class='produtos'>
                                             <div class='produto completa'>
-                                                <img src='../".$linha['imagem']."' width='50px'>
-                                                <div class='descricao'>
+                                                <img src='..$linha[imagem]' width='50px'>
+                                                <div>
                                                     <br>
-                                                    <p>".$linha['produto']."</p>
-                                                    <a href='../back/remove_prod_carrinho.php?id_produto=".$linha['id_produto']."'>Remover</a>
+                                                    <p>$linha[produto]</p>
+                                                    <a href='../back/remove_prod_carrinho.php?id_prod=$linha[id_produto]'>Remover</a>
                                                 </div>
                                             </div>
 
@@ -104,7 +104,7 @@
 
                                     echo "
                                     <div class='total'>
-                                        <div class='preco'>
+                                        <div class='preco_compra'>
                                             <h4>Preço Total da Compra: R$ ".$soma_total."</h4>
                                         </div>
                                         <div class='botao'>
