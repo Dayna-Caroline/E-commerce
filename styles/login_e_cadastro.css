@@ -117,12 +117,15 @@ button{
 }
   
 .submit{
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     font-weight: 600;
     font-family: 'Nunito', sans-serif;
     background: #483bff;
+}
+
+.botoes{
+    margin-top: 20px;
 }
   
 .submit:hover{

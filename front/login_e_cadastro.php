@@ -40,11 +40,10 @@
                             <input type="password" name="senha" placeholder="Senha" autocomplete="off">
                         </label>
                         <a href="esquece_senha.php"><p class="forgot-pass">Esqueceu a senha?</p></a>
-                        <button class="submit" type="submit" >Entrar</button>
-                    </form>
-
-                    <form action="../">
-                        <button class="submit" type="submit" >Voltar</button>
+                        <div class="botoes">
+                            <button class="submit" type="submit" >Entrar</button>
+                            <a href="../index.php"><button class="submit">Voltar</button></a>
+                        </div>
                     </form>
                 </div>
 
@@ -124,8 +123,10 @@
                             <input type="password" name="confirma_senha" placeholder="Confirme sua senha" autocomplete="off">
                         </label>
                         
-                        <button type="reset" class="submit">Limpar</button>
-                        <button type="submit" class="submit">Cadastrar</button>
+                        <div class="botoes">
+                            <button type="reset" class="submit">Limpar</button>
+                            <button type="submit" class="submit">Cadastrar</button>
+                        </div>
                     </form>
                 </div>
             </div>
