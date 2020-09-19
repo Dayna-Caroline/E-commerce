@@ -110,13 +110,12 @@
                                             <img src='..".$linha['imagem']."' width='100%'>
                                         </div>
                                         <div class='col-2'>
-                                            <form action='../back/add_carrinho.php?id_prod=$linha[id_produto]' method='post' class='descricao'>
+                                            <div class='descricao'>
                                                 <h1>".$linha['produto']."</h1>
                                                 <p>".$linha['descricao']."</p>
-                                                <h4>R$".$linha['preco'].",00</h4>
-                                                <input type='number' name='qtde' placeholder='Quantidade'> <br>
-                                                <button type='submit'>Adicionar ao carrinho</button>
-                                            </form>
+                                                <h4>R$".$linha['preco'].",00</h4> <br>
+                                                <button><a href='../front/link_comprar.php?id_prod=".$id_prod."'>Adicionar ao carrinho</a></button>
+                                            </div>
                                         </div>";
                                         }
                                     }
@@ -127,6 +126,7 @@
                             ?>
                         </div>
                     </div>
+                
                 
                 
                 <!--Outros produtos-------------------------------------------------------------------------------------------------------->
