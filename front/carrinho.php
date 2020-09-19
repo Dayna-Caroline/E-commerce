@@ -84,11 +84,11 @@
                                         echo "
                                         <div class='produtos'>
                                             <div class='produto completa'>
-                                                <img src='..$linha[imagem]' width='50px'>
-                                                <div>
+                                                <img src='..".$linha['imagem']."' width='50px'>
+                                                <div class='descricao'>
                                                     <br>
-                                                    <p>$linha[produto]</p>
-                                                    <a href='../back/remove_prod_carrinho.php?id_prod=$linha[id_produto]'>Remover</a>
+                                                    <p>".$linha['produto']."</p>
+                                                    <a href='../back/remove_prod_carrinho.php?id_prod=".$linha['id_produto']."'>Remover</a>
                                                 </div>
                                             </div>
 
