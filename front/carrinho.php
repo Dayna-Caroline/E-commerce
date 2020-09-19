@@ -58,58 +58,69 @@
                             <div class="titulos">
                                 <div class="produto">Produto</div>
                                 <div class="quant">Quantidade</div>
-                                <div class="preco">Preço</div>
+                                <div class="preco">Subtotal do produto</div>
                             </div>
 
                             <?php
-                                $sql="SELECT * FROM carrinho WHERE id_user = '$id_user' AND excluido = 'FALSE';";
+                                $sql="SELECT c.id_user, c.id_produto, c.quantidade, c.excluido, 
+                                      p.id_produto, p.produto, p.descricao, p.preco, p.imagem 
+                                      FROM carrinho AS c JOIN produto AS p ON c.id_produto = p.id_produto 
+                                      WHERE c.id_user = 2 AND c.excluido = FALSE;";
+                                
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
-                                if($qtde > 0){
-                                        for($cont=0; $cont < $qtde; $cont++){
-                                            $linha=pg_fetch_array($resultado);
-                                            echo "<div class='produtos'>
+                                
+                                if($qtde > 0)
+                                {
+                                    $soma_total=0;
+
+                                    for($cont=0; $cont < $qtde; $cont++)
+                                    {
+                                        $linha=pg_fetch_array($resultado);
+
+                                        for($cont2=0; $cont2 < $linha['quantidade']; $cont2++)
+                                            $soma_total+=$linha['preco'];
+
+                                        echo "
+                                        <div class='produtos'>
                                             <div class='produto completa'>
-                                                <img src='.$linha[imagem]' alt='' width='50px'>
+                                                <img src='../".$linha['imagem']."' width='50px'>
                                                 <div class='descricao'>
-                                                <br>
-                                                    <p>$linha[produto]</p>
-                                                    <a href='remove_prod_carrinho.php?id_produto=$linha[id_produto]'>Remover</a>
+                                                    <br>
+                                                    <p>".$linha['produto']."</p>
+                                                    <a href='../back/remove_prod_carrinho.php?id_produto=".$linha['id_produto']."'>Remover</a>
                                                 </div>
                                             </div>
-                                            <div class='preco'>
-                                                R$$linha[preco];
-                                            </div>
-                                            </div>";
-                                        }
 
-                                        echo "<div class='total'>
+                                            <div class='preco'>
+                                                ".$linha['quantidade']."
+                                            </div>
+
+                                            <div class='preco'>
+                                                R$ ".($linha['preco']*$linha['quantidade'])."
+                                            </div>
+                                        </div>";
+                                    }
+
+                                    echo "
+                                    <div class='total'>
                                         <div class='preco'>
-                                            <h4>Preço Total: R$</h4>
+                                            <h4>Preço Total da Compra: R$ ".$soma_total."</h4>
                                         </div>
                                         <div class='botao'>
                                             <button>Finalizar compra</button>
                                         </div>
                                     </div>";
                                 }
-                                else{
+                                else
+                                {
                                     echo "Não há produtos no carrinho";
                                 }
 
                             ?>
-
-                            <div class="total">
-                                <div class="preco">
-                                    <h4>Preço Total: R$180,00</h4>
-                                </div>
-                                <div class="botao">
-                                    <button>Finalizar compra</button>
-                                </div>
-                            </div>
                         </div>  
                     </div>
             </div> <!--Internas-->
-
             <div class="rodape">
                 
                 <!--Footer-------------------------------------------------------------------------------------------------------------------->

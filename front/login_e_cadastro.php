@@ -13,9 +13,9 @@
     </head>
 
     <?php
-        if(isset($_GET['success'])) 
+        if(isset($_GET['success']))
         {
-            if($_GET['success'] == 'false') 
+            if($_GET['success'] == 'false')
             {
                 echo '<script language="javascript">';
                 echo "alert('Email ou senha inválidos! Tente novamente...')";
@@ -42,6 +42,10 @@
                         <a href="esquece_senha.php"><p class="forgot-pass">Esqueceu a senha?</p></a>
                         <button class="submit" type="submit" >Entrar</button>
                     </form>
+
+                    <form action="../">
+                        <button class="submit" type="submit" >Voltar</button>
+                    </form>
                 </div>
 
                 <div class="sub-cont">
@@ -53,7 +57,7 @@
                 
                         <div class="img-text m-in">
                             <h2>Já é cliente?</h2>
-                            <p>Faça login, para fazer suas compras!</p>
+                            <p>Faça login para fazer suas compras!</p>
                         </div>
                 
                     <div class="img-btn">
@@ -120,6 +124,7 @@
                             <input type="password" name="confirma_senha" placeholder="Confirme sua senha" autocomplete="off">
                         </label>
                         
+                        <button type="reset" class="submit">Limpar</button>
                         <button type="submit" class="submit">Cadastrar</button>
                     </form>
                 </div>

@@ -79,19 +79,22 @@
                                 $sql="SELECT * FROM produto WHERE id_produto = '$id_prod' AND excluido = FALSE";
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
-                                if($qtde > 0){
+
+                                if($qtde > 0)
+                                {
                                     if($logado == null){
-                                        for($cont=0; $cont < $qtde; $cont++){
+                                        for($cont=0; $cont < $qtde; $cont++)
+                                        {
                                             $linha=pg_fetch_array($resultado);
-                                            $cupormug=$linha[cupormug];
+                                            $cupormug=$linha['cupormug'];
                                             echo "<div class='col-2'>
-                                            <img src='.$linha[imagem]' width='100%'>
+                                            <img src='.".$linha['imagem']."' width='100%'>
                                         </div>
                                         <div class='col-2'>
                                             <div class='descricao'>
-                                                <h1>$linha[produto]</h1>
-                                                <p>$linha[descricao]</p>
-                                                <h4>R$$linha[preco],00</h4>
+                                                <h1>".$linha['produto']."</h1>
+                                                <p>".$linha['descricao']."</p>
+                                                <h4>R$".$linha['preco'].",00</h4>
                                                 <input type='number' name='qtde' placeholder='Quantidade'> <br>
                                                 <button><a href='../front/login_e_cadastro.php'>Comprar</a></button>
                                             </div>
@@ -99,19 +102,20 @@
                                         }
                                     }
                                     else{
-                                        for($cont=0; $cont < $qtde; $cont++){
+                                        for($cont=0; $cont < $qtde; $cont++)
+                                        {
                                             $linha=pg_fetch_array($resultado);
-                                            $cupormug=$linha[cupormug];
+                                            $cupormug=$linha['cupormug'];
                                             echo "<div class='col-2'>
-                                            <img src='.$linha[imagem]' width='100%'>
+                                            <img src='.".$linha['imagem']."' width='100%'>
                                         </div>
                                         <div class='col-2'>
                                             <div class='descricao'>
-                                                <h1>$linha[produto]</h1>
-                                                <p>$linha[descricao]</p>
-                                                <h4>R$$linha[preco],00</h4>
+                                                <h1>".$linha['produto']."</h1>
+                                                <p>".$linha['descricao']."</p>
+                                                <h4>R$".$linha['preco'].",00</h4>
                                                 <input type='number' name='qtde' placeholder='Quantidade'> <br>
-                                                <button><a href='../front/link_comprar.php?id_prod=$id_prod'>Comprar</a></button>
+                                                <button><a href='../front/link_comprar.php?id_prod=".$id_prod."'>Comprar</a></button>
                                             </div>
                                         </div>";
                                         }
@@ -134,25 +138,30 @@
                                 $sql="SELECT * FROM produto WHERE cupormug = '$cupormug' AND id_produto != '$id_prod' AND excluido = FALSE";
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
+                                
                                 if($qtde > 0){
-                                    if($logado == null){
-                                        for($cont=0; $cont < 4; $cont++){
+                                    if($logado == null)
+                                    {
+                                        for($cont=0; $cont < 4; $cont++)
+                                        {
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='comprar.php?id_prod=$linha[id_produto]'><img src='.$linha[imagem]' alt=''></a>
-                                            <h4>$linha[produto]</h4>
-                                            <p>R$$linha[preco],00</p>
+                                            <a href='comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>
                                             <button><a href='login_e_cadastro.php'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
                                     }
-                                    else{
-                                        for($cont=0; $cont < 4; $cont++){
+                                    else
+                                    {
+                                        for($cont=0; $cont < 4; $cont++)
+                                        {
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='comprar.php?id_prod=$linha[id_produto]'><img src='.$linha[imagem]' alt=''></a>
-                                            <h4>$linha[produto]</h4>
-                                            <p>R$$linha[preco],00</p>
+                                            <a href='comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>
                                             <button><a href='../back/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }

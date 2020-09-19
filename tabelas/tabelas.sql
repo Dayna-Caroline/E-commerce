@@ -83,5 +83,6 @@ CREATE TABLE carrinho
 (
     id_user             BIGINT                  REFERENCES usuario(id_user),
     id_produto          BIGINT                  REFERENCES produto(id_produto),
-    quantidade          INT                     NOT NULL
+    quantidade          INT                     NOT NULL,
+    excluido            BOOLEAN                 DEFAULT FALSE
 );

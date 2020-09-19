@@ -169,9 +169,9 @@
                                         for($cont=0; $cont < 4; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
-                                            <h4>$linha[produto]</h4>
-                                            <p>R$$linha[preco],00</p>
+                                            <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>
                                             <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
@@ -180,9 +180,9 @@
                                         for($cont=0; $cont < 4; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
-                                            <h4>$linha[produto]</h4>
-                                            <p>R$$linha[preco],00</p>
+                                            <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>
                                             <button><a href='./back/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
@@ -209,10 +209,10 @@
                                         for($cont=0; $cont < 4; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
-                                            <h4>$linha[produto]</h4>
-                                            <p>R$$linha[preco],00</p>
-                                            <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
+                                            <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>
+                                            <button><a href='./back/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
                                     }
@@ -220,9 +220,9 @@
                                         for($cont=0; $cont < 4; $cont++){
                                             $linha=pg_fetch_array($resultado);
                                             echo "<div class='col-4'>
-                                            <a href='./front/comprar.php?id_prod=$linha[id_produto]'><img src='$linha[imagem]' alt=''></a>
-                                            <h4>$linha[produto]</h4>
-                                            <p>R$$linha[preco],00</p>
+                                            <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>
                                             <button><a href='./back/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
