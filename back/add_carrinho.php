@@ -10,6 +10,7 @@
     {
         $logado = $_SESSION['email'];
         $id_user = $_SESSION['id_user'];
+        echo "AQUIAUIQUAIQUA - ".$id_user;
     }
 
     $sql = "SELECT * FROM carrinho WHERE id_user = '$id_user' AND id_produto = '$id_prod'";
@@ -18,7 +19,11 @@
 
     if($linhas > 0)
     {
-            $sql = "UPDATE carrinho SET quantidade='".($linha['quantidade']++)."' WHERE id_user='$id_user' AND id_produto='$id_prod';";
+            $linhas_2 = pg_fetch_array($resultado);
+            $add = $linhas_2['quantidade'];
+            $add += 1;
+
+            $sql = "UPDATE carrinho SET quantidade='$add' WHERE id_user='$id_user' AND id_produto='$id_prod';";
             $resultado = pg_query($conecta, $sql);
             $linhas = pg_affected_rows($resultado);
             if($linhas > 0)
@@ -35,7 +40,7 @@
     }
     else	
     {
-        $sql = "INSERT INTO carrinho VALUES('$id_user', '$id_prod', '$add_um');";
+        $sql = "INSERT INTO carrinho VALUES('$id_user', '$id_prod', 1);";
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
         if($linhas > 0)

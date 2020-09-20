@@ -86,7 +86,7 @@
                                 ?>
                                 
                                 <br>Compre na Cup&Mug!!</h1>
-                                <p>A Cup&Mug traz pra você copos e canecas lindas e coloridas, adquira o seu!!</p>
+                                <p>A Cup&Mug traz copos e canecas lindos e coloridos para você, adquira já o seu!</p>
                                 <a href="./front/produtos.php" class="btn">Fazer compras &#8594;</a>
                             </div>
                         
@@ -109,7 +109,7 @@
                                         <img src="./imgs/tudo/caracteristica1.jpg" alt="">
 
                                         <div class="caracteristica">
-                                            <p>Produtos com uma grande variedade de cores no Cup&Mug!!</p>
+                                            <p>Produtos com grande variedade de cores na Cup&Mug!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                                         <img src="./imgs/tudo/caracteristica2.jpg" alt="">
 
                                         <div class="caracteristica">
-                                            <p>Frases pensadas com muito cuidado para agradar vocês!!</p>
+                                            <p>Frases pensadas com muito cuidado para agradar vocês!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                                         <img src="./imgs/tudo/caracteristica3.jpg" alt="">
 
                                         <div class="caracteristica">
-                                            <p>Grande variedade de tamanhos e modelos só na Cup&Mug!!</p>
+                                            <p>Grande variedade de tamanhos e modelos só na Cup&Mug!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -146,9 +146,9 @@
                                 </div>
                                     
                                 <div class="col-2">
-                                    <p>Canecas e copos exclusivos!</p>
+                                    <p>Copos e canecas exclusivos!</p>
                                     <h1>Compre na Cup&Mug</h1>
-                                    <small>Frases escritas com carinho, que estão em tendência nos bailes!!</small>
+                                    <small>Frases escritas com carinho que são a tendência dos bailes!</small>
                                     <a href="./front/produtos.php" class="btn">Comprar &#8594;</a>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
 
                 <!--Alguns copos----------------------------------------------------------------------------------------------------->
                     <div class="small-container">
-                        <h2 class="title">Alguns copos</h2>
+                        <h2 class="title">Alguns de nossos copos</h2>
 
                         <div class="row">
                             <?php
@@ -196,7 +196,7 @@
 
                 <!--Algumas canecas--------------------------------------------------------------------------------------------------->
                     <div class="small-container">
-                        <h2 class="title">Algumas canecas</h2>
+                        <h2 class="title">Algumas de nossas canecas</h2>
                         
                         <div class="row">
                             
@@ -212,7 +212,7 @@
                                             <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
                                             <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='./front/login_e_cadastro'>Adicionar ao carrinho</a></button>
+                                            <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
                                         </div>";
                                         }
                                     }

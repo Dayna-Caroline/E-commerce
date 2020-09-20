@@ -32,19 +32,20 @@
                         <h2>Login</h2>
                         <label>
                             <div class="icon"><i class="fas fa-envelope-open-text"></i></div>
-                            <input type="email" name="email" placeholder="Email" autocomplete="off">
+                            <input type="email" name="email" placeholder="Email" autocomplete="off" required>
                         </label>
                     
                         <label>
                             <div class="icon"><i class="fas fa-lock"></i></div>
-                            <input type="password" name="senha" placeholder="Senha" autocomplete="off">
+                            <input type="password" name="senha" placeholder="Senha" autocomplete="off" required>
                         </label>
                         <a href="esquece_senha.php"><p class="forgot-pass">Esqueceu a senha?</p></a>
                         <div class="botoes">
-                            <button class="submit" type="submit" >Entrar</button>
-                            <a href="../index.php"><button class="submit">Voltar</button></a>
+                            <button class="submit" type="submit">Entrar</button>
                         </div>
                     </form>
+
+                    <a href="../index.php"><button class="submit">Voltar</button></a>
                 </div>
 
                 <div class="sub-cont">
@@ -70,57 +71,57 @@
                     <form action="../back/cadastrar_user.php" name="form1" method="post">
                         <label>
                             <div class="icon"><i class="fas fa-user"></i></div>
-                            <input type="text" name="nome" placeholder="Nome" autocomplete="off">
+                            <input type="text" name="nome" placeholder="Nome" autocomplete="off" required>
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-user"></i></div>
-                            <input type="text" name="sobrenome" placeholder="Sobrenome" autocomplete="off">
+                            <input type="text" name="sobrenome" placeholder="Sobrenome" autocomplete="off" required>
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-venus-mars"></i></div>
                             <span>Sexo</span>
                             <div class="col-sexo">
-                                <input type="radio" name="sexo" value="F"><p>Feminino</p>
-                                <input type="radio" name="sexo" value="M"><p>Masculino</p>
+                                <input type="radio" name="sexo" value="F"><p>Feminino</p required>
+                                <input type="radio" name="sexo" value="M"><p>Masculino</p required>
                             </div>
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-                            <input type="text" name="data" onKeyPress="MascaraData(form1.data);" maxlength="10" placeholder="Data de Nascimento" autocomplete="off">
+                            <input type="text" name="data" onKeyPress="MascaraData(form1.data);" maxlength="10" placeholder="Data de Nascimento" autocomplete="off" required>
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-address-card"></i></div>
-                            <input type="text" name="cpf" onKeyPress="MascaraCPF(form1.cpf);" maxlength="14" placeholder="CPF" autocomplete="off">
+                            <input type="text" name="cpf" onKeyPress="MascaraCPF(form1.cpf);" maxlength="14" placeholder="CPF" autocomplete="off" required>
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
-                            <input type="text" name="cep" onKeyPress="MascaraCep(form1.cep);" maxlength="10" placeholder="CEP" autocomplete="off">
+                            <input type="text" name="cep" onKeyPress="MascaraCep(form1.cep);" maxlength="10" placeholder="CEP" autocomplete="off" required>
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-mobile"></i></div>
-                            <input type="text" name="telefone" onKeyPress="MascaraTelefone(form1.telefone);" maxlength="15" placeholder="Telefone" autocomplete="off">
+                            <input type="text" name="telefone" onKeyPress="MascaraTelefone(form1.telefone);" maxlength="15" placeholder="Telefone" autocomplete="off" required>
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-envelope-open-text"></i></div>
-                            <input type="email" name="email" placeholder="Email" autocomplete="off"> 
+                            <input type="email" name="email" placeholder="Email" autocomplete="off" required> 
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-lock"></i></div>   
-                            <input type="password" name="senhaForca" id="senhaForca" placeholder="Senha" onkeyup="validarSenhaForca()">
+                            <input type="password" name="senhaForca" id="senhaForca" placeholder="Senha" onkeyup="validarSenhaForca()" required>
                             <div id="erroSenhaForca" class="forca"></div>
                         </label>
                         
                         <label>
                             <div class="icon"><i class="fas fa-lock"></i></div>
-                            <input type="password" name="confirma_senha" placeholder="Confirme sua senha" autocomplete="off">
+                            <input type="password" name="confirma_senha" placeholder="Confirme sua senha" autocomplete="off" required>
                         </label>
                         
                         <div class="botoes">

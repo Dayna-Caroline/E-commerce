@@ -108,7 +108,7 @@
                                             <h4>Preço Total da Compra: R$ ".$soma_total."</h4>
                                         </div>
                                         <div class='botao'>
-                                            <button>Finalizar compra</button>
+                                            <a href='../back/comprar.php'><button>Finalizar compra</button></a>
                                         </div>
                                     </div>";
                                 }
