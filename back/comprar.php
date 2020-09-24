@@ -103,7 +103,7 @@
         }
 
         if($sucesso == true)
-            header("Location: ../");
+            header("Location: ./gerar_pdf.php");
         else
         {
             echo '<script language="javascript">';

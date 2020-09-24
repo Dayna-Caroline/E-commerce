@@ -69,21 +69,34 @@
         <div class="internas">
         <a> HISTÓRICO DE COMPRAS</a><br><br>
             <?php
-                $sql="SELECT compra.data_compra, produto.produto, itens.quantidade, produto.preco 
-                      FROM itens INNER JOIN compra
-                      ON itens.id_compra=compra.id_compra 
-                      INNER JOIN produto ON itens.id_produto=produto.id_produto 
-                      ORDER BY compra.data_compra";
+                $sql = "SELECT * from compra WHERE id_user = $id_user";
                 $resultado = pg_query($conecta, $sql);
                 $qtde = pg_num_rows($resultado);
+
                 for($cont=0; $cont < $qtde; $cont++)
                 {
-                    $linha=pg_fetch_array($resultado);
-                    echo"Data da compra:".$linha['data_compra'].
-                    "<br>".$linha['produto']."&nbsp &nbsp".$linha['quantidade']."x
-                    </p>R$".$linha['preco'].",00";
-                    
-                    echo "<br><br>";
+                    $total=0;
+                    $linha = pg_fetch_array($resultado);
+                    $id_atual = $linha['id_compra'];
+
+                    echo "Id da Compra: ".$linha['id_compra']."<br>Data da Compra: ".date_format(new DateTime($linha['data_compra']), 'd/m/Y')."<br>Produtos:<br>";
+
+                    $sql2 = "SELECT compra.id_compra, produto.produto, itens.quantidade, produto.preco, produto.imagem 
+                             FROM itens JOIN compra ON itens.id_compra=compra.id_compra
+                             INNER JOIN produto ON itens.id_produto=produto.id_produto
+                             WHERE id_user=$id_user ORDER BY data_compra";
+                    $resultado2 = pg_query($conecta, $sql2);
+                    $qtde2 = pg_num_rows($resultado2);
+                    while($linha2 = pg_fetch_array($resultado2))
+                    {
+                        if($linha2['id_compra'] == $id_atual)
+                        {
+                            echo "&nbsp- ".$linha2['produto']."&nbsp &nbsp".$linha2['quantidade']."x<br>";
+                            $total += $linha2['preco']*$linha2['quantidade'];
+                        }
+                    }
+
+                    echo "Total: R$".$total.",00<br><br>";
                 }
             ?>
 
