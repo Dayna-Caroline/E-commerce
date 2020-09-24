@@ -141,7 +141,7 @@
                             ?>
                     <div class="botoes">
                         <button><a href="../front/altera_user.php">Alterar informação</a></button>
-                        <button><a href="">Ver histórico</a></button>
+                        <button><a href="historico.php">Ver histórico</a></button>
                         <button><a href="../back/logout.php">Sair</a></button>
                     </div>
                     
