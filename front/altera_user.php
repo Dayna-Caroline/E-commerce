@@ -72,7 +72,7 @@
 
             <div class="internas">
                 <!--Conta - Informações-------------------------------------------------------------------------------------------------------->
-                <form action="../back/altera_user.php" method="post" class="small-container">
+                <form action="../back/altera_user.php" method="post" class="small-container" name="form1">
                     <h2>Informações da conta</h2>
 
                             <?php

@@ -143,12 +143,17 @@ h1{
     text-align: center;
     margin-top: 30px;
     padding: 10px;
+    width: 70%;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .data{
     padding: 10px 0;
     background-color:  rgb(243, 126, 126);
-    width: 70%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -156,9 +161,10 @@ h1{
 .info{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 70%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5px;
     padding: 10px;
     background-color: rgb(245, 236, 236);
 }
@@ -182,7 +188,7 @@ h1{
 .total{
     padding: 10px 0;
     background-color:  rgb(243, 126, 126);
-    width: 70%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }

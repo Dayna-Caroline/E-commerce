@@ -71,11 +71,11 @@
                         <div class="small-container">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="" alt="">
+                                    <img src="../imgs/integrantes/ana.jpeg" alt="">
                                 </div>
                                     
                                 <div class="col-2">
-                                    <p>Emprego</p>
+                                    <!--<p>Emprego</p>-->
                                     <h2>Ana Júlia Camargo de Freitas</h2>
                                     <small>aj.freitas@unesp.br</small>
                                 </div>
@@ -87,11 +87,11 @@
                         <div class="small-container">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="" alt="">
+                                    <img src="../imgs/integrantes/guto.jpeg" alt="">
                                 </div>
                                     
                                 <div class="col-2">
-                                    <p>Emprego</p>
+                                    <!--<p>Emprego</p>-->
                                     <h2>Augusto Zanardi Creppe</h2>
                                     <small>augusto.creppe@unesp.br</small>
                                 </div>
@@ -103,11 +103,11 @@
                         <div class="small-container">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="" alt="">
+                                    <img src="../imgs/integrantes/dayna.jpeg" alt="">
                                 </div>
                                     
                                 <div class="col-2">
-                                    <p>Emprego</p>
+                                    <!--<p>Emprego</p>-->
                                     <h2>Dayna Caroline Domiciano do Prado</h2>
                                     <small>dayna.caroline@unesp.br</small>
                                 </div>
@@ -119,11 +119,11 @@
                         <div class="small-container">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="" alt="">
+                                    <img src="../imgs/integrantes/joao.jpeg" alt="">
                                 </div>
                                     
                                 <div class="col-2">
-                                    <p>Emprego</p>
+                                    <!--<p>Emprego</p>-->
                                     <h2>João Gabriel Noce Laureano</h2>
                                     <small>joao.laureano@unesp.br</small>
                                 </div>
@@ -135,11 +135,11 @@
                         <div class="small-container">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="" alt="">
+                                    <img src="../imgs/integrantes/guti.jpeg" alt="">
                                 </div>
                                     
                                 <div class="col-2">
-                                    <p>Emprego</p>
+                                    <!--<p>Emprego</p>-->
                                     <h2>João Pedro Leizico Gutierrez</h2>
                                     <small>joao.gutierrez@unesp.br</small>
                                 </div>
@@ -151,13 +151,13 @@
                         <div class="small-container">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="" alt="">
+                                    <img src="../imgs/integrantes/mabel.jpeg" alt="">
                                 </div>
                                     
                                 <div class="col-2">
-                                    <p>Emprego</p>
+                                    <!--<p>Emprego</p>-->
                                     <h2>Maria Isabel de Oliveira Pavaneli Agostini</h2>
-                                    <small>dayna.caroline@unesp.br</small>
+                                    <small>mi.agostini@unesp.br</small>
                                 </div>
                             </div>
                         </div>

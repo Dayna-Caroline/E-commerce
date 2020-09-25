@@ -176,6 +176,12 @@ label{
     margin-right: 21%;
 }
 
+.forca{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 70%;
+}
+
 p{
     margin-left: -15%;
 }
