@@ -1,0 +1,241 @@
+/*Dayna Caroline - N°11 - Criação: 02/09*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Arial', sans-serif;
+    background-color: #edeef1;
+    align-items: center;
+}
+
+.tudo{
+    width: 1200px;
+    min-height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+/*Barra de rolagem------------------------------------------------------------*/
+body::-webkit-scrollbar{
+    width: 8px;
+    background-color: rgb(236, 234, 234);
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: grey;
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(214, 68, 68);
+}
+
+body::-webkit-scrollbar-button{
+    width: 0;
+    height: 0;
+}
+/*------------------------------------------------------------------------------*/
+
+/*Cabeçalho----------------------------------------------------------------------------------------------------*/
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav span{
+    color: red;
+}
+
+.navbar img{
+    margin-right: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: #555;
+}
+
+p{
+    color: #555;
+}
+
+.container{
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.col-2{
+    flex-basis: 50%;
+}
+
+.col-2 img{
+    padding: 10px 0;
+}
+
+.btn{
+    display: inline-block;
+    background: #483bff;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+}
+
+.btn:hover{
+    background: #563434;
+}
+
+.header{
+    background: radial-gradient(#fff, #d6ddff);
+}
+
+.header .row{
+    margin-top: 70px;
+}
+
+/*Histórico----------------------------------------------------------------------------------------------------*/
+h1{
+    text-align: center;
+}
+
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.tabela{
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.data{
+    padding: 10px 0;
+    background-color:  rgb(243, 126, 126);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color: rgb(245, 236, 236);
+}
+
+.img{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.foto{
+    text-align: right;
+    margin-right: 5px;
+}
+
+.desc{
+    padding-top: 5px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.total{
+    padding: 10px 0;
+    background-color:  rgb(243, 126, 126);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+
+/*Footer--------------------------------------------------------------------------------------------------*/
+.footer{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    color: #fff;
+    background-color: black;
+    padding: 20px 0;
+    text-align: center;
+}
+
+section{
+    flex: 1;
+    text-align: center;
+}
+
+section ul{
+    display: inline-block;
+    list-style-type: none;
+}
+
+section ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer section img{
+    padding-top: 30px;
+}
+
+.footer-col-1 ul{
+    list-style-type: none;
+    padding: 20px 0;
+}
+
+.footer-col-1 li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer a{
+    color: #fff;
+}
+
+.inicio{
+    text-align: right;
+    margin-right: 20px;
+    font-size: 12px;
+}

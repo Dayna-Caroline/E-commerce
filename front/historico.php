@@ -21,7 +21,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cup&Mug</title>
-    <link rel="stylesheet" href="../styles/conta.css">
+    <link rel="stylesheet" href="../styles/historico.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
@@ -67,7 +67,8 @@
         </div>
 
         <div class="internas">
-        <a> HISTÓRICO DE COMPRAS</a><br><br>
+        <h1>Histórico de compras</h1>
+        <div class="small_container">
             <?php
                 $sql = "SELECT * from compra WHERE id_user = $id_user";
                 $resultado = pg_query($conecta, $sql);
@@ -79,7 +80,8 @@
                     $linha = pg_fetch_array($resultado);
                     $id_atual = $linha['id_compra'];
 
-                    echo "Id da Compra: ".$linha['id_compra']."<br>Data da Compra: ".date_format(new DateTime($linha['data_compra']), 'd/m/Y')."<br>Produtos:<br>";
+                    echo "<div class='tabela'>
+                        <div class='data'>Data da Compra: ".date_format(new DateTime($linha['data_compra']), 'd/m/Y')."</div>";
 
                     $sql2 = "SELECT compra.id_compra, produto.produto, itens.quantidade, produto.preco, produto.imagem 
                              FROM itens JOIN compra ON itens.id_compra=compra.id_compra
@@ -91,14 +93,22 @@
                     {
                         if($linha2['id_compra'] == $id_atual)
                         {
-                            echo "&nbsp- ".$linha2['produto']."&nbsp &nbsp".$linha2['quantidade']."x<br>";
+                            echo "<div class='info'>
+                                    <section class='img'>
+                                        <div class='foto'><img src='..".$linha2['imagem']."' width='50px'></div>
+                                        <div class='desc'>".$linha2['produto']."</div>
+                                    </section> 
+                                    <section>".$linha2['quantidade']."x </section>
+                                </div>";
                             $total += $linha2['preco']*$linha2['quantidade'];
                         }
                     }
 
-                    echo "Total: R$".$total.",00<br><br>";
+                    echo "<div class='total'>Total: R$".$total.",00 </div>
+                    </div>";
                 }
             ?>
+        </div>
 
     </div> 
 
