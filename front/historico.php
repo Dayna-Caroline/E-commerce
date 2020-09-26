@@ -73,39 +73,45 @@
                 $sql = "SELECT * from compra WHERE id_user = $id_user";
                 $resultado = pg_query($conecta, $sql);
                 $qtde = pg_num_rows($resultado);
-
-                for($cont=0; $cont < $qtde; $cont++)
+                if ($qtde > 0)
                 {
-                    $total=0;
-                    $linha = pg_fetch_array($resultado);
-                    $id_atual = $linha['id_compra'];
-
-                    echo "<div class='tabela'>
-                        <div class='data'>Data da Compra: ".date_format(new DateTime($linha['data_compra']), 'd/m/Y')."</div>";
-
-                    $sql2 = "SELECT compra.id_compra, produto.produto, itens.quantidade, produto.preco, produto.imagem 
-                             FROM itens JOIN compra ON itens.id_compra=compra.id_compra
-                             INNER JOIN produto ON itens.id_produto=produto.id_produto
-                             WHERE id_user=$id_user ORDER BY data_compra";
-                    $resultado2 = pg_query($conecta, $sql2);
-                    $qtde2 = pg_num_rows($resultado2);
-                    while($linha2 = pg_fetch_array($resultado2))
+                    for($cont=0; $cont < $qtde; $cont++)
                     {
-                        if($linha2['id_compra'] == $id_atual)
-                        {
-                            echo "<div class='info'>
-                                    <section class='img'>
-                                        <div class='foto'><img src='..".$linha2['imagem']."' width='50px'></div>
-                                        <div class='desc'>".$linha2['produto']."</div>
-                                    </section> 
-                                    <section>".$linha2['quantidade']."x </section>
-                                </div>";
-                            $total += $linha2['preco']*$linha2['quantidade'];
-                        }
-                    }
+                        $total=0;
+                        $linha = pg_fetch_array($resultado);
+                        $id_atual = $linha['id_compra'];
 
-                    echo "<div class='total'>Total: R$".$total.",00 </div>
-                    </div>";
+                        echo "<div class='tabela'>
+                            <div class='data'>Data da Compra: ".date_format(new DateTime($linha['data_compra']), 'd/m/Y')."</div>";
+
+                        $sql2 = "SELECT compra.id_compra, produto.produto, itens.quantidade, produto.preco, produto.imagem 
+                                 FROM itens JOIN compra ON itens.id_compra=compra.id_compra
+                                 INNER JOIN produto ON itens.id_produto=produto.id_produto
+                                 WHERE id_user=$id_user ORDER BY data_compra";
+                        $resultado2 = pg_query($conecta, $sql2);
+                        $qtde2 = pg_num_rows($resultado2);
+                        while($linha2 = pg_fetch_array($resultado2))
+                        {
+                            if($linha2['id_compra'] == $id_atual)
+                            {
+                                echo "<div class='info'>
+                                        <section class='img'>
+                                            <div class='foto'><img src='..".$linha2['imagem']."' width='50px'></div>
+                                            <div class='desc'>".$linha2['produto']."</div>
+                                        </section> 
+                                        <section>".$linha2['quantidade']."x </section>
+                                    </div>";
+                                $total += $linha2['preco']*$linha2['quantidade'];
+                            }
+                        }
+
+                        echo "<div class='total'>Total: R$".$total.",00 </div>
+                        </div>";
+                    }
+                }
+                else
+                {
+                    echo "<br><br><br><br><br><br><br><br><br><br><br><br><h1><div class='tabela'><b> Seu histórico está vazio </b></div></h1> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
                 }
             ?>
         </div>
