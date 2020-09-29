@@ -18,34 +18,16 @@
         echo "alert('Erro: senhas diferentes!')";
         echo '</script>';
     }
-    else if(strlen($senha) < 8)
+    else if(strlen($senha) < 4)
     {
         echo '<script language="javascript">';
-        echo "alert('Erro: senha deve ter no mínimo 8 caracteres!')";
+        echo "alert('Erro: senha muito curta')";
         echo '</script>';
     }
     else if(strlen($data_nascimento) != 10)
     {
         echo '<script language="javascript">';
         echo "alert('Erro: data de nascimento incorreta!(dd/mm/aaaa)')";
-        echo '</script>';
-    }
-    else if(strlen($cpf) != 14)
-    {
-        echo '<script language="javascript">';
-        echo "alert('Erro: cpf incorreto!')";
-        echo '</script>';
-    }
-    else if(strlen($cep) != 10)
-    {
-        echo '<script language="javascript">';
-        echo "alert('Erro: cep incorreto!')";
-        echo '</script>';
-    }
-    else if(strlen($telefone) != 15)
-    {
-        echo '<script language="javascript">';
-        echo "alert('Erro: telefone incorreto! ((ddd) xxxxx-xxxx)')";
         echo '</script>';
     }
     else

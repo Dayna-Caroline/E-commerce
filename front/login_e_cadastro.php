@@ -105,7 +105,7 @@
                         
                         <label>
                             <div class="icon"><i class="fas fa-mobile"></i></div>
-                            <input type="text" name="telefone" onKeyPress="MascaraTelefone(form1.telefone);" maxlength="15" placeholder="Telefone" autocomplete="off" required>
+                            <input type="text" name="telefone" onKeyPress="MascaraTelefone(form1.telefone);" maxlength="15" placeholder="Telefone" autocomplete="off">
                         </label>
                         
                         <label>
