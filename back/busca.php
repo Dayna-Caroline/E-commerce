@@ -7,6 +7,14 @@
     include "../back/conexao.php";
 
     $logado = null;
+    $pesq = $_POST['pesq'];
+
+    if(!$pesq == ''){
+        $sql="SELECT * FROM produto WHERE produto LIKE '%$pesq%' AND excluido = FALSE";
+    }
+    else{
+        $sql="SELECT * FROM produto WHERE excluido = FALSE";
+    }
 
     session_start();
     
@@ -90,7 +98,6 @@
 
                         <div class="row">
                             <?php
-                                $sql="SELECT * FROM produto WHERE excluido = FALSE";
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
                                 if($qtde > 0){

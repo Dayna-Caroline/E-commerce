@@ -76,6 +76,7 @@ nav span{
 a{
     text-decoration: none;
     color: #555;
+    cursor: pointer;
 }
 
 p{

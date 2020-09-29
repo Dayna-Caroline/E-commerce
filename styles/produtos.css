@@ -76,6 +76,7 @@ nav span{
 a{
     text-decoration: none;
     color: #555;
+    cursor: pointer;
 }
 
 p{
@@ -136,11 +137,14 @@ p{
 
 
 /*Pesquisa---------------------------------------------------------------------------------------------*/
+.pesq_text{
+    display: flex;
+}
+
 .icon{
     position: absolute;
     color: #505f75;
-    margin-left: .5%;
-    margin-top: .5%;
+    margin-left: 16%;
 }
 
 input{
@@ -149,7 +153,6 @@ input{
     margin-top: 5px;
     font-size: 18px;
     padding-bottom: 5px;
-    padding-left: 15%;
     border: none;
     outline: none;
     border-bottom: 1px solid rgba(109, 93, 93, 0.4);
@@ -208,11 +211,15 @@ h4{
 
 button{
     padding: 5px 10px;
-    margin-top: 5%;
     border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+.col-4 button{
+    margin-top: 5%;
 }
 
-button:hover{
+.col-4 button:hover{
     background-color: rgb(248, 78, 78);
     color: white;
 }
