@@ -4,46 +4,53 @@
     class PDF extends FPDF
     {
         function Header() {
-            $this->Image('../imgs/tudo/melhor.jpg',10,10,50);
+            $this->Image('../imgs/tudo/melhor.jpg',30,25,50);
         }
 
         function Footer() {
-            $this->SetY(-20);
+            $this->SetY(-40);
             
             $this->Cell(68);
-            $this->SetFont('Arial','b',10);
+            $this->SetFont('Arial','b',13);
             date_default_timezone_set("America/Sao_Paulo");
             $this->Cell(52, 8, "Gerado eletrônicamente em ".date("d/m/y (G:i)"), 0, 0, 'C');
             
-            $this->Ln(5);
+            $this->Ln(6);
             
-            $this->SetFont('Arial','i',10);
+            $this->SetFont('Arial','i',13);
             
             $this->Cell(0,10,'Cup&Mug@2020',0,0,'C');
         
-            $this->Ln(5);
+            $this->Ln(6);
         
-            $this->Cell(0,10,'Ana Julia Freitas, Augusto Creppe, Dayna Caroline, João Gabriel Laureano, João Pedro Gutierrez, Maria Isabel Agostini',0,0,'C');
+            $this->Cell(0,10,'A. Freitas, A. Creppe, D. Caroline, J. Laureano, J. Gutierrez, M. Agostini',0,0,'C');
         }
 
         function Title($date, $id) {
 
-            $this->SetFont('Arial','b',20);
+            $this->SetFont('Arial','b',24);
             
-            $this->Cell(100);
-            $this->Cell(90,12,"Comprovante de Compra",1,50,'C');
+            $this->Ln(40);
+            $this->Cell(20);
+            $this->Cell(150,15,"Comprovante de Compra",1,50,'C');
            
-            $this->Ln(26);
+            $this->SetFont('Arial','b',20);
+            $this->Ln(15);
             
-            $this->Cell(85);
+            $this->Cell(48.5);
             $this->Cell(20,9,"Código da compra: 0$id",0,0,'C');
 
+            $this->Ln(15);
+
+            $this->Cell(56);
+            $this->Cell(20,9,"Data da compra: ".date_format(new DateTime($date), 'd/m/Y')."",0,0,'C');
+            
+            $this->Ln(15);
+
+            $this->Cell(45);
+            $this->Cell(20,9,"Produtos da compra:",0,0,'C');
+
             $this->Ln(10);
-
-            $this->Cell(85);
-            $this->Cell(20,9,"Data da venda: ".date_format(new DateTime($date), 'd/m/Y')."",0,0,'C');
-
-            $this->Ln(26);
         }
         
         function ReceiptHeader($header) {
@@ -61,7 +68,7 @@
             $this->Ln(8);
         }
 
-        function ReceiptData($data, $total) {
+        function ReceiptData($data, $total, $cep) {
             $this->SetFont('Arial','',13);
             
             for($i=0; $i<count($data); $i++)
@@ -96,10 +103,15 @@
             }
 
             $this->SetFont('Arial','b',20);
-            $this->Ln(10);
+            $this->Ln(9);
             
-            $this->Cell(85);
+            $this->Cell(63);
             $this->Cell(20,9,"Preço total da compra: R$ $total,00",0,0,'C');
+
+            $this->Ln(15);
+            
+            $this->Cell(65);
+            $this->Cell(20,9,"Endereço de Entrega: $cep",0,0,'C');
         }
     }
 
@@ -128,8 +140,7 @@
     $idCompra = $linha['id_compra'];
     $dataCompra = $linha['data_compra'];
 
-    //-------------------------------
-
+    //Dados Itens
     $sql2 = "SELECT compra.id_compra, produto.produto, itens.quantidade, produto.preco, produto.imagem 
              FROM itens JOIN compra ON itens.id_compra=compra.id_compra
              INNER JOIN produto ON itens.id_produto=produto.id_produto
@@ -162,6 +173,19 @@
         $i++;
     }
 
+    //Dados Cliente
+    $sql3 = "SELECT cep from usuario WHERE id_user = $id_user";
+    $resultado3 = pg_query($conecta, $sql3);
+    $qtde3 = pg_num_rows($resultado3);
+
+    if($qtde3 < 0) {
+        return;
+    }
+
+    $linha3 = pg_fetch_array($resultado3);
+
+    $cep = $linha3['cep'];
+
     pg_close($conecta);
 
     /*--------------------------------------------------------------------------------------------*/
@@ -176,7 +200,7 @@
     $pdf->AddPage();
         $pdf->Title($dataCompra, $idCompra);
         $pdf->ReceiptHeader($tableHeader);
-        $pdf->ReceiptData($dadosCompra, $precototal);
+        $pdf->ReceiptData($dadosCompra, $precototal, $cep);
 
     //Show
     $pdf->Output('I', 'Comprovante_compra.pdf');

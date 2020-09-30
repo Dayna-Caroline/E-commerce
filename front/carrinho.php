@@ -77,6 +77,7 @@
                                     for($cont=0; $cont < $qtde; $cont++)
                                     {
                                         $linha=pg_fetch_array($resultado);
+                                        $estoque=0;
 
                                         for($cont2=0; $cont2 < $linha['quantidade']; $cont2++)
                                             $soma_total+=$linha['preco'];
@@ -93,7 +94,22 @@
                                             </div>
 
                                             <div class='preco'>
-                                                ".$linha['quantidade']."
+                                                <input type='number' name='qtde' id='qtde".$linha['id_produto']."' min='0' max='";
+                                                
+                                                $id_bckp=$linha['id_produto'];
+
+                                                $sql2="SELECT produto.quantidade FROM produto WHERE id_produto=$id_bckp;";
+                                                $resultado2 = pg_query($conecta, $sql2);
+                                                $qtde2 = pg_num_rows($resultado2);
+                                                if($qtde2 > 0)
+                                                {
+                                                    $linha2=pg_fetch_array($resultado2);
+                                                    $estoque=$linha2['quantidade'];
+                                                }
+                                                
+                                                echo $estoque."' value='".$linha['quantidade']."'>
+
+                                                <br><br>".$linha['quantidade']." (teste)
                                             </div>
 
                                             <div class='preco'>
@@ -108,7 +124,7 @@
                                             <h4>Preço Total da Compra: R$ ".$soma_total."</h4>
                                         </div>
                                         <div class='botao'>
-                                            <a href='../back/comprar.php'><button>Finalizar compra</button></a>
+                                            <a href='./confirma_compra.php'><button>Comprar</button></a>
                                         </div>
                                     </div>";
                                 }
