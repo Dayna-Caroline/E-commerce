@@ -113,7 +113,7 @@
                                             </div>
 
                                             <div class='preco'>
-                                                R$ ".($linha['preco']*$linha['quantidade'])."
+                                                R$ ".($linha['preco']*$linha['quantidade']).",00
                                             </div>
                                         </div>";
                                     }
@@ -121,7 +121,7 @@
                                     echo "
                                     <div class='total'>
                                         <div class='preco_compra'>
-                                            <h4>Preço Total da Compra: R$ ".$soma_total."</h4>
+                                            <h4>Preço Total da Compra: R$ ".$soma_total.",00</h4>
                                         </div>
                                         <div class='botao'>
                                             <a href='./confirma_compra.php'><button>Comprar</button></a>

@@ -131,79 +131,14 @@ p{
     margin-top: 70px;
 }
 
-/*Form----------------------------------------------------------------------------------------------------*/
-.internas{
-    width: 1200px;
-}
-
-.form{
-    margin: 30px auto;
-    width: 640px;
-    border: none;
-    padding: auto;
-}
-
-input{
-    width: 100%;
-    border-top:none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid rgb(146, 146, 146);
-    outline: none;
-    background: none;
-    text-align: center;
-}
-
-label{
-    display: block;
-    width: 260px;
-    margin: 25px auto 0;
-    text-align: center;
-}
-
+/*Carrinho---------------------------------------------------------------------------------------------*/
 .small-container{
-    margin: 10% auto;
-    width: 680px;
-    height: 100%;
-    padding: 50px auto;
-    border-radius: 15px;
-    border: 1px solid  rgb(236, 92, 92); 
-}
-
-
-h2{
-    padding: 20px;
-    text-align: center;
-}
-
-h4{
-    text-align: center;
-}
-
-.botoes{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-button{
-    width: 30%;
-    padding: 5px 10px;
-    margin: 1% auto;
-    border-radius: 4px;
-    background-color: rgb(241, 143, 143);
-    outline: none;
-    color: #555;
-}
-
-button:hover{
-    background-color: rgb(219, 102, 102);
-}
-
-.small-container2{
     max-width: 1080px;
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+    padding-top: 50px;
+    text-align: center;
 }
 
 .titulos, .produtos{
@@ -226,7 +161,7 @@ button:hover{
 }
 
 .tabela{
-    margin: 10px auto;
+    margin: 30px auto 10px auto;
     width: 100%;
     border-collapse: collapse;
 }
@@ -247,17 +182,28 @@ button:hover{
 }
 
 .total{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: -10px;
+}
+
+button{
+    width: 70%;
+    padding: 7px 10px;
+    border-radius: 4px;  
+    background: rgb(243, 126, 126);  
+}
+
+button:hover{
+    background: rgb(185, 85, 85);
+}
+
+.botoes{
+    margin: 20px auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 3%;
+    width: 50%;
 }
-
-.preco_compra{
-    width: 640px;
-    margin: auto;
-    text-align: center;
-}
-
 /*---------------------------------------------------------------------------------------------------------*/
 
 

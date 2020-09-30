@@ -23,7 +23,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Cup&Mug</title>
-        <link rel="stylesheet" href="../styles/rec_senha.css">
+        <link rel="stylesheet" href="../styles/confirma_compra.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
@@ -99,7 +99,7 @@
                                                 </div>
 
                                                 <div class='preco'>
-                                                    R$ ".($linha['preco']*$linha['quantidade'])."
+                                                    R$ ".($linha['preco']*$linha['quantidade']).",00
                                                 </div>
                                             </div>";
                                         }
@@ -119,9 +119,6 @@
                             </div>
 
                             <div class="tabela">
-                                <br>
-                                <h4>Entrega do produto:</h4>
-
                                 <?php
                                     $sql="SELECT cep FROM usuario WHERE id_user=$id_user;";
                                     
@@ -132,13 +129,16 @@
                                     {
                                         $linha=pg_fetch_array($resultado);
 
-                                        echo $linha['cep'];
+                                        echo "<h4>Entrega do produto no CEP: ".$linha['cep']."</h4>";
                                     }
                                 ?>
                                 
                             </div>
-                        <a href='../back/comprar.php'><button>Finalizar compra</button></a><br>
-                        <a href='../front/carrinho.php'><button>Voltar</button></a>
+
+                            <div class="botoes">
+                                <section><a href='../back/comprar.php'><button>Finalizar compra</button></a><br></section>
+                                <section><a href='../front/carrinho.php'><button>Voltar</button></a></section>
+                            </div>
                     </div>
                 </div> 
             </div> <!--Internas-->
@@ -170,7 +170,7 @@
                         </div>
 
                         <div class="inicio">
-                            <a href="carrinho.php">Voltar ao inicio</a>
+                            <a href="confirma_compra.php">Voltar ao inicio</a>
                         </div>
                     </div>
             </div>                  
