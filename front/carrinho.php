@@ -78,6 +78,7 @@
                                         $linha=pg_fetch_array($resultado);
                                         $estoque=0;
                                         $id_bckp=$linha['id_produto'];
+                                        $qtd_bckp=$linha['quantidade'];
 
                                         for($cont2=0; $cont2 < $linha['quantidade']; $cont2++)
                                             $soma_total+=$linha['preco'];
@@ -93,10 +94,7 @@
                                                 </div>
                                             </div>
 
-                                            <form action='../back/atualiza_carrinho.php' method='post'>
-                                            <div class='preco'>
-                                                <input type='hidden' name='id_prod' value='".$id_bckp."'/>
-                                                <input type='number' name='qtde' id='qtde".$linha['id_produto']."' min='1' max='";
+                                            <div class='preco'>";
 
                                                 $sql2="SELECT produto.quantidade FROM produto WHERE id_produto=$id_bckp;";
                                                 $resultado2 = pg_query($conecta, $sql2);
@@ -106,12 +104,25 @@
                                                     $linha2=pg_fetch_array($resultado2);
                                                     $estoque=$linha2['quantidade'];
                                                 }
-                                                
-                                                echo $estoque."' value='".$linha['quantidade']."'>
-                                                
-                                                <button class='atualizar' type='submit'>Atualizar</button>
-                                            </div>
+
+                                            echo "
+                                            <form action='../back/atualiza_carrinho.php' method='post'>
+                                                <input type='hidden' name='id_prod' value='".$id_bckp."'/>
+                                                <input type='hidden' name='qtd_prod' value='".$qtd_bckp."'/>
+                                                <input type='hidden' name='estoque' value='".$estoque."'/>
+                                                <input type='hidden' id='muda' name='muda' value='1'>
+                                                <button type='submit' class='submit'>-</button>
                                             </form>
+                                            <a>".$linha['quantidade']."</a>
+                                            <form action='../back/atualiza_carrinho.php' method='post'>
+                                                <input type='hidden' name='id_prod' value='".$id_bckp."'/>
+                                                <input type='hidden' name='qtd_prod' value='".$qtd_bckp."'/>
+                                                <input type='hidden' name='estoque' value='".$estoque."'/>
+                                                <input type='hidden' id='muda' name='muda' value='2'>
+                                                <button type='submit' class='submit'>+</button>
+                                            </form>
+
+                                            </div>
 
                                             <div class='preco'>
                                                 R$ ".($linha['preco']*$linha['quantidade']).",00
