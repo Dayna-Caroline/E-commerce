@@ -10,7 +10,6 @@
     {
         $logado = $_SESSION['email'];
         $id_user = $_SESSION['id_user'];
-        echo "AQUIAUIQUAIQUA - ".$id_user;
     }
 
     $sql = "SELECT * FROM carrinho WHERE id_user = '$id_user' AND id_produto = '$id_prod'";
