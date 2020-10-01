@@ -8,6 +8,7 @@
 
     $logado = null;
     $pesq = $_POST['pesq'];
+    $tipo_pesq = 1;
 
     session_start();
     

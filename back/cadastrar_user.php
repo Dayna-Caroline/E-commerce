@@ -36,7 +36,6 @@
         $sql = "INSERT INTO usuario VALUES(DEFAULT, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', false, null, false);";
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
-        echo $linhas;
         if($linhas > 0)
         {
             session_start();
@@ -45,7 +44,16 @@
             $_SESSION['adm'] = false;
             $_SESSION['nome'] = $nome;
             $_SESSION['sexo'] = $sexo;
-            $_SESSION['id_user'] = $id_user;
+
+            $sql2 = "SELECT * FROM usuario WHERE email='$email';";
+            $resultado2 = pg_query($conecta, $sql2);
+            $linhas2 = pg_affected_rows($resultado2);
+            if($linhas > 0)
+            {
+                $linhas3 = pg_fetch_array($resultado2);
+                $id_bckp = $linhas3['id_user'];
+                $_SESSION['id_user'] = $id_bckp;
+            }
 
             header("Location: ../index.php");
         }
