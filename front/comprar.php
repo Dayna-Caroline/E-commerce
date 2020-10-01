@@ -94,9 +94,20 @@
                                             <div class='descricao'>
                                                 <h1>".$linha['produto']."</h1>
                                                 <p>".$linha['descricao']."</p>
-                                                <h4>R$".$linha['preco'].",00</h4>
-                                                <input type='number' name='qtde' placeholder='Quantidade'> <br>
-                                                <button><a href='../front/login_e_cadastro.php'>Adiconar ao carrinho</a></button>
+                                                <h4>R$".$linha['preco'].",00</h4>";
+                                                                                            
+                                                if($linha['quantidade'] <= 0)
+                                                {
+                                                    echo"
+                                                    <br><a>PRODUTO ESGOTADO</a>";
+                                                }
+                                                else
+                                                {
+                                                    echo "
+                                                    <button><a href='../front/login_e_cadastro.php'>Adiconar ao carrinho</a></button>";
+                                                }
+                                                echo "
+                                                <br><button><a href='./produtos.php'>Voltar</a></button>
                                             </div>
                                         </div>";
                                         }
@@ -113,8 +124,20 @@
                                             <div class='descricao'>
                                                 <h1>".$linha['produto']."</h1>
                                                 <p>".$linha['descricao']."</p>
-                                                <h4>R$".$linha['preco'].",00</h4> <br>
-                                                <button><a href='../front/link_comprar.php?id_prod=".$id_prod."'>Adicionar ao carrinho</a></button>
+                                                <h4>R$".$linha['preco'].",00</h4> <br>";
+                                            
+                                                if($linha['quantidade'] <= 0)
+                                                {
+                                                    echo"
+                                                    <br><a>PRODUTO ESGOTADO</a>";
+                                                }
+                                                else
+                                                {
+                                                    echo "
+                                                    <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                                }
+                                                echo "
+                                                <br><button><a href='./produtos.php'>Voltar</a></button>
                                             </div>
                                         </div>";
                                         }
@@ -147,8 +170,19 @@
                                             echo "<div class='col-4'>
                                             <a href='comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
-                                            <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='login_e_cadastro.php'>Adicionar ao carrinho</a></button>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='login_e_cadastro.php'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
                                         </div>";
                                         }
                                     }
@@ -160,8 +194,19 @@
                                             echo "<div class='col-4'>
                                             <a href='comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
-                                            <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='../back/add_carrinho.php?id_prod=$linha[id_produto]'>Adicionar ao carrinho</a></button>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
                                         </div>";
                                         }
                                     }
@@ -228,3 +273,5 @@
         </div>
     </body>
 </html>
+
+<!--<input type='number' name='qtde' placeholder='Quantidade'> <br>-->

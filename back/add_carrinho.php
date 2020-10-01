@@ -56,14 +56,6 @@
         }
     }
 
-
-
-
-
-
-
-
-
     $sql = "INSERT INTO carrinho VALUES('$id_user', '$id_prod', '$qtde');";
     
     $resultado = pg_query($conecta, $sql);

@@ -41,8 +41,6 @@
             $linha_2 = pg_fetch_array($res);
             $id_compra = $linha_2['id_compra'];
         }
-
-        echo "ID COMPRA = ".$id_compra;
         
         //CRIAR ITENS COMPRA
         while($linha = pg_fetch_array($resultado)) 
@@ -61,6 +59,45 @@
             }
         }
 
+        //DAR BAIXA NO ESTOQUE
+        $sql = "SELECT c.id_user, c.id_produto, c.quantidade, c.excluido, p.id_produto, p.produto, p.preco
+                FROM carrinho AS c JOIN produto AS p ON c.id_produto = p.id_produto 
+                WHERE c.id_user = $id_user AND c.excluido = FALSE;";                            
+        $resultado = pg_query($conecta, $sql);
+        $qtde = pg_num_rows($resultado);
+        if($qtde > 0)
+        {
+            while($linha = pg_fetch_array($resultado))
+            {
+                $id_prod = $linha['id_produto'];
+                $qtd_prod = $linha['quantidade'];
+
+                $sql = "SELECT quantidade FROM produto WHERE id_produto=$id_prod;";
+                $res = pg_query($conecta, $sql);
+                $qtd = pg_num_rows($res);
+                if($qtd == 0)
+                {
+                    $sucesso = false;
+                    echo "erro ao efetuar compra aqui! 4";
+                    break;
+                }
+                $linha_3 = pg_fetch_array($res);
+                $qtd_estoque = $linha_3['quantidade'];
+
+                $qtd_final = $qtd_estoque - $qtd_prod;
+
+                $sql = "UPDATE produto SET quantidade=$qtd_final WHERE id_produto=$id_prod;";
+                $res = pg_query($conecta, $sql);
+                $qtd = pg_affected_rows($res);
+                if($qtd == 0)
+                {
+                    $sucesso = false;
+                    echo "erro ao efetuar compra aqui! 5";
+                    break;
+                }
+            }
+        }
+
         //ESVAZIAR CARRINHO
         $sql = "DELETE FROM carrinho WHERE id_user=$id_user;";
         $res = pg_query($conecta, $sql);
@@ -71,39 +108,10 @@
             echo "erro ao efetuar compra aqui! 3";
         }
 
-        //DAR BAIXA NO ESTOQUE
-        while($linha = pg_fetch_array($resultado)) 
-        {
-            $id_prod = $linha['id_produto'];
-            $qtd_prod = $linha['quantidade'];
-
-            $sql = "SELECT quantidade FROM produto WHERE id_produto=$id_prod;";
-            $res = pg_query($conecta, $sql);
-            $qtd = pg_num_rows($res);
-            if($qtd == 0)
-            {
-                $sucesso = false;
-                echo "erro ao efetuar compra aqui! 4";
-                break;
-            }
-            $linha_3 = pg_fetch_array($res);
-            $qtd_estoque = $linha_3['quantidade'];
-
-            $qtd_final = $qtd_estoque - $qtd_prod;
-
-            $sql = "UPDATE produto SET quantidade=$qtd_final WHERE id_produto=$id_prod;";
-            $res = pg_query($conecta, $sql);
-            $qtd = pg_affected_rows($res);
-            if($qtd == 0)
-            {
-                $sucesso = false;
-                echo "erro ao efetuar compra aqui! 5";
-                break;
-            }
-        }
-
         if($sucesso == true)
+        {
             header("Location: ./gerar_pdf.php");
+        }
         else
         {
             echo '<script language="javascript">';

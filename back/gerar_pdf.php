@@ -38,12 +38,14 @@
             $this->Ln(15);
             
             $this->Cell(48.5);
-            $this->Cell(20,9,"Código da compra: 0$id",0,0,'C');
+            $this->Cell(7,9,"Código da compra: ",0,0,'C');
+            $this->Cell(79,9,"0$id",0,0,'C');
 
             $this->Ln(15);
 
             $this->Cell(56);
-            $this->Cell(20,9,"Data da compra: ".date_format(new DateTime($date), 'd/m/Y')."",0,0,'C');
+            $this->Cell(-16,9,"Data da compra: ",0,0,'C');
+            $this->Cell(117,9,date_format(new DateTime($date), 'd/m/Y')."",0,0,'C');
             
             $this->Ln(15);
 
@@ -106,12 +108,14 @@
             $this->Ln(9);
             
             $this->Cell(63);
-            $this->Cell(20,9,"Preço total da compra: R$ $total,00",0,0,'C');
+            $this->Cell(-9,9,"Preço total da compra: ",0,0,'C');
+            $this->Cell(128,9,"R$ $total,00",0,0,'C');
 
             $this->Ln(15);
             
             $this->Cell(65);
-            $this->Cell(20,9,"Endereço de Entrega: $cep",0,0,'C');
+            $this->Cell(-17,9,"Endereço de Entrega: ",0,0,'C');
+            $this->Cell(135,9,"$cep",0,0,'C');
         }
     }
 
@@ -151,7 +155,7 @@
     if($qtde2 < 0) {
         return;
     }
-
+    
     $i = 0;
     $precototal = 0;
 
@@ -190,7 +194,7 @@
 
     /*--------------------------------------------------------------------------------------------*/
 
-    $tableHeader = ['Nome do produto', 'Quantidade', 'Preço'];
+    $tableHeader = ['Nome do produto', 'Quantidade', 'Preço (R$)'];
 
     //PDF Initialization
     $pdf = new PDF();

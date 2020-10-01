@@ -171,8 +171,19 @@
                                             echo "<div class='col-4'>
                                             <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
-                                            <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
                                         </div>";
                                         }
                                     }
@@ -182,8 +193,19 @@
                                             echo "<div class='col-4'>
                                             <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
-                                            <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='./back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='./back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
                                         </div>";
                                         }
                                     }
@@ -211,8 +233,19 @@
                                             echo "<div class='col-4'>
                                             <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
-                                            <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='./front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
                                         </div>";
                                         }
                                     }
@@ -222,8 +255,19 @@
                                             echo "<div class='col-4'>
                                             <a href='./front/comprar.php?id_prod=".$linha['id_produto']."'><img src='.".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
-                                            <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='./back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='./back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
                                         </div>";
                                         }
                                     }

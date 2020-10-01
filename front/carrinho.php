@@ -62,10 +62,9 @@
                             </div>
 
                             <?php
-                                $sql="SELECT c.id_user, c.id_produto, c.quantidade, c.excluido, 
-                                      p.id_produto, p.produto, p.descricao, p.preco, p.imagem 
+                                $sql="SELECT c.id_user, c.id_produto, c.quantidade, c.excluido, p.id_produto, p.produto, p.descricao, p.preco, p.imagem 
                                       FROM carrinho AS c JOIN produto AS p ON c.id_produto = p.id_produto 
-                                      WHERE c.id_user = $id_user AND c.excluido = FALSE;";
+                                      WHERE c.id_user = $id_user AND c.excluido = FALSE ORDER BY c.id_produto;";
                                 
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
@@ -78,6 +77,7 @@
                                     {
                                         $linha=pg_fetch_array($resultado);
                                         $estoque=0;
+                                        $id_bckp=$linha['id_produto'];
 
                                         for($cont2=0; $cont2 < $linha['quantidade']; $cont2++)
                                             $soma_total+=$linha['preco'];
@@ -93,10 +93,10 @@
                                                 </div>
                                             </div>
 
+                                            <form action='../back/atualiza_carrinho.php' method='post'>
                                             <div class='preco'>
-                                                <input type='number' name='qtde' id='qtde".$linha['id_produto']."' min='0' max='";
-                                                
-                                                $id_bckp=$linha['id_produto'];
+                                                <input type='hidden' name='id_prod' value='".$id_bckp."'/>
+                                                <input type='number' name='qtde' id='qtde".$linha['id_produto']."' min='1' max='";
 
                                                 $sql2="SELECT produto.quantidade FROM produto WHERE id_produto=$id_bckp;";
                                                 $resultado2 = pg_query($conecta, $sql2);
@@ -108,9 +108,10 @@
                                                 }
                                                 
                                                 echo $estoque."' value='".$linha['quantidade']."'>
-
-                                                <br><br>".$linha['quantidade']." (teste)
+                                                
+                                                <button class='atualizar' type='submit'>Atualizar</button>
                                             </div>
+                                            </form>
 
                                             <div class='preco'>
                                                 R$ ".($linha['preco']*$linha['quantidade']).",00

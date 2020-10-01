@@ -43,7 +43,7 @@
 
             $_SESSION['email'] = $email;
             $_SESSION['adm'] = false;
-            $_SESSION['nome'] = $nome; 
+            $_SESSION['nome'] = $nome;
             $_SESSION['sexo'] = $sexo;
 
             header("Location: ../index.php");
