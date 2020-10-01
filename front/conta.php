@@ -133,7 +133,7 @@
                                         
                                         <label>
                                             <div class='icon'><i class='fas fa-lock'></i></div>   
-                                            <p>$linha[senha]</p>
+                                            <p>*************</p>
                                         </label>";
                                         }
                                 }

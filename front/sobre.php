@@ -67,6 +67,12 @@
             </div>
 
             <div class="internas">
+
+            <br><br><br>
+            <center>
+                <h1>Grupo 06 - Cup&Mug</h1>
+            </center>
+
                 <div class="offer">
                         <div class="small-container">
                             <div class="row">
@@ -75,7 +81,7 @@
                                 </div>
                                     
                                 <div class="col-2">
-                                    <!--<p>Emprego</p>-->
+                                    <p>N° 03</p>
                                     <h2>Ana Júlia Camargo de Freitas</h2>
                                     <small>aj.freitas@unesp.br</small>
                                 </div>
@@ -91,7 +97,7 @@
                                 </div>
                                     
                                 <div class="col-2">
-                                    <!--<p>Emprego</p>-->
+                                    <p>N° 06</p>
                                     <h2>Augusto Zanardi Creppe</h2>
                                     <small>augusto.creppe@unesp.br</small>
                                 </div>
@@ -107,7 +113,7 @@
                                 </div>
                                     
                                 <div class="col-2">
-                                    <!--<p>Emprego</p>-->
+                                    <p>N° 11</p>    
                                     <h2>Dayna Caroline Domiciano do Prado</h2>
                                     <small>dayna.caroline@unesp.br</small>
                                 </div>
@@ -123,7 +129,7 @@
                                 </div>
                                     
                                 <div class="col-2">
-                                    <!--<p>Emprego</p>-->
+                                    <p>N° 19</p>
                                     <h2>João Gabriel Noce Laureano</h2>
                                     <small>joao.laureano@unesp.br</small>
                                 </div>
@@ -139,7 +145,7 @@
                                 </div>
                                     
                                 <div class="col-2">
-                                    <!--<p>Emprego</p>-->
+                                    <p>N° 20</p>
                                     <h2>João Pedro Leizico Gutierrez</h2>
                                     <small>joao.gutierrez@unesp.br</small>
                                 </div>
@@ -155,13 +161,18 @@
                                 </div>
                                     
                                 <div class="col-2">
-                                    <!--<p>Emprego</p>-->
+                                    <p>N° 28</p>
                                     <h2>Maria Isabel de Oliveira Pavaneli Agostini</h2>
                                     <small>mi.agostini@unesp.br</small>
                                 </div>
                             </div>
                         </div>
                 </div>
+
+                
+                <center>
+                    <h1>Professores</h1>
+                </center>
 
                 <div class="offer">
                         <div class="small-container">

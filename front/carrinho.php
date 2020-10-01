@@ -142,7 +142,7 @@
                                 }
                                 else
                                 {
-                                    echo "Não há produtos no carrinho";
+                                    echo "<center><br><br><br><br><br><br><br><br><br><br><br><br><h1><div class='tabela'><b> Seu carrinho está vazio </b></div></h1> <br><br><br><br><br><br><br></center>";
                                 }
 
                             ?>

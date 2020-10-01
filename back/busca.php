@@ -9,13 +9,6 @@
     $logado = null;
     $pesq = $_POST['pesq'];
 
-    if(!$pesq == ''){
-        $sql="SELECT * FROM produto WHERE produto LIKE '%$pesq%' AND excluido = FALSE";
-    }
-    else{
-        $sql="SELECT * FROM produto WHERE excluido = FALSE";
-    }
-
     session_start();
     
     if(isset($_SESSION['email']))
@@ -89,15 +82,26 @@
                                 </button>
                             </form>
 
-                            <select>
-                                <option>Todos</option>
-                                <option>Copos</option>
-                                <option>Canecas</option>
+                            <select name="pesq" onchange="reloadWithParam()" id="pesq">
+                                <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Todos</option>
+                                <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>Copos</option>
+                                <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>Canecas</option>
                             </select>
+
+                            <script>
+                                function reloadWithParam(){
+                                    var d = document.getElementById("pesq").value;
+                                    window.location.href="../front/produtos.php?pesq=" + d;
+                                }
+                            </script>
                         </div>
 
-                        <div class="row">
-                            <?php
+                    <?php
+
+                        if(!$pesq == ''){
+                            echo"
+                            <div class='row'>";
+                                $sql="SELECT * FROM produto WHERE produto LIKE '%$pesq%' AND excluido = FALSE";
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
                                 if($qtde > 0){
@@ -107,8 +111,195 @@
                                             echo "<div class='col-4'>
                                             <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
-                                            <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='../front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>
+                                            <p>R$".$linha['preco'].",00</p>";
+
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
+                                            </div>";
+                                        }
+                                    }
+                                    else{
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>";
+
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
+                                            </div>";
+                                        }
+                                    }
+                                }
+                                else{
+                                    echo "Não há produtos cadastrados";
+                                }
+                            echo "</div>";
+                        }
+
+                        else if ($pesq == ''){
+                            echo"
+                            <div class='row'>";
+                                $sql="SELECT * FROM produto WHERE excluido = FALSE";
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                if($qtde > 0){
+                                    if($logado == null){
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>";
+
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
+                                            </div>";
+                                        }
+                                    }
+                                    else{
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>";
+
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
+                                            </div>";
+                                        }
+                                    }
+                                }
+                                else{
+                                    echo "Não há produtos cadastrados";
+                                }
+                            echo "</div>";
+                        }
+
+                        else if($tipo_pesq == 1)//Tipo1
+                        {
+                            echo"
+                            <div class='row'>";
+                                $sql="SELECT * FROM produto WHERE excluido = FALSE";
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                if($qtde > 0){
+                                    if($logado == null){
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>";
+
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
+                                            </div>";
+                                        }
+                                    }
+                                    else{
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>";
+
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
+                                            </div>";
+                                        }
+                                    }
+                                }
+                                else{
+                                    echo "Não há produtos cadastrados";
+                                }
+                            echo "</div>";
+                        }
+                        
+                        else if($tipo_pesq == 2)
+                        {
+                            echo"
+                            <div class='row'>";
+                                $sql="SELECT * FROM produto WHERE excluido = FALSE AND cupormug = '1';";
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                if($qtde > 0){
+                                    if($logado == null){
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
                                         </div>";
                                         }
                                     }
@@ -118,8 +309,19 @@
                                             echo "<div class='col-4'>
                                             <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
                                             <h4>".$linha['produto']."</h4>
-                                            <p>R$".$linha['preco'].",00</p>
-                                            <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
                                         </div>";
                                         }
                                     }
@@ -127,8 +329,70 @@
                                 else{
                                     echo "Não há produtos cadastrados";
                                 }
-                            ?>
-                        </div>
+                            echo "</div>";
+                        }
+                        
+                        else if($tipo_pesq == 3)
+                        {
+                            echo"
+                            <div class='row'>";
+                                $sql="SELECT * FROM produto WHERE excluido = FALSE AND cupormug = '2';";
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                if($qtde > 0){
+                                    if($logado == null){
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../front/login_e_cadastro.php'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
+                                        </div>";
+                                        }
+                                    }
+                                    else{
+                                        for($cont=0; $cont < $qtde; $cont++){
+                                            $linha=pg_fetch_array($resultado);
+                                            echo "<div class='col-4'>
+                                            <a href='../front/comprar.php?id_prod=".$linha['id_produto']."'><img src='..".$linha['imagem']."' alt=''></a>
+                                            <h4>".$linha['produto']."</h4>
+                                            <p>R$".$linha['preco'].",00</p>";
+                                            
+                                            if($linha['quantidade'] <= 0)
+                                            {
+                                                echo"
+                                                <br><a>PRODUTO ESGOTADO</a>";
+                                            }
+                                            else
+                                            {
+                                                echo "
+                                                <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
+                                            }
+                                            echo "
+                                        </div>";
+                                        }
+                                    }
+                                }
+                                else{
+                                    echo "Não há produtos cadastrados";
+                                }
+                            echo "</div>";
+                        }
+
+                    ?>
+
                     </div>
 
             </div> <!--Internas-->

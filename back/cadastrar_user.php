@@ -45,6 +45,7 @@
             $_SESSION['adm'] = false;
             $_SESSION['nome'] = $nome;
             $_SESSION['sexo'] = $sexo;
+            $_SESSION['id_user'] = $id_user;
 
             header("Location: ../index.php");
         }
