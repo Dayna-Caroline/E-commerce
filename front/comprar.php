@@ -107,7 +107,7 @@
                                                     <button><a href='../front/login_e_cadastro.php'>Adiconar ao carrinho</a></button>";
                                                 }
                                                 echo "
-                                                <br><button><a href='./produtos.php'>Voltar</a></button>
+                                                <br><button class='btn_voltar'><a href='./produtos.php'>Voltar</a></button>
                                             </div>
                                         </div>";
                                         }
@@ -137,7 +137,7 @@
                                                     <button><a href='../back/add_carrinho.php?id_prod=".$linha['id_produto']."'>Adicionar ao carrinho</a></button>";
                                                 }
                                                 echo "
-                                                <br><button><a href='./produtos.php'>Voltar</a></button>
+                                                <br><button class='btn_voltar'><a href='./produtos.php'>Voltar</a></button>
                                             </div>
                                         </div>";
                                         }
