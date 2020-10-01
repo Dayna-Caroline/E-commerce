@@ -182,6 +182,24 @@ p{
     margin-right: 10px;
 }
 
+.qtde{
+    display: flex;
+    padding: 5px 15px;
+}
+
+.qtde button{
+    width: 20px;
+    border-radius: 4px;
+    background-color: rgb(241, 155, 155);
+    text-align: center;
+    border: 1px solid #555;
+}
+
+.qtde a{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 .total{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -192,7 +210,7 @@ p{
     margin-left: 20%;
 }
 
-button{
+.botao button{
     margin-left: 20%;
     width: 30%;
     padding: 5px 10px;
@@ -200,7 +218,7 @@ button{
     background: rgb(243, 126, 126);  
 }
 
-button:hover{
+.botao button:hover{
     background: rgb(185, 85, 85);
 }
 /*-------------------------------------------------------------------------------------------------------*/

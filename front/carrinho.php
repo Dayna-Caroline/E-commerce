@@ -94,7 +94,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class='preco'>";
+                                            <div class='qtde'>";
 
                                                 $sql2="SELECT produto.quantidade FROM produto WHERE id_produto=$id_bckp;";
                                                 $resultado2 = pg_query($conecta, $sql2);
@@ -105,22 +105,22 @@
                                                     $estoque=$linha2['quantidade'];
                                                 }
 
-                                            echo "
-                                            <form action='../back/atualiza_carrinho.php' method='post'>
-                                                <input type='hidden' name='id_prod' value='".$id_bckp."'/>
-                                                <input type='hidden' name='qtd_prod' value='".$qtd_bckp."'/>
-                                                <input type='hidden' name='estoque' value='".$estoque."'/>
-                                                <input type='hidden' id='muda' name='muda' value='1'>
-                                                <button type='submit' class='submit'>-</button>
-                                            </form>
-                                            <a>".$linha['quantidade']."</a>
-                                            <form action='../back/atualiza_carrinho.php' method='post'>
-                                                <input type='hidden' name='id_prod' value='".$id_bckp."'/>
-                                                <input type='hidden' name='qtd_prod' value='".$qtd_bckp."'/>
-                                                <input type='hidden' name='estoque' value='".$estoque."'/>
-                                                <input type='hidden' id='muda' name='muda' value='2'>
-                                                <button type='submit' class='submit'>+</button>
-                                            </form>
+                                                echo "
+                                                <form action='../back/atualiza_carrinho.php' method='post' class='menos'>
+                                                    <input type='hidden' name='id_prod' value='".$id_bckp."'/>
+                                                    <input type='hidden' name='qtd_prod' value='".$qtd_bckp."'/>
+                                                    <input type='hidden' name='estoque' value='".$estoque."'/>
+                                                    <input type='hidden' id='muda' name='muda' value='1'>
+                                                    <button type='submit' class='submit'>-</button>
+                                                </form>
+                                                <a>".$linha['quantidade']."</a>
+                                                <form action='../back/atualiza_carrinho.php' method='post' class='mais'>
+                                                    <input type='hidden' name='id_prod' value='".$id_bckp."'/>
+                                                    <input type='hidden' name='qtd_prod' value='".$qtd_bckp."'/>
+                                                    <input type='hidden' name='estoque' value='".$estoque."'/>
+                                                    <input type='hidden' id='muda' name='muda' value='2'>
+                                                    <button type='submit' class='submit'>+</button>
+                                                </form>
 
                                             </div>
 
