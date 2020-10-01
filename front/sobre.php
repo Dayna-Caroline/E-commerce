@@ -163,6 +163,34 @@
                         </div>
                 </div>
 
+                <div class="offer">
+                        <div class="small-container">
+                            <br><br>
+                            <div class="linha-3">
+                                <p>Gestão de Negócios</p>
+                                <h2>Jovita Mercedes Hojas Baenas</h2>
+                                <small>jovita.baenas@unesp.br</small>
+                            </div>
+                            <br>
+                            <hr>
+                            <br>
+                            <div class="linha-3">
+                                <p>Aplicativos</p>
+                                <h2>Rodrigo Ferreira de Carvalho</h2>
+                                <small>rodrigo.carvalho@unesp.br</small>
+                            </div>
+                            <br>
+                            <hr>
+                            <br>
+                            <div class="linha-3">
+                                <p>PHP e Banco de Dados</p>
+                                <h2>Vitor José Del Gaudio Simeão</h2>
+                                <small>vitor.simeao@unesp.br</small>
+                            </div>
+                            <br><br>
+                        </div>
+                </div>
+
             </div> <!--Internas-->
 
             <div class="rodape">
