@@ -36,7 +36,7 @@
                     <div class="container">
                         <div class="navbar">
                             <div class="logo">
-                                <a href="../index.php"><img src="../imgs/tudo/melhor.JPG" alt="" width="100px" heigth="100px"></a>
+                                <a href="../index.php"><img src="../imgs/tudo/melhor.jpg" alt="" width="100px" heigth="100px"></a>
                             </div>
                             <nav>
                                 <ul id="MenuItems">

@@ -34,7 +34,7 @@
                     <div class="container">
                         <div class="navbar">
                             <div class="logo">
-                                <img src="./imgs/tudo/melhor.JPG" alt="" width="100px" heigth="100px">
+                                <img src="./imgs/tudo/melhor.jpg" alt="" width="100px" heigth="100px">
                             </div>
                             <nav>
                                 <ul id="MenuItems">
