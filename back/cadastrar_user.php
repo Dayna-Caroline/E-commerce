@@ -10,6 +10,7 @@
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
     $senha = $_POST['senhaForca'];
+    $se = base64_encode($senha);
     $confirma_senha = $_POST['confirma_senha'];
     
     if($senha != $confirma_senha)
@@ -33,7 +34,7 @@
     else
     {
         
-        $sql = "INSERT INTO usuario VALUES(DEFAULT, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', false, null, false);";
+        $sql = "INSERT INTO usuario VALUES(DEFAULT, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$se', '$telefone', '$cep', false, null, false);";
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
         if($linhas > 0)

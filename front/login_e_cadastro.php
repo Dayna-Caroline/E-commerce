@@ -26,6 +26,7 @@
 
     <body>
         <div class="tudo">
+            
             <div class="cont">
                 <div class="form sign-in">
                     <form action="../back/login.php" method="post" class="login">
@@ -64,6 +65,8 @@
                         <span class="m-up">Cadastro</span>
                         <span class="m-in">Login</span>
                     </div>
+
+                    <a href="../index.php" class="logo"><img src="../imgs/tudo/melhor.jpg" alt="" width="150px" heigth="150px"></a>
                 </div>
 
                 <div class="form sign-up">

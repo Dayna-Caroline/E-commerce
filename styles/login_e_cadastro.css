@@ -39,6 +39,13 @@ body{
     transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
 }
 
+.logo{
+    position: absolute;
+    margin-top: 100%;
+    margin-left: 50px;
+    margin-right: auto;
+}
+
 .login{
     margin-top: 20%;
 }

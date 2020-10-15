@@ -125,7 +125,7 @@
                                             </div>
 
                                             <div class='preco'>
-                                                R$ ".($linha['preco']*$linha['quantidade']).",00
+                                                ".$linha['quantidade']." x ".$linha['preco'].",00 = R$ ".($linha['preco']*$linha['quantidade']).",00
                                             </div>
                                         </div>";
                                     }

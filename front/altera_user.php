@@ -88,11 +88,11 @@
                                         $sexo = 'F';
                                         if($linha['sexo'] == $sexo)
                                         {
-                                            $sexo = 'F';
+                                            $sexo = 'Feminino';
                                         }
                                         else
                                         {
-                                            $sexo = 'M';
+                                            $sexo = 'Masculino';
                                         }
                                         $data = date('d/m/Y',  strtotime($linha['data_nascimento']));
 

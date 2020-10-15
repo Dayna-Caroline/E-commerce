@@ -16,13 +16,27 @@
 
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
-    $sexo = $_POST['sexo'];
+
+    $sexo_ext = $_POST['sexo'];
+    if($sexo_ext == 'Feminino' || $sexo_ext = 'feminino'){
+        $senha = 'F';
+    }
+    else if($sexo_ext == 'Masculino' || $sexo_ext = 'masculino'){
+        $senha = 'M';
+    }
+    else{
+        echo '<script language="javascript">';
+        echo "alert('Erro: Erro na alteração do sexo!')";
+        echo '</script>';
+    }
+
     $data_nascimento = $_POST['data'];
     $cpf = $_POST['cpf'];
     $cep = $_POST['cep'];
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
     $senha = $_POST['senhaForca'];
+    $se = base64_encode($senha);
     $confirma_senha = $_POST['confirma_senha'];
     
     if($senha != $confirma_senha)
@@ -58,7 +72,7 @@
     else
     {
         
-        $sql = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', sexo='$sexo', data_nascimento='$data_nascimento', cpf='$cpf', cep='$cep', telefone='$telefone', email='$email', senha='$senha' WHERE id_user='$id_user';";
+        $sql = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', sexo='$sexo', data_nascimento='$data_nascimento', cpf='$cpf', cep='$cep', telefone='$telefone', email='$email', senha='$se' WHERE id_user='$id_user';";
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
 
