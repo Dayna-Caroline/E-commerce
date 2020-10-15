@@ -10,19 +10,12 @@
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
     $senha = $_POST['senhaForca'];
-    $se = base64_encode($senha);
     $confirma_senha = $_POST['confirma_senha'];
     
     if($senha != $confirma_senha)
     {
         echo '<script language="javascript">';
         echo "alert('Erro: senhas diferentes!')";
-        echo '</script>';
-    }
-    else if(strlen($senha) < 4)
-    {
-        echo '<script language="javascript">';
-        echo "alert('Erro: senha muito curta')";
         echo '</script>';
     }
     else if(strlen($data_nascimento) != 10)
@@ -34,7 +27,8 @@
     else
     {
         
-        $sql = "INSERT INTO usuario VALUES(DEFAULT, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$se', '$telefone', '$cep', false, null, false);";
+        $sql = "INSERT INTO usuario VALUES(DEFAULT, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', FALSE, NULL, FALSE)";
+        
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
         if($linhas > 0)

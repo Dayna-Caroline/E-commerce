@@ -1,4 +1,6 @@
 <?php
+    include "conexao.php";
+
     require_once('src/PHPMailer.php');
     require_once('src/SMTP.php');
     require_once('src/Exception.php');
@@ -7,7 +9,6 @@
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
-    include "conexao.php";
 
     $logado = null;
 
@@ -27,26 +28,8 @@
 
     if($qtde > 0)
     {
-        //PEGA O PREÇO
-        $soma_total=0;
-        $sql="SELECT c.id_user, c.id_produto, c.quantidade, c.excluido,p.id_produto, p.produto, p.descricao, p.preco, p.imagem FROM carrinho AS c JOIN produto AS p ON c.id_produto = p.id_produto WHERE c.id_user = $id_user AND c.excluido = FALSE;";                       
-        $resultado = pg_query($conecta, $sql);
-        $qtdeA = pg_num_rows($resultado);
-
-        if($qtdeA > 0)
-        {
-
-            for($cont=0; $cont < $qtde; $cont++)
-            {
-                $linha=pg_fetch_array($resultado);
-                $estoque=0;
-                for($cont2=0; $cont2 < $linha['quantidade']; $cont2++)
-                    $soma_total+=$linha['preco'];
-
-            }
-        }
         $sucesso = true;
-        
+
         //SALVAR COMPRA
         $date = date("Y/m/d");
         $sql = "INSERT INTO compra VALUES(DEFAULT, $id_user, '$date', FALSE);";
@@ -84,6 +67,53 @@
                 break;
             }
         }
+
+        //Dados da Compra 
+    $sql = "SELECT * from compra WHERE id_user = $id_user ORDER BY id_compra DESC";
+    $resultado = pg_query($conecta, $sql);
+    $qtde = pg_num_rows($resultado);
+
+    if($qtde < 0) {
+        return;
+    }
+
+    $linha = pg_fetch_array($resultado);
+
+    $idCompra = $linha['id_compra'];
+    $dataCompra = $linha['data_compra'];
+
+    //Dados Itens
+    $sql2 = "SELECT compra.id_compra, produto.produto, itens.quantidade, produto.preco, produto.imagem 
+             FROM itens JOIN compra ON itens.id_compra=compra.id_compra
+             INNER JOIN produto ON itens.id_produto=produto.id_produto
+             WHERE id_user=$id_user AND compra.id_compra=$idCompra ORDER BY data_compra";
+    $resultado2 = pg_query($conecta, $sql2);
+    $qtde2 = pg_num_rows($resultado2);
+
+    if($qtde2 < 0) {
+        return;
+    }
+    
+    $i = 0;
+    $precototal = 0;
+
+    while($linha2 = pg_fetch_array($resultado2))
+    {
+        $produto = $linha2['produto'];
+        $quantidade = $linha2['quantidade'];
+        $preco = $linha2['preco'];
+
+        $precofinal = $preco*$quantidade;
+        $precototal += $precofinal;
+
+        if($i == 0) {
+            $dadosCompra = array(array("$produto", "$quantidade", "$precofinal"));
+        } else {
+            array_push($dadosCompra, array("$produto", "$quantidade", "$precofinal"));
+        }
+
+        $i++;
+    }
 
         //DAR BAIXA NO ESTOQUE
         $sql = "SELECT c.id_user, c.id_produto, c.quantidade, c.excluido, p.id_produto, p.produto, p.preco
@@ -133,23 +163,39 @@
             $sucesso = false;
             echo "erro ao efetuar compra aqui! 3";
         }
-        
+
         if($sucesso == true)
         {
-            
-            //PEGA O CEP
-            $cep = 0;
-            $sql="SELECT cep FROM usuario WHERE id_user=$id_user;";
-            $resultado = pg_query($conecta, $sql);
-            $qtdeB = pg_num_rows($resultado);
+            header("Location: ./gerar_pdf.php");
+        }
+        else
+        {
+            echo '<script language="javascript">';
+            echo "alert('Erro ao efetuar compra!')";
+            echo '</script>';
+        }
+    }
+    else
+    {
+        echo '<script language="javascript">';
+        echo "alert('Erro ao efetuar compra!')";
+        echo '</script>';
+    }
 
-            if($qtdeB > 0)
-            {
-                $linha=pg_fetch_array($resultado);
+    //Dados Cliente
+    $sql3 = "SELECT cep from usuario WHERE id_user = $id_user";
+    $resultado3 = pg_query($conecta, $sql3);
+    $qtde3 = pg_num_rows($resultado3);
 
-                $cep=$linha['cep'];
-            }
-            //ENVIA EMAIL   
+    if($qtde3 < 0) {
+        return;
+    }
+
+    $linha3 = pg_fetch_array($resultado3);
+
+    $cep = $linha3['cep'];
+
+    //ENVIA EMAIL   
             $mail = new PHPMailer(true);
 
             try {
@@ -167,8 +213,8 @@
 
                 $mail->isHTML(true);
                 $mail->Subject = 'Confirmar sua compra Cup&Mug';
-                $mail->Body = 'Sua compra no valor de '.$soma_total.' reais foi bem sucedida e será entregue no endereço do CEP: '.$cep;
-                $mail->AltBody = 'Sua compra no valor de '.$soma_total.' reais foi bem sucedida e será entregue no endereço do CEP: '.$cep;
+                $mail->Body = 'Sua compra no valor de R$'.$precototal.',00 foi bem sucedida e será entregue no endereço do CEP: '.$cep;
+                $mail->AltBody = 'Sua compra no valor de '.$precototal.',00 reais foi bem sucedida e será entregue no endereço do CEP: '.$cep;
 
                 if($mail->send()) {
                     echo 'Email enviado com sucesso';
@@ -178,20 +224,5 @@
             } catch (Exception $e) {
                 echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
             }
-            ?><meta http-equiv="refresh" content="0; URL='./gerar_pdf.php'"/><?php
-        }
-
-        else
-        {
-            echo '<script language="javascript">';
-            echo "alert('Erro ao efetuar compra!')";
-            echo '</script>';
-        }
-    }
-    else
-    {
-        echo '<script language="javascript">';
-        echo "alert('Erro ao efetuar compra!')";
-        echo '</script>';
-    }
 ?>
+

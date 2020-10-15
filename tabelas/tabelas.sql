@@ -56,7 +56,7 @@ INSERT INTO produto
 VALUES
 (1, 'Caneca com Frase', 2, 'Caneca na cor cinza com frase colorida, disponível no tamanho de 450mL e feita de alumínio.', 	40, 30, '/imgs/produtos/caneca1.jpg', 	'Alumínio', 'Cinza',	450, FALSE, NULL),
 (2, 'Copo Twister', 	1, 'Copo twister, feito de acrílico, com tampa e canudo e capacidade para 700mL.', 					20, 50, '/imgs/produtos/copo1.jpg', 	'Acrílico', 'Variada',	700, FALSE, NULL),
-(3, 'Caneca Coffe',     2, 'Caneca de cerâmica com cores variadas, estampada com uma frase, 350mL.', 						50, 40, '/imgs/produtos/caneca2.JPG', 	'Cerâmica', 'Variada',	350, FALSE, NULL),
+(3, 'Caneca Coffe',     2, 'Caneca de cerâmica com cores variadas, estampada com uma frase, 350mL.', 						50, 40, '/imgs/produtos/caneca2.jpg', 	'Cerâmica', 'Variada',	350, FALSE, NULL),
 (4, 'Copo com Luzes', 	1, 'Copo com luzes, estampado com uma frase e capacidade para 400mL.', 								10, 90, '/imgs/produtos/copo2.jpg', 	'Acrílico', 'Variada',	400, FALSE, NULL),
 (5,'Caneca com Tirante',2, 'Caneca com cores variadas estampada com uma frase, feita de acrílico e com tamanho de 400mL.', 	80, 35, '/imgs/produtos/caneca3.jpg', 	'Acrílico', 'Variada',	400, FALSE, NULL),
 (6, 'Copo com Canudo', 	1, 'Copo de acrílico com tampa e canuco, estampado com uma frase e capacidade para 700mL.', 		40, 60, '/imgs/produtos/copo3.jpg', 	'Acrílico', 'Variada',	700, FALSE, NULL),

@@ -136,7 +136,7 @@
                             </div>
 
                             <div class="botoes">
-                                <section><a href='../back/comprar.php'><button>Finalizar compra</button></a><br></section>
+                                <section><a href='../back/comprar.php?'><button>Finalizar compra</button></a><br></section>
                                 <section><a href='../front/carrinho.php'><button>Voltar</button></a></section>
                             </div>
                     </div>
