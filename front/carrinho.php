@@ -46,6 +46,11 @@
                             </nav>
                             <a href="../front/conta.php"><img src="../imgs/tudo/conta.png" alt="" width="30px" heigth="30px"></a>
                             <a href="../front/carrinho.php"><img src="../imgs/tudo/carrinho.png" alt="" width="30px" heigth="30px"></a>
+                        
+                            <?php
+                                if($adm == true)
+                                    echo "<a href=''><img src='../imgs/tudo/config.png' alt='' width='30px' heigth='30px'></a>";
+                            ?>
                         </div>
                     </div>
                 </div>

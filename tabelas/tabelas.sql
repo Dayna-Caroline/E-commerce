@@ -30,8 +30,8 @@ CREATE TABLE usuario
 INSERT INTO usuario  
 (id_user, nome, sobrenome, sexo, data_nascimento, cpf, email, senha, telefone, cep, excluido, data_exclusao, adm)
 VALUES
-(DEFAULT, 'Augusto', 'Creppe', 'M', '23/07/2004', '455.491.018-07', 'augusto.creppe@unesp.br', 'cti', '(14) 99678-6342', '17.018-786', false, null, true),
-(DEFAULT, 'Dayna', 'Caroline', 'F', '12/07/2004', '455.103.657-21', 'dayna.caroline@unesp.br', 'cti', '(14) 99101-5603', '17.033-410', false, null, true);
+(DEFAULT, 'Augusto', 'Creppe', 'M', '23/07/2004', '455.491.018-07', 'augusto.creppe@unesp.br', 'Y3Rp', '(14) 99678-6342', '17.018-786', false, null, true),
+(DEFAULT, 'Dayna', 'Caroline', 'F', '12/07/2004', '455.103.657-21', 'dayna.caroline@unesp.br', 'Y3Rp', '(14) 99101-5603', '17.033-410', false, null, true);
 
 /*------------------------------------------------------------------*/
 

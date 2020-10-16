@@ -18,11 +18,12 @@
     $sobrenome = $_POST['sobrenome'];
 
     $sexo_ext = $_POST['sexo'];
+    
     if($sexo_ext == 'Feminino' || $sexo_ext = 'feminino'){
-        $senha = 'F';
+        $sexo = 'F';
     }
     else if($sexo_ext == 'Masculino' || $sexo_ext = 'masculino'){
-        $senha = 'M';
+        $sexo = 'M';
     }
     else{
         echo '<script language="javascript">';
@@ -36,19 +37,12 @@
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
     $senha = $_POST['senhaForca'];
-    $se = base64_encode($senha);
     $confirma_senha = $_POST['confirma_senha'];
     
     if($senha != $confirma_senha)
     {
         echo '<script language="javascript">';
         echo "alert('Erro: senhas diferentes!')";
-        echo '</script>';
-    }
-    else if(strlen($data_nascimento) != 10)
-    {
-        echo '<script language="javascript">';
-        echo "alert('Erro: data de nascimento incorreta!(dd/mm/aaaa)')";
         echo '</script>';
     }
     else if(strlen($cpf) != 14)
@@ -71,8 +65,9 @@
     }
     else
     {
+        $se = base64_encode($senha);
         
-        $sql = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', sexo='$sexo', data_nascimento='$data_nascimento', cpf='$cpf', cep='$cep', telefone='$telefone', email='$email', senha='$se' WHERE id_user='$id_user';";
+        $sql = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', sexo='$sexo', data_nascimento='$data_nascimento', cpf='$cpf', cep='$cep', telefone='$telefone', email='$logado', senha='$se' WHERE id_user='$id_user';";
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
 

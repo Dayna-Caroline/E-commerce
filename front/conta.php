@@ -64,6 +64,11 @@
                             ?>
                             
                             "><img src="../imgs/tudo/carrinho.png" alt="" width="30px" heigth="30px"></a>
+                        
+                            <?php
+                                if($adm == true)
+                                    echo "<a href=''><img src='../imgs/tudo/config.png' alt='' width='30px' heigth='30px'></a>";
+                            ?>
                         </div>
                     </div>
                 </div>

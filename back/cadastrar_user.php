@@ -9,10 +9,10 @@
     $cep = $_POST['cep'];
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
-    $senha = $_POST['senhaForca'];
+    $se = $_POST['senhaForca'];
     $confirma_senha = $_POST['confirma_senha'];
     
-    if($senha != $confirma_senha)
+    if($se != $confirma_senha)
     {
         echo '<script language="javascript">';
         echo "alert('Erro: senhas diferentes!')";
@@ -26,6 +26,7 @@
     }
     else
     {
+        $senha = base64_encode($se);
         
         $sql = "INSERT INTO usuario VALUES(DEFAULT, '$nome', '$sobrenome', '$sexo', '$data_nascimento', '$cpf', '$email', '$senha', '$telefone', '$cep', FALSE, NULL, FALSE)";
         

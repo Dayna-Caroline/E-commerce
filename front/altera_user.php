@@ -65,6 +65,11 @@
                             ?>
                             
                             "><img src="../imgs/tudo/carrinho.png" alt="" width="30px" heigth="30px"></a>
+
+                            <?php
+                                if($adm == true)
+                                    echo "<a href=''><img src='../imgs/tudo/config.png' alt='' width='30px' heigth='30px'></a>";
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -95,6 +100,9 @@
                                             $sexo = 'Masculino';
                                         }
                                         $data = date('d/m/Y',  strtotime($linha['data_nascimento']));
+
+                                        $se = $linha['senha'];
+                                        $senha = base64_decode($se);
 
                                         echo "<label>
                                         <div class='icon'><i class='fas fa-user'></i></div>
@@ -138,13 +146,13 @@
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-lock'></i></div>   
-                                        <input type='password' name='senhaForca' id='senhaForca' value='$linha[senha]' onkeyup='validarSenhaForca()'>
+                                        <input type='password' name='senhaForca' id='senhaForca' value='$senha' onkeyup='validarSenhaForca()'>
                                         <div id='erroSenhaForca' class='forca'></div>
                                     </label>
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-lock'></i></div>
-                                        <input type='password' name='confirma_senha' value='$linha[senha]' autocomplete='off'>
+                                        <input type='password' name='confirma_senha' value='$senha' autocomplete='off'>
                                     </label>";
                                     }
                                 }

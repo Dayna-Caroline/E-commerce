@@ -1,4 +1,6 @@
 <?php
+    include "conexao.php";
+
     require_once('src/PHPMailer.php');
     require_once('src/SMTP.php');
     require_once('src/Exception.php');
@@ -6,8 +8,6 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-
-    include "conexao.php";
 
     $email = $_POST['email'];
 
@@ -18,6 +18,8 @@
 
     if($linhas == 1)
     {
+        $se = $linha['senha'];
+        $senha = base64_decode($se);
 
         $mail = new PHPMailer(true);
 
@@ -36,8 +38,8 @@
 
             $mail->isHTML(true);
             $mail->Subject = 'Recupere sua senha Cup&Mug';
-            $mail->Body = 'Sua senha é: <strong>'.$linha['senha'].'</strong>';
-            $mail->AltBody = 'Sua senha é: '.$linha['senha'];
+            $mail->Body = 'Sua senha é: <strong>'.$senha.'</strong>';
+            $mail->AltBody = 'Sua senha é: '.$senha;
 
             if($mail->send()) {
                 echo 'Email enviado com sucesso';

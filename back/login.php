@@ -2,7 +2,8 @@
     include "conexao.php";
 
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $se = $_POST['senha'];
+    $senha = base64_encode($se);
 
     $result = pg_query("SELECT * FROM usuario WHERE email ='$email' AND senha = '$senha'");
     
