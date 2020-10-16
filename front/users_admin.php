@@ -78,7 +78,6 @@
                                 
                                 if($qtde > 0)
                                 {
-                                    $soma_total=0;
 
                                     for($cont=0; $cont < $qtde; $cont++)
                                     {
@@ -87,11 +86,11 @@
                                         $ad=$linha['adm'];
                                         $sexo=$linha['sexo'];
 
-                                        if($ad == 'NULL' || $ad == 'null'){
-                                            $admin = 'Não';
+                                        if($ad == 't'){
+                                            $admin = 'Sim';
                                         }
                                         else{
-                                            $admin = 'Sim';
+                                            $admin = 'Não';
                                         }
 
                                         if($sexo == 'F'){
@@ -159,11 +158,11 @@
                                             $ad=$linha['adm'];
                                             $sexo=$linha['sexo'];
 
-                                            if($ad == 'NULL' || $ad == 'null'){
-                                                $admin = 'Não';
+                                            if($ad == 't'){
+                                                $admin = 'Sim';
                                             }
                                             else{
-                                                $admin = 'Sim';
+                                                $admin = 'Não';
                                             }
 
                                             if($sexo == 'F'){
