@@ -19,10 +19,10 @@
 
     $sexo_ext = $_POST['sexo'];
     
-    if($sexo_ext == 'Feminino' || $sexo_ext = 'feminino'){
+    if($sexo_ext == 'Feminino' || $sexo_ext == 'feminino'){
         $sexo = 'F';
     }
-    else if($sexo_ext == 'Masculino' || $sexo_ext = 'masculino'){
+    else if($sexo_ext == 'Masculino' || $sexo_ext == 'masculino'){
         $sexo = 'M';
     }
     else{

@@ -169,7 +169,7 @@
                     </div>
 
                     <div class="inicio">
-                        <a href="carrinho.php">Voltar ao inicio</a>
+                        <a href="historico.php">Voltar ao inicio</a>
                     </div>
                 </div>
         </div>                  
