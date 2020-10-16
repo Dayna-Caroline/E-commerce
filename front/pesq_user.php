@@ -4,6 +4,7 @@
     include "../back/conexao.php";
 
     $logado = null;
+    $pesq = $_POST['pesq'];
 
     session_start();
     
@@ -71,7 +72,9 @@
                             </div>
 
                             <?php
-                                $sql="SELECT *FROM usuario WHERE excluido='false' ORDER BY id_user;";
+
+                                if(!$pesq == ''){
+                                    $sql="SELECT *FROM usuario WHERE nome LIKE '%$pesq%' AND excluido='false' ORDER BY id_user;";
                                 
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
@@ -130,12 +133,132 @@
                                 {
                                     echo "<center><br><br><br><br><br><br><br><br><br><br><br><br><h1><div class='tabela'><b> Seu carrinho está vazio </b></div></h1> <br><br><br><br><br><br><br></center>";
                                 }
+                                    echo "</div>  
+                                </div>";
+                    
+                                $sql="SELECT *FROM usuario WHERE nome LIKE '%$pesq%' AND excluido='true' ORDER BY id_user;";           
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                
+                                if($qtde > 0)
+                                {
+                                    echo "<div class='small-container'>
+                                            <h2>Usuários Inativos</h2>
+                                            <div class='tabela'>
+                                                <div class='titulos'>
+                                                    <div class='produto'>Usuário</div>
+                                                    <div class='quant'>Administrador</div>
+                                                    <div class='preco'>Configurações</div>
+                                                </div>";
 
-                            ?>
-                        </div>  
-                    </div>
+                                        for($cont=0; $cont < $qtde; $cont++)
+                                        {
+                                            $linha=pg_fetch_array($resultado);
 
-                    <?php
+                                            $ad=$linha['adm'];
+                                            $sexo=$linha['sexo'];
+
+                                            if($ad == 'NULL' || $ad == 'null'){
+                                                $admin = 'Não';
+                                            }
+                                            else{
+                                                $admin = 'Sim';
+                                            }
+
+                                            if($sexo == 'F'){
+                                                $icon="<div class='feminino'><i class='fas fa-female'></i></div>";
+                                            }
+                                            else{
+                                                $icon="<i class='fas fa-male'></i>";
+                                            }
+
+                                            echo "
+                                            <div class='produtos'>
+                                                <div class='produto completa'>
+                                                    <div class='img'>".$icon."</div>
+                                                    <div class='descricao'>
+                                                        <br>
+                                                        <p>".$linha['nome']." ".$linha['sobrenome']."</p>
+                                                        <p>".$linha['email']."</p>
+                                                        <a href=''>Mais detalhes</a>
+                                                    </div>
+                                                </div>
+
+                                                <div class='quant'>";
+
+                                                    echo "<p>".$admin."</p>
+
+                                                </div>
+
+                                                <div class='preco2'>
+                                                    <a href=''>Reativar</a>
+                                                </div>
+                                            </div>";
+                                        }
+                                    }
+                                }
+                                else{
+                                    $sql="SELECT *FROM usuario WHERE excluido='false' ORDER BY id_user;";
+                                
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                
+                                if($qtde > 0)
+                                {
+                                    $soma_total=0;
+
+                                    for($cont=0; $cont < $qtde; $cont++)
+                                    {
+                                        $linha=pg_fetch_array($resultado);
+
+                                        $ad=$linha['adm'];
+                                        $sexo=$linha['sexo'];
+
+                                        if($ad == 'NULL' || $ad == 'null'){
+                                            $admin = 'Não';
+                                        }
+                                        else{
+                                            $admin = 'Sim';
+                                        }
+
+                                        if($sexo == 'F'){
+                                            $icon="<div class='feminino'><i class='fas fa-female'></i></div>";
+                                        }
+                                        else{
+                                            $icon="<i class='fas fa-male'></i>";
+                                        }
+
+                                        echo "
+                                        <div class='produtos'>
+                                            <div class='produto completa'>
+                                                <div class='img'>".$icon."</div>
+                                                <div class='descricao'>
+                                                    <br>
+                                                    <p>".$linha['nome']." ".$linha['sobrenome']."</p>
+                                                    <p>".$linha['email']."</p>
+                                                    <a href=''>Mais detalhes</a>
+                                                </div>
+                                            </div>
+
+                                            <div class='quant'>";
+
+                                                echo "<p>".$admin."</p>
+
+                                            </div>
+
+                                            <div class='preco1'>
+                                                <a href=''><i class='fas fa-user-edit'></i></a>
+                                                <a href=''><i class='fas fa-trash-alt'></i></a>
+                                            </div>
+                                        </div>";
+                                    }
+                                }
+                                else
+                                {
+                                    echo "<center><br><br><br><br><br><br><br><br><br><br><br><br><h1><div class='tabela'><b> Seu carrinho está vazio </b></div></h1> <br><br><br><br><br><br><br></center>";
+                                }
+                                    echo "</div>  
+                                </div>";
                     
                                 $sql="SELECT *FROM usuario WHERE excluido='true' ORDER BY id_user;";           
                                 $resultado = pg_query($conecta, $sql);
@@ -197,6 +320,7 @@
                                             </div>";
                                         }
                                     }
+                                }
 
                             ?>
                         </div>  

@@ -31,7 +31,9 @@ INSERT INTO usuario
 (id_user, nome, sobrenome, sexo, data_nascimento, cpf, email, senha, telefone, cep, excluido, data_exclusao, adm)
 VALUES
 (DEFAULT, 'Augusto', 'Creppe', 'M', '23/07/2004', '455.491.018-07', 'augusto.creppe@unesp.br', 'Y3Rp', '(14) 99678-6342', '17.018-786', false, null, true),
-(DEFAULT, 'Dayna', 'Caroline', 'F', '12/07/2004', '455.103.657-21', 'dayna.caroline@unesp.br', 'Y3Rp', '(14) 99101-5603', '17.033-410', false, null, true);
+(DEFAULT, 'Dayna', 'Caroline', 'F', '12/07/2004', '455.103.657-21', 'dayna.caroline@unesp.br', 'Y3Rp', '(14) 99101-5603', '17.033-410', false, null, true),
+(DEFAULT, 'Fernanda', 'Modolo', 'F', '08/12/2003', '435.231.987-01', 'fernanda.modolo@unesp.br', 'Y3Rp', '(14) 99428-0935', '17.563-142', false, null, false),
+(DEFAULT, 'Ana', 'Maria', 'F', '23/11/2002', '455.185.021-49', 'ana.maria@unesp.br', 'Y3Rp', '(14) 99155-9876', '19.641-601', true, null, false);
 
 /*------------------------------------------------------------------*/
 

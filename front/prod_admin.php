@@ -32,11 +32,11 @@
                 <div class="container">
                     <div class="navbar">
                         <div class="logo">
-                            <a href="../index.php"><img src="../imgs/tudo/melhor.jpg" alt="" width="100px" heigth="100px"></a>
+                            <a href="../front/graficos.php"><img src="../imgs/tudo/melhor.jpg" alt="" width="100px" heigth="100px"></a>
                         </div>
                         <nav>
                                 <ul id="MenuItems">
-                                    <li><a href="">Gráficos</a></li>
+                                    <li><a href="../front/graficos.php">Gráficos</a></li>
                                     <li><a href="../front/users_admin.php">Usuários</a></li>
                                     <li><a href="../front/prod_admin.php"><span>Produtos</span></a></li>
                                     <li><a href="../index.php">Utilizar como cliente &#8594;</a></li>
