@@ -214,11 +214,11 @@
                                         $ad=$linha['adm'];
                                         $sexo=$linha['sexo'];
 
-                                        if($ad == 'NULL' || $ad == 'null'){
-                                            $admin = 'Não';
+                                        if($ad == 't'){
+                                            $admin = 'Sim';
                                         }
                                         else{
-                                            $admin = 'Sim';
+                                            $admin = 'Não';
                                         }
 
                                         if($sexo == 'F'){
@@ -282,11 +282,11 @@
                                             $ad=$linha['adm'];
                                             $sexo=$linha['sexo'];
 
-                                            if($ad == 'NULL' || $ad == 'null'){
-                                                $admin = 'Não';
+                                            if($ad == 't'){
+                                                $admin = 'Sim';
                                             }
                                             else{
-                                                $admin = 'Sim';
+                                                $admin = 'Não';
                                             }
 
                                             if($sexo == 'F'){
