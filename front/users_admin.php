@@ -57,7 +57,7 @@
                             </form>
 
                             <div class="select">
-                                <a href=""><button>Adicionar usuários</button></a>
+                                <a href="insere_user.php"><button>Adicionar usuários</button></a>
                             </div>
                     </div>
 
