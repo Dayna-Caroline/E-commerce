@@ -58,12 +58,12 @@
                     
                     <label>
                         <div class='icon'><i class='fas fa-user'></i></div>
-                        <input type='text' name='nome' value='nome' autocomplete='off' class="texto">
+                        <input type='text' name='nome' placeholder='Nome' autocomplete='off' class="texto" required>
                     </label>
                                     
                     <label>
                         <div class='icon'><i class='fas fa-user'></i></div>
-                        <input type='text' name='sobrenome' value='sobrenome' autocomplete='off' class="texto">
+                        <input type='text' name='sobrenome' placeholder='Sobrenome' autocomplete='off' class="texto" required>
                     </label>
                                     
                     <label>
@@ -76,38 +76,38 @@
                                     
                     <label>
                         <div class='icon'><i class='fas fa-calendar-alt'></i></div>
-                        <input type='text' class="texto" name='data' onKeyPress='MascaraData(form1.data);' maxlength='10' value='data' autocomplete='off'>
+                        <input type='text' class="texto" name='data' onKeyPress='MascaraData(form1.data);' maxlength='10' placeholder='Data de Nascimento' autocomplete='off' required>
                     </label>
                                     
                     <label>
                         <div class='icon'><i class='fas fa-address-card'></i></div>
-                        <input type='text' class="texto" name='cpf' onKeyPress='MascaraCPF(form1.cpf);' maxlength='14' value='cpf' autocomplete='off'>
+                        <input type='text' class="texto" name='cpf' onKeyPress='MascaraCPF(form1.cpf);' maxlength='14' placeholder='CPF' autocomplete='off' required>
                     </label>
                                     
                     <label>
                         <div class='icon'><i class='fas fa-map-marked-alt'></i></div>
-                        <input type='text' class="texto" name='cep' onKeyPress='MascaraCep(form1.cep);' maxlength='10' value='cep' autocomplete='off'>
+                        <input type='text' class="texto" name='cep' onKeyPress='MascaraCep(form1.cep);' maxlength='10' placeholder='CEP' autocomplete='off' required>
                     </label>
                                     
                     <label>
                         <div class='icon'><i class='fas fa-mobile'></i></div>
-                        <input type='text' class="texto" name='telefone' onKeyPress='MascaraTelefone(form1.telefone);' maxlength='15' value='telefone' autocomplete='off'>
+                        <input type='text' class="texto" name='telefone' onKeyPress='MascaraTelefone(form1.telefone);' maxlength='15' placeholder='Telefone' autocomplete='off' required>
                     </label>
                                     
                     <label>
                         <div class='icon'><i class='fas fa-envelope-open-text'></i></div>
-                        <input type='email' class="texto" name='email' value='email' autocomplete='off'> 
+                        <input type='email' class="texto" name='email' placeholder='Email' autocomplete='off' required> 
                     </label>
                                     
                     <label>
                         <div class='icon'><i class='fas fa-lock'></i></div>   
-                        <input type='password' class="texto" name='senhaForca' id='senhaForca' value='senha' onkeyup='validarSenhaForca()'>
+                        <input type='password' class="texto" name='senhaForca' id='senhaForca' placeholder='Senha' onkeyup='validarSenhaForca()' required>
                         <div id='erroSenhaForca' class='forca'></div>
                     </label>
                                     
                     <label>
                         <div class='icon'><i class='fas fa-lock'></i></div>
-                        <input type='password' class="texto" name='confirma_senha' value='confirma_senha' autocomplete='off'>
+                        <input type='password' class="texto" name='confirma_senha' placeholder='Confirmar Senha' autocomplete='off' required>
                     </label>
 
                     <label>
@@ -121,7 +121,7 @@
 
                     <div class="botoes">
                         <button type="submit">Criar usuário</button>
-                        <button><a href="../front/conta.php">Voltar</a></button>
+                        <button><a href="../front/users_admin.php">Voltar</a></button>
                     </div>  
                 </form>   
             </div> <!--Internas-->
