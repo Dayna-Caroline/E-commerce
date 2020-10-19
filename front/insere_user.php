@@ -53,7 +53,7 @@
 
             <div class="internas">
                 <!--Conta - Informações-------------------------------------------------------------------------------------------------------->
-                <form action="../back/altera_user.php" method="post" class="small-container" name="form1">
+                <form action="../back/cadastrar_user_adm.php" method="post" class="small-container" name="form1">
                     <h2>Informações da conta</h2>
                     
                     <label>
@@ -113,8 +113,8 @@
                     <label>
                         <div class='icon'><i class='fas fa-venus-mars'></i></div>
                         <div class="col-radio">
-                                <input type="radio" name="adm" value="adm" class="radio"><p>Administrador</p required>
-                                <input type="radio" name="adm" value="cliente" class="radio"><p>Cliente</p required>
+                                <input type="radio" name="adm" value="1" class="radio"><p>Administrador</p required>
+                                <input type="radio" name="adm" value="2" class="radio"><p>Cliente</p required>
                         </div>
                     </label>
 
