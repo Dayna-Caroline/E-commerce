@@ -108,7 +108,7 @@
                                                     <br>
                                                     <p>".$linha['nome']." ".$linha['sobrenome']."</p>
                                                     <p>".$linha['email']."</p>
-                                                    <a href=''>Mais detalhes</a>
+                                                    <a href='../front/detalhes_user.php'>Mais detalhes</a>
                                                 </div>
                                             </div>
 
@@ -119,8 +119,8 @@
                                             </div>
 
                                             <div class='preco1'>
-                                                <a href=''><i class='fas fa-user-edit'></i></a>
-                                                <a href=''><i class='fas fa-trash-alt'></i></a>
+                                                <a href='alterar_user_admin.php?id_usuario=".$linha['id_user']."'><i class='fas fa-user-edit'></i></a>
+                                                <a href='../back/exclui_user_admin.php?id_usuario=".$linha['id_user']."'><i class='fas fa-trash-alt'></i></a>
                                             </div>
                                         </div>";
                                     }
@@ -180,7 +180,7 @@
                                                         <br>
                                                         <p>".$linha['nome']." ".$linha['sobrenome']."</p>
                                                         <p>".$linha['email']."</p>
-                                                        <a href=''>Mais detalhes</a>
+                                                        <a href='../front/detalhes_user.php'>Mais detalhes</a>
                                                     </div>
                                                 </div>
 
@@ -191,7 +191,7 @@
                                                 </div>
 
                                                 <div class='preco2'>
-                                                    <a href=''>Reativar</a>
+                                                    <a href='../back/reativar_user.php?id_usuario=".$linha['id_user']."'>Reativar</a>
                                                 </div>
                                             </div>";
                                         }

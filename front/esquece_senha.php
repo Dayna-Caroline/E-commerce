@@ -65,7 +65,7 @@
                         
                             <?php
                                 if($adm == true)
-                                    echo "<a href=''><img src='../imgs/tudo/config.png' alt='' width='30px' heigth='30px'></a>";
+                                    echo "<a href='../front/graficos.php'><img src='../imgs/tudo/config.png' alt='' width='30px' heigth='30px'></a>";
                             ?>
                         </div>
                     </div>

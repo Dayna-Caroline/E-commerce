@@ -6,6 +6,8 @@
 <?php
     include "../back/conexao.php";
 
+    $id_usuario = $_GET['id_usuario'];
+
     $logado = null;
 
     session_start();
@@ -24,7 +26,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Cup&Mug</title>
-        <link rel="stylesheet" href="../styles/conta.css">
+        <link rel="stylesheet" href="../styles/insere_user.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
@@ -36,40 +38,16 @@
                     <div class="container">
                         <div class="navbar">
                             <div class="logo">
-                                <a href="../index.php"><img src="../imgs/tudo/melhor.jpg" alt="" width="100px" heigth="100px"></a>
+                                <a href="../front/graficos.php"><img src="../imgs/tudo/melhor.jpg" alt="" width="100px" heigth="100px"></a>
                             </div>
                             <nav>
-                                <ul id="MenuItems">
-                                    <li><a href="../index.php">Home</a></li>
-                                    <li><a href="../front/produtos.php">Produtos</a></li>
-                                    <li><a href="../front/sobre.php">Sobre</a></li>
-                                </ul>
+                                    <ul id="MenuItems">
+                                        <li><a href="../front/graficos.php">Gráficos</a></li>
+                                        <li><a href="../front/users_admin.php"><span>Usuários</span></a></li>
+                                        <li><a href="../front/prod_admin.php">Produtos</a></li>
+                                        <li><a href="../index.php">Utilizar como cliente &#8594;</a></li>
+                                    </ul>
                             </nav>
-                            <a href="
-                            
-                            <?php
-                                if($logado ==  null)
-                                    echo "../front/login_e_cadastro.php";
-                                else
-                                    echo "../front/conta.php";
-                            ?>
-                            
-                            "><img src="../imgs/tudo/conta.png" alt="" width="30px" heigth="30px"></a>
-                            <a href="
-                            
-                            <?php
-                                if($logado ==  null)
-                                    echo "../front/login_e_cadastro.php";
-                                else
-                                    echo "../front/carrinho.php";
-                            ?>
-                            
-                            "><img src="../imgs/tudo/carrinho.png" alt="" width="30px" heigth="30px"></a>
-
-                            <?php
-                                if($adm == true)
-                                    echo "<a href='../front/graficos.php'><img src='../imgs/tudo/config.png' alt='' width='30px' heigth='30px'></a>";
-                            ?>
                         </div>
                     </div>
                 </div>
@@ -77,11 +55,11 @@
 
             <div class="internas">
                 <!--Conta - Informações-------------------------------------------------------------------------------------------------------->
-                <form action="../back/altera_user.php" method="post" class="small-container" name="form1">
+                <form action="../back/altera_user_admin.php" method="post" class="small-container" name="form1">
                     <h2>Informações da conta</h2>
 
                             <?php
-                                $sql="SELECT * FROM usuario WHERE email = '$logado' AND excluido = FALSE";
+                                $sql="SELECT * FROM usuario WHERE id_user = '$id_usuario' AND excluido = FALSE";
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
 
@@ -99,6 +77,17 @@
                                         {
                                             $sexo = 'Masculino';
                                         }
+
+                                        $usuario = 't';
+                                        if($linha['adm'] == $usuario)
+                                        {
+                                            $usuario = 'Administrador';
+                                        }
+                                        else
+                                        {
+                                            $usuario = 'Cliente';
+                                        }
+
                                         $data = date('d/m/Y',  strtotime($linha['data_nascimento']));
 
                                         $se = $linha['senha'];
@@ -153,6 +142,11 @@
                                     <label>
                                         <div class='icon'><i class='fas fa-lock'></i></div>
                                         <input type='password' name='confirma_senha' value='$senha' autocomplete='off'>
+                                    </label>
+                                    
+                                    <label>
+                                        <div class='icon'><i class='fas fa-venus-mars'></i></div>
+                                        <input type='text' name='sexo' value='$usuario' autocomplete='off'>
                                     </label>";
                                     }
                                 }
@@ -160,7 +154,7 @@
 
                     <div class="botoes">
                         <button type="submit">Salvar Alterações</button>
-                        <button><a href="../front/conta.php">Voltar</a></button>
+                        <button><a href="../front/users_admin.php">Voltar</a></button>
                     </div>  
                 </form>   
             </div> <!--Internas-->
@@ -168,52 +162,33 @@
             <div class="rodape">
                 
                 <!--Footer-------------------------------------------------------------------------------------------------------------------->
-                    <div class="footer">
-                        <div class="navbar">
-                            <section>
-                                <ul id="MenuItems">
-                                    <li><a href="../index.php">Home</a></li>
-                                    <li><a href="../front/produtos.php">Produtos</a></li>
-                                    <li><a href="../front/sobre.php">Sobre</a></li>
+                <div class="footer">
+                    <div class="navbar">
+                        <section>
+                        <ul id="MenuItems">
+                                    <li><a href="">Gráficos</a></li>
+                                    <li><a href="../front/users_admin.php">Usuários</a></li>
+                                    <li><a href="../front/prod_admin.php">Produtos</a></li>
+                                    <li><a href="../index.php">Utilizar como cliente &#8594;</a></li>
                                 </ul>
-                                <a href="
-                                
-                                <?php
-                                    if($logado ==  null)
-                                        echo "../front/login_e_cadastro.php";
-                                    else
-                                        echo "../front/conta.php";
-                                ?>
-                                
-                                "><img src="../imgs/tudo/conta_branco.JPG" alt="" width="30px" heigth="30px"></a>
-                                <a href="
-                                
-                                <?php
-                                    if($logado ==  null)
-                                        echo "../front/login_e_cadastro.php";
-                                    else
-                                        echo "../front/carrinho.php";
-                                ?>
-                                
-                                "><img src="../imgs/tudo/carrinho_branco.JPG" alt="" width="30px" heigth="30px"></a>
-                            </section>
-                        </div>
-                            
-                        <div class="footer-col-1">
-                            <ul>
-                                <li>03 - Ana Júlia,</li>
-                                <li>06 - Augusto Creppe,</li>
-                                <li>11 - Dayna Caroline,</li>
-                                <li>19 - João Gabriel,</li>
-                                <li>20 - João Pedro,</li>
-                                <li>28 - Maria Isabel</li>
-                            </ul>
-                        </div>
-
-                        <div class="inicio">
-                            <a href="carrinho.php">Voltar ao inicio</a>
-                        </div>
+                        </section>
                     </div>
+                        
+                    <div class="footer-col-1">
+                        <ul>
+                            <li>03 - Ana Júlia,</li>
+                            <li>06 - Augusto Creppe,</li>
+                            <li>11 - Dayna Caroline,</li>
+                            <li>19 - João Gabriel,</li>
+                            <li>20 - João Pedro,</li>
+                            <li>28 - Maria Isabel</li>
+                        </ul>
+                    </div>
+
+                    <div class="inicio">
+                        <a href="alterar_user_admin.php">Voltar ao inicio</a>
+                    </div>
+                </div>
             </div>                  
         </div>
 
