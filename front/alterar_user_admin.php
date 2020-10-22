@@ -146,7 +146,7 @@
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-venus-mars'></i></div>
-                                        <input type='text' name='sexo' value='$usuario' autocomplete='off'>
+                                        <input type='text' name='usuario' value='$usuario' autocomplete='off'>
                                     </label>";
                                     }
                                 }
