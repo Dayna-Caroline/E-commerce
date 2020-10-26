@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <?php
-    include "./back/conexao.php";
+    include "../back/conexao.php";
     
     $logado = null;
 

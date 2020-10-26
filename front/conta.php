@@ -78,72 +78,73 @@
                 <!--Conta - Informações-------------------------------------------------------------------------------------------------------->
                 <div class="small-container">
                     <h2>Informações da conta</h2>
-                            <?php
-                                $sql="SELECT * FROM usuario WHERE email = '$logado' AND excluido = FALSE";
-                                $resultado = pg_query($conecta, $sql);
-                                $qtde = pg_num_rows($resultado);
+                        <?php
+                            $sql="SELECT * FROM usuario WHERE email='$logado' AND excluido = FALSE;";
+                            $resultado = pg_query($conecta, $sql);
+                            $qtde = pg_num_rows($resultado);
 
-                                if($qtde > 0){
-                                        for($cont=0; $cont < $qtde; $cont++){
-                                            $linha=pg_fetch_array($resultado);
-                                            $sexo = 'F';
-                                            if($linha['sexo'] == $sexo){
-                                                $sexo = 'Feminino';
-                                            }
-                                            else{
-                                                $sexo = 'Masculino';
-                                            }
+                            if($qtde > 0)
+                            {
+                                for($cont=0; $cont < $qtde; $cont++){
+                                    $linha=pg_fetch_array($resultado);
+                                    $sexo = 'F';
+                                    if($linha['sexo'] == $sexo){
+                                        $sexo = 'Feminino';
+                                    }
+                                    else{
+                                        $sexo = 'Masculino';
+                                    }
 
-                                            $data = date('d/m/Y',  strtotime($linha['data_nascimento']));
+                                    $data = date('d/m/Y',  strtotime($linha['data_nascimento']));
 
-                                            echo "<label>
-                                            <div class='icon'><i class='fas fa-user'></i></div>
-                                            <p>$linha[nome]</p>
-                                        </label>
-                                        
-                                        <label>
-                                            <div class='icon'><i class='fas fa-user'></i></div>
-                                            <p>$linha[sobrenome]</p>
-                                        </label>
-                                        
-                                        <label>
-                                            <div class='icon'><i class='fas fa-venus-mars'></i></div>
-                                            <p>$sexo</p>
-                                        </label>
-                                        
-                                        <label>
-                                            <div class='icon'><i class='fas fa-calendar-alt'></i></div>
-                                            <p>$data</p>
-                                        </label>
-                                        
-                                        <label>
-                                            <div class='icon'><i class='fas fa-address-card'></i></div>
-                                            <p>$linha[cpf]</p>
-                                        </label>
-                                        
-                                        <label>
-                                            <div class='icon'><i class='fas fa-map-marked-alt'></i></div>
-                                            <p>$linha[cep]</p>
-                                        </label>
-                                        
-                                        <label>
-                                            <div class='icon'><i class='fas fa-mobile'></i></div>
-                                            <p>$linha[telefone]</p>
-                                        </label>
-                                        
-                                        <label>
-                                            <div class='icon'><i class='fas fa-envelope-open-text'></i></div>
-                                            <p>$linha[email]</p> 
-                                        </label>
-                                        
-                                        <label>
-                                            <div class='icon'><i class='fas fa-lock'></i></div>   
-                                            <p>*************</p>
-                                        </label>";
-                                        }
+                                    echo "
+                                <label>
+                                    <div class='icon'><i class='fas fa-user'></i></div>
+                                    <p>$linha[nome]</p>
+                                </label>
+                                
+                                <label>
+                                    <div class='icon'><i class='fas fa-user'></i></div>
+                                    <p>$linha[sobrenome]</p>
+                                </label>
+                                
+                                <label>
+                                    <div class='icon'><i class='fas fa-venus-mars'></i></div>
+                                    <p>$sexo</p>
+                                </label>
+                                
+                                <label>
+                                    <div class='icon'><i class='fas fa-calendar-alt'></i></div>
+                                    <p>$data</p>
+                                </label>
+                                
+                                <label>
+                                    <div class='icon'><i class='fas fa-address-card'></i></div>
+                                    <p>$linha[cpf]</p>
+                                </label>
+                                
+                                <label>
+                                    <div class='icon'><i class='fas fa-map-marked-alt'></i></div>
+                                    <p>$linha[cep]</p>
+                                </label>
+                                
+                                <label>
+                                    <div class='icon'><i class='fas fa-mobile'></i></div>
+                                    <p>$linha[telefone]</p>
+                                </label>
+                                
+                                <label>
+                                    <div class='icon'><i class='fas fa-envelope-open-text'></i></div>
+                                    <p>$linha[email]</p> 
+                                </label>
+                                
+                                <label>
+                                    <div class='icon'><i class='fas fa-lock'></i></div>   
+                                    <p>********</p>
+                                </label>";
                                 }
-
-                            ?>
+                            }
+                        ?>
                     <div class="botoes">
                         <button><a href="../front/altera_user.php">Alterar informação</a></button>
                         <button><a href="historico.php">Ver histórico</a></button>

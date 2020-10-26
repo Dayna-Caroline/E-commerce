@@ -1,6 +1,3 @@
-<!--Dayna Caroline - N°11 - Criação: 02/09-->
-<!--Augusto Creppe - N°06 e Dayna Caroline - N°11 - Atualização: 09/09-->
-
 <!DOCTYPE html>
 
 <?php
@@ -55,8 +52,8 @@
 
             <div class="internas">
                 <!--Conta - Informações-------------------------------------------------------------------------------------------------------->
-                <form action="../back/altera_user_admin.php" method="post" class="small-container" name="form1">
-                    <h2>Informações da conta</h2>
+                <form action="../back/exclui_user_admin.php?id_usuario='<?php echo $id_usuario; ?>'" method="post" class="small-container" name="form1">
+                    <h2>Detalhes do Usuário</h2>
 
                             <?php
                                 $sql="SELECT * FROM usuario WHERE id_user = '$id_usuario' AND excluido = FALSE";
@@ -94,75 +91,60 @@
                                         $senha = base64_decode($se);
 
                                         echo "
-                                    <input type='hidden' id='id_usuario' name='id_usuario' value='".$id_usuario."'>
-
                                     <label>
                                         <div class='icon'><i class='fas fa-user'></i></div>
-                                        <input type='text' name='nome' value='".$linha['nome']."' autocomplete='off'>
+                                        <a>".$linha['nome']."</a>
                                     </label>
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-user'></i></div>
-                                        <input type='text' name='sobrenome' value='".$linha['sobrenome']."' autocomplete='off'>
+                                        <a>".$linha['sobrenome']."</a>
                                     </label>
 
                                     <label>
                                         <div class='icon'><i class='fas fa-venus-mars'></i></div>
-                                        <div class='col-radio'>
-                                                <input type='radio' name='sexo' value='F' class='radio' "; if($sexo=='Feminino'){echo"checked";} echo " autocomplete='off'><p>Feminino</p> &#160;&#160;&#160;&#160;&#160;
-                                                <input type='radio' name='sexo' value='M' class='radio' "; if($sexo=='Masculino'){echo"checked";} echo " autocomplete='off'><p>Masculino</p>
-                                        </div>
+                                        <a>".$sexo."</a>
                                     </label>
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-calendar-alt'></i></div>
-                                        <input type='text' name='data' onKeyPress='MascaraData(form1.data);' maxlength='10' value='".$data."' autocomplete='off'>
+                                        <a>".$data."</a>
                                     </label>
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-address-card'></i></div>
-                                        <input type='text' name='cpf' onKeyPress='MascaraCPF(form1.cpf);' maxlength='14' value='".$linha['cpf']."' autocomplete='off'>
+                                        <a>".$linha['cpf']."</a>
                                     </label>
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-map-marked-alt'></i></div>
-                                        <input type='text' name='cep' onKeyPress='MascaraCep(form1.cep);' maxlength='10' value='".$linha['cep']."' autocomplete='off'>
+                                        <a>".$linha['cep']."</a>
                                     </label>
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-mobile'></i></div>
-                                        <input type='text' name='telefone' onKeyPress='MascaraTelefone(form1.telefone);' maxlength='15' value='".$linha['telefone']."' autocomplete='off'>
+                                        <a>".$linha['telefone']."</a>
                                     </label>
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-envelope-open-text'></i></div>
-                                        <input type='email' name='email' value='".$linha['email']."' autocomplete='off'> 
+                                        <a>".$linha['email']."</a>
                                     </label>
                                     
                                     <label>
                                         <div class='icon'><i class='fas fa-lock'></i></div>   
-                                        <input type='password' name='senhaForca' id='senhaForca' value='".$senha."' onkeyup='validarSenhaForca()'>
-                                        <div id='erroSenhaForca' class='forca'></div>
-                                    </label>
-                                    
-                                    <label>
-                                        <div class='icon'><i class='fas fa-lock'></i></div>
-                                        <input type='password' name='confirma_senha' value='".$senha."' autocomplete='off'>
+                                        <a>********</a>
                                     </label>
 
                                     <label>
                                         <div class='icon'><i class='fas fa-id-badge'></i></div>
-                                        <div class='col-radio'>
-                                            <input type='radio' name='usuario' value='Administrador' class='radio' "; if($usuario=='Administrador'){echo"checked";} echo " autocomplete='off'><p>Administrador</p>
-                                            <input type='radio' name='usuario' value='Cliente' class='radio' "; if($usuario=='Cliente'){echo"checked";} echo " autocomplete='off'><p>Cliente</p>
-                                        </div>
+                                        <a>".$usuario."</a>
                                     </label>";
                                     }
                                 }
                             ?>
 
                     <div class="botoes">
-                        <button type="submit">Salvar Alterações</button>
                         <button><a href="../front/users_admin.php">Voltar</a></button>
                     </div>  
                 </form>   

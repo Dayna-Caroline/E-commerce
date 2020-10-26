@@ -54,7 +54,7 @@
             <div class="internas">
                 <!--Conta - Informações-------------------------------------------------------------------------------------------------------->
                 <form action="../back/cadastrar_user_adm.php" method="post" class="small-container" name="form1">
-                    <h2>Informações da conta</h2>
+                    <h2>Cadastrar usuário</h2>
                     
                     <label>
                         <div class='icon'><i class='fas fa-user'></i></div>
