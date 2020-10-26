@@ -1,12 +1,7 @@
 <?php
     include "../back/conexao.php";
 
-    $id_user=$_GET['id_usuario'];
-    
-    
-
-    $nome = $_POST['nome'];
-    $sobrenome = $_POST['sobrenome'];
+    $id_usuario = $_GET['id_usuario'];
 
     $sexo_ext = $_POST['sexo'];
     
@@ -22,20 +17,8 @@
         echo '</script>';
     }
 
-    $usuario_ext = $_POST['usuario'];
-    
-    if($usuario_ext == 'Administrador' || $usuario_ext == 'administrador'){
-        $usuario = true;
-    }
-    else if($usuario_ext == 'Cliente' || $usuario_ext == 'cliente'){
-        $usuario = false;
-    }
-    else{
-        echo '<script language="javascript">';
-        echo "alert('Erro: Erro na alteração do tipo de usuário!')";
-        echo '</script>';
-    }
-
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
     $data_nascimento = $_POST['data'];
     $cpf = $_POST['cpf'];
     $cep = $_POST['cep'];
@@ -72,13 +55,12 @@
     {
         $se = base64_encode($senha);
         
-        $sql = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', sexo='$sexo', data_nascimento='$data_nascimento', cpf='$cpf', cep='$cep', telefone='$telefone', email='$logado', senha='$se', adm='$usuario' WHERE id_user='$id_user';";
+        $sql = "UPDATE usuario SET nome='$nome', sobrenome='$sobrenome', sexo='$sexo', data_nascimento='$data_nascimento', cpf='$cpf', cep='$cep', telefone='$telefone', email='$email', senha='$se' WHERE id_user='$id_usuario';";
         $resultado = pg_query($conecta, $sql);
         $linhas = pg_affected_rows($resultado);
 
         if($linhas > 0)
         {
-
             header("Location: ../front/users_admin.php");
         }
         else	
