@@ -197,6 +197,12 @@
 
     //ENVIA EMAIL   
             $mail = new PHPMailer(true);
+            // Define que a mensagem poderá ter formatação HTML
+            $mail->IsHTML(true);
+            // Define que a codificação do conteúdo da mensagem será utf-8
+            $mail->CharSet = "utf-8";
+            // Define que os emails enviadas utilizarão SMTP Seguro tls
+            $mail->SMTPSecure = "tls";
 
             try {
                 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -210,11 +216,29 @@
                 $mail->setFrom('ecommerce.grupo6@gmail.com');
                 $mail->addAddress($logado);
 
-
+                $mail->AddEmbeddedImage('../imgs/tudo/melhor.jpg', 'logo_ref');
                 $mail->isHTML(true);
                 $mail->Subject = 'Confirmar sua compra Cup&Mug';
-                $mail->Body = 'Sua compra no valor de R$'.$precototal.',00 foi bem sucedida e será entregue no endereço do CEP: '.$cep;
-                $mail->AltBody = 'Sua compra no valor de '.$precototal.',00 reais foi bem sucedida e será entregue no endereço do CEP: '.$cep;
+                        
+                $mail->Body = "<img src='cid:logo_ref' alt='' width='100px' heigth='100px'> <h3>Comprovante de compra</h3>
+                Sua compra no valor de R$".$precototal.",00 foi bem sucedida e será entregue no endereço do CEP: ".$cep."<br><br>";
+                
+                $mail->Body .= "<table border='1'>";
+                $mail->Body .=  "<tr>
+                                <td>Produto</td>
+                                <td>Quantidade</td>
+                                <td>Preço</td>
+                            </tr>";
+                foreach ($dadosCompra as $key => $value) {
+                    $mail->Body .= "<tr>";
+                     foreach ($dadosCompra[$key] as $cedula){
+                        $mail->Body .= "<td>".$cedula."</td>";
+                    }
+                    $mail->Body .= "</tr>";
+                }
+                $mail->Body .= "</table>";
+
+                $mail->AltBody = " Sua compra no valor de R$".$precototal.",00 foi bem sucedida e será entregue no endereço do CEP: ".$cep;
 
                 if($mail->send()) {
                     echo 'Email enviado com sucesso';

@@ -52,7 +52,7 @@
 
             <div class="internas">
                 <!--Conta - Informações-------------------------------------------------------------------------------------------------------->
-                <form action="../back/exclui_user_admin.php?id_usuario=<?php echo $id_usuario; ?>" method="post" class="small-container" name="form1">
+                <form action="../back/exclui_user_admin.php?id_usuario=<?php echo $id_usuario; ?>" method="post" class="small-container exclusao" name="form1">
                     <h2>Deseja desativar este usuário?</h2>
 
                             <?php

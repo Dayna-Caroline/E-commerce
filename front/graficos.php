@@ -38,7 +38,7 @@
                             </div>
                             <nav>
                                 <ul id="MenuItems">
-                                    <li><a href=""><span>Gráficos</span></a></li>
+                                    <li><a href=""><span>Vendas</span></a></li>
                                     <li><a href="../front/users_admin.php">Usuários</a></li>
                                     <li><a href="../front/prod_admin.php">Produtos</a></li>
                                     <li><a href="../index.php">Utilizar como cliente &#8594;</a></li>
@@ -90,7 +90,7 @@
                         <div class="navbar">
                             <section>
                                 <ul id="MenuItems">
-                                    <li><a href=""><span>Gráficos</span></a></li>
+                                    <li><a href=""><span>Vendas</span></a></li>
                                     <li><a href="../front/users_admin.php">Usuários</a></li>
                                     <li><a href="../front/prod_admin.php">Produtos</a></li>
                                     <li><a href="../index.php">Utilizar como cliente &#8594;</a></li>
