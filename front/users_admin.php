@@ -15,6 +15,28 @@
         $sexo = $_SESSION['sexo'];
         $id_user = $_SESSION['id_user'];
     }
+
+    if(isset($_GET['pesq']))
+    {
+        $tipo_pesq = $_GET['pesq'];
+    }
+    else
+    {
+        $tipo_pesq = 1;
+    }
+
+    if($tipo_pesq == 1){
+        $sql1 = "SELECT * FROM usuario WHERE excluido=false ORDER BY id_user;";
+        $sql2 = "SELECT *FROM usuario WHERE excluido=true ORDER BY id_user;";
+    }
+    else if($tipo_pesq == 2){
+        $sql1 = "SELECT * FROM usuario WHERE excluido=false ORDER BY nome ASC;";
+        $sql2 = "SELECT *FROM usuario WHERE excluido=true ORDER BY nome ASC;";
+    }
+    else{
+        $sql1 = "SELECT * FROM usuario WHERE excluido=false ORDER BY email ASC;";
+        $sql2 = "SELECT *FROM usuario WHERE excluido=true ORDER BY email ASC;";
+    }
 ?>
 
 <html lang="pt-br">
@@ -44,20 +66,48 @@
                         </nav>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
 
         <div class="internas">
-            <div class="row row-2">
+        <div class="row row-2">
                 <form class="pesq_text" action="./pesq_user.php" method="post">
                     <input type="text" name="pesq" class="text" placeholder="Pesquisa">
+                    <div class="opcoes">
+                        <div class="options">
+                            <input type="radio" name="opcao" value="U" checked><section class="user">Usuário</section>
+                        </div>
+                        <div class="options">
+                            <input type="radio" name="opcao" value="E"><section class="email">Email</section>
+                        </div>
+                        <div class="options input">
+                            <input type="radio" name="opcao" value="I"><section class="id">Id</section>
+                        </div>
+                    </div>
                     <button type="submit" class="icon">
                         <i class="fas fa-search"></i>
                     </button>
+
                 </form>
 
+                <div class="ordena">
+                    Ordenar por:
+                    <select name="pesq" onchange="reloadWithParam()" id="pesq">
+                        <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Id</option>
+                        <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>Nome</option>
+                        <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>Emails</option>
+                    </select>
+                </div>
+
+                <script>
+                    function reloadWithParam(){
+                        var d = document.getElementById("pesq").value;
+                        window.location.href="./users_admin.php?pesq=" + d;
+                    }
+                </script>
+
                 <div class="select">
-                    <a href="insere_user.php"><button>Adicionar usuários</button></a>
+                    <a href="insere_user.php"><button><i class="fas fa-user-plus"></i></button></a>
                 </div>
             </div>
 
@@ -70,10 +120,8 @@
                                 <div class="preco">Configurações</div>
                             </div>
 
-                            <?php
-                                $sql="SELECT *FROM usuario WHERE excluido='false' ORDER BY id_user;";
-                                
-                                $resultado = pg_query($conecta, $sql);
+                            <?php                                
+                                $resultado = pg_query($conecta, $sql1);
                                 $qtde = pg_num_rows($resultado);
                                 
                                 if($qtde > 0)
@@ -134,9 +182,8 @@
                         </div>  
                     </div>
 
-                    <?php
-                        $sql="SELECT *FROM usuario WHERE excluido='true' ORDER BY id_user;";           
-                        $resultado = pg_query($conecta, $sql);
+                    <?php          
+                        $resultado = pg_query($conecta, $sql2);
                         $qtde = pg_num_rows($resultado);
                         
                         if($qtde > 0)
@@ -194,7 +241,7 @@
                                 </div>";
                             }
                         }
-                    ?>
+                    ?> 
                 </div>  
             </div>
         </div> 

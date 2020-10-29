@@ -5,6 +5,8 @@
 
     $logado = null;
     $pesq = $_POST['pesq'];
+    $tipo = $_POST['opcao'];
+    
 
     session_start();
     
@@ -15,6 +17,79 @@
         $nome = $_SESSION['nome']; 
         $sexo = $_SESSION['sexo'];
         $id_user = $_SESSION['id_user'];
+    }
+
+    if(isset($_GET['pesq']))
+    {
+        $tipo_pesq = $_GET['pesq'];
+    }
+    else
+    {
+        $tipo_pesq = 1;
+    }
+
+    if(!$pesq == ''){
+        if($tipo == 'U')
+        {
+            if($tipo_pesq == 1){
+                $sql1 = "SELECT * FROM usuario WHERE nome LIKE '%$pesq%' AND excluido=false ORDER BY id_user;";
+                $sql2 = "SELECT *FROM usuario WHERE nome LIKE '%$pesq%' AND excluido=true ORDER BY id_user;";
+            }
+            else if($tipo_pesq == 2){
+                $sql1 = "SELECT * FROM usuario WHERE nome LIKE '%$pesq%' AND excluido=false ORDER BY nome ASC;";
+                $sql2 = "SELECT *FROM usuario WHERE nome LIKE '%$pesq%' AND excluido=true ORDER BY nome ASC;";
+            }
+            else{
+                $sql1 = "SELECT * FROM usuario WHERE nome LIKE '%$pesq%' AND excluido=false ORDER BY email ASC;";
+                $sql2 = "SELECT *FROM usuario WHERE nome LIKE '%$pesq%' AND excluido=true ORDER BY email ASC;";
+            }
+        }
+
+        else if($tipo == 'E')
+        {
+            if($tipo_pesq == 1){
+                $sql1 = "SELECT * FROM usuario WHERE email LIKE '%$pesq%' AND excluido=false ORDER BY id_user;";
+                $sql2 = "SELECT *FROM usuario WHERE email LIKE '%$pesq%' AND excluido=true ORDER BY id_user;";
+            }
+            else if($tipo_pesq == 2){
+                $sql1 = "SELECT * FROM usuario WHERE email LIKE '%$pesq%' AND excluido=false ORDER BY nome ASC;";
+                $sql2 = "SELECT *FROM usuario WHERE email LIKE '%$pesq%' AND excluido=true ORDER BY nome ASC;";
+            }
+            else{
+                $sql1 = "SELECT * FROM usuario WHERE email LIKE '%$pesq%' AND excluido=false ORDER BY email ASC;";
+                $sql2 = "SELECT *FROM usuario WHERE email LIKE '%$pesq%' AND excluido=true ORDER BY email ASC;";
+            }
+        }
+
+        else if($tipo == 'I')
+        {
+            if($tipo_pesq == 1){
+                $sql1 = "SELECT * FROM usuario WHERE id_user=$pesq AND excluido=false ORDER BY id_user;";
+                $sql2 = "SELECT *FROM usuario WHERE id_user=$pesq AND excluido=true ORDER BY id_user;";
+            }
+            else if($tipo_pesq == 2){
+                $sql1 = "SELECT * FROM usuario WHERE id_user=$pesq AND excluido=false ORDER BY nome ASC;";
+                $sql2 = "SELECT *FROM usuario WHERE id_user=$pesq AND excluido=true ORDER BY nome ASC;";
+            }
+            else{
+                $sql1 = "SELECT * FROM usuario WHERE id_user=$pesq AND excluido=false ORDER BY email ASC;";
+                $sql2 = "SELECT *FROM usuario WHERE id_user=$pesq AND excluido=true ORDER BY email ASC;";
+            }
+        }
+    }
+    else{
+        if($tipo_pesq == 1){
+            $sql1 = "SELECT * FROM usuario WHERE excluido=false ORDER BY id_user;";
+            $sql2 = "SELECT *FROM usuario WHERE excluido=true ORDER BY id_user;";
+        }
+        else if($tipo_pesq == 2){
+            $sql1 = "SELECT * FROM usuario WHERE excluido=false ORDER BY nome ASC;";
+            $sql2 = "SELECT *FROM usuario WHERE excluido=true ORDER BY nome ASC;";
+        }
+        else{
+            $sql1 = "SELECT * FROM usuario WHERE excluido=false ORDER BY email ASC;";
+            $sql2 = "SELECT *FROM usuario WHERE excluido=true ORDER BY email ASC;";
+        }
     }
 ?>
 
@@ -49,16 +124,44 @@
         </div>
 
         <div class="internas">
-            <div class="row row-2">
-                <form class="pesq_text" action="../front/pesq_user.php" method="post">
+        <div class="row row-2">
+                <form class="pesq_text" action="./pesq_user.php" method="post">
                     <input type="text" name="pesq" class="text" placeholder="Pesquisa">
+                    <div class="opcoes">
+                        <div class="options">
+                            <input type="radio" name="opcao" value="U" <?php if($tipo=='U'){echo"checked";}?>><section class="user">Usuário</section>
+                        </div>
+                        <div class="options">
+                            <input type="radio" name="opcao" value="E" <?php if($tipo=='E'){echo"checked";}?>><section class="email">Email</section>
+                        </div>
+                        <div class="options input">
+                            <input type="radio" name="opcao" value="I" <?php if($tipo=='I'){echo"checked";}?>><section class="id">Id</section>
+                        </div>
+                    </div>
                     <button type="submit" class="icon">
                         <i class="fas fa-search"></i>
                     </button>
+
                 </form>
 
+                <div class="ordena">
+                    Ordenar por:
+                    <select name="pesq" onchange="reloadWithParam()" id="pesq">
+                        <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Id</option>
+                        <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>Nome</option>
+                        <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>Emails</option>
+                    </select>
+                </div>
+
+                <script>
+                    function reloadWithParam(){
+                        var d = document.getElementById("pesq").value;
+                        window.location.href="./users_admin.php?pesq=" + d;
+                    }
+                </script>
+
                 <div class="select">
-                    <a href="insere_user.php"><button>Adicionar usuários</button></a>
+                    <a href="insere_user.php"><button><i class="fas fa-user-plus"></i></button></a>
                 </div>
             </div>
 
@@ -71,10 +174,7 @@
                     </div>
 
                     <?php
-                        if($pesq != '') //PESQUISA NÃO É EM BRANCO
-                        {
-                            $sql="SELECT * FROM usuario WHERE nome LIKE '%$pesq%' AND excluido=false ORDER BY id_user;"; //SELECIONA OS ATIVOS
-                            $resultado = pg_query($conecta, $sql);
+                        $resultado = pg_query($conecta, $sql1);
                             $qtde = pg_num_rows($resultado);
                             
                             if($qtde > 0)
@@ -130,13 +230,11 @@
                             }
                             else
                             {
-                                echo "<center><br><h1><div class='tabela'><b> Nenhum usuário ativo encontrado </b></div></h1><br></center>";
+                                echo "<center><br><h1><div class='tabela'><b> Nenhum usuário encontrado </b></div></h1><br></center>";
                             }
                                 
                             echo "</div></div>";
-            
-                            $sql="SELECT *FROM usuario WHERE nome LIKE '%$pesq%' AND excluido=true ORDER BY id_user;"; //SELECIONA OS INATIVOS           
-                            $resultado = pg_query($conecta, $sql);
+                            $resultado = pg_query($conecta, $sql2);
                             $qtde = pg_num_rows($resultado);
                         
                             if($qtde > 0)
@@ -200,133 +298,7 @@
                             {
                                 //echo "<center><br><br><br><br><br><br><h1><div class='tabela'><b>Nenhum usuário inativo encontrado</b></div></h1> <br><br><br><br><br><br></center>";
                             }
-                        }
-                        else
-                        {
-                            $sql="SELECT *FROM usuario WHERE excluido='false' ORDER BY id_user;";
-                                
-                            $resultado = pg_query($conecta, $sql);
-                            $qtde = pg_num_rows($resultado);
-                            
-                            if($qtde > 0)
-                            {
-
-                                for($cont=0; $cont < $qtde; $cont++)
-                                {
-                                    $linha=pg_fetch_array($resultado);
-
-                                    $ad=$linha['adm'];
-                                    $sexo=$linha['sexo'];
-                                    $id_user_select=$linha['id_user'];
-
-                                    if($ad == 't'){
-                                        $admin = 'Sim';
-                                    }
-                                    else{
-                                        $admin = 'Não';
-                                    }
-
-                                    if($sexo == 'F'){
-                                        $icon="<div class='feminino'><i class='fas fa-female'></i></div>";
-                                    }
-                                    else{
-                                        $icon="<i class='fas fa-male'></i>";
-                                    }
-
-                                    echo "
-                                    <div class='produtos'>
-                                        <div class='produto completa'>
-                                            <div class='img'>".$icon."</div>
-                                            <div class='descricao'>
-                                                <br>
-                                                <p>".$linha['nome']." ".$linha['sobrenome']."</p>
-                                                <p>".$linha['email']."</p>
-                                                <a href='./detalhes_user.php?id_usuario=".$id_user_select."'>Mais detalhes</a>
-                                            </div>
-                                        </div>
-
-                                        <div class='quant'>";
-
-                                            echo "<p>".$admin."</p>
-
-                                        </div>
-
-                                        <div class='preco1'>
-                                            <a href='./alterar_user_admin.php?id_usuario=".$id_user_select."'><i class='fas fa-user-edit'></i></a>
-                                            <a href='./confirma_exclusao.php?id_usuario=".$id_user_select."'><i class='fas fa-trash-alt'></i></a>
-                                        </div>
-                                    </div>";
-                                }
-                            }
-                            else
-                            {
-                                echo "<center><br><br><br><br><br><br><br><br><br><br><br><br><h1><div class='tabela'><b> Seu carrinho está vazio </b></div></h1> <br><br><br><br><br><br><br></center>";
-                            }
-                            ?>
-                            </div>  
-                            </div>
-
-                            <?php
-                            $sql="SELECT *FROM usuario WHERE excluido='true' ORDER BY id_user;";           
-                            $resultado = pg_query($conecta, $sql);
-                            $qtde = pg_num_rows($resultado);
-                            
-                            if($qtde > 0)
-                            {
-                                echo "<div class='small-container'>
-                                        <h2>Usuários Inativos</h2>
-                                        <div class='tabela'>
-                                            <div class='titulos'>
-                                                <div class='produto'>Usuário</div>
-                                                <div class='quant'>Administrador</div>
-                                                <div class='preco'>Configurações</div>
-                                            </div>";
-
-                                for($cont=0; $cont < $qtde; $cont++)
-                                {
-                                    $linha=pg_fetch_array($resultado);
-
-                                    $ad=$linha['adm'];
-                                    $sexo=$linha['sexo'];
-                                    $id_user_select=$linha['id_user'];
-
-                                    if($ad == 't'){
-                                        $admin = 'Sim';
-                                    }
-                                    else{
-                                        $admin = 'Não';
-                                    }
-
-                                    if($sexo == 'F'){
-                                        $icon="<div class='feminino'><i class='fas fa-female'></i></div>";
-                                    }
-                                    else{
-                                        $icon="<i class='fas fa-male'></i>";
-                                    }
-
-                                    echo "
-                                    <div class='produtos'>
-                                        <div class='produto completa'>
-                                            <div class='img'>".$icon."</div>
-                                            <div class='descricao'>
-                                                <br>
-                                                <p>".$linha['nome']." ".$linha['sobrenome']."</p>
-                                                <p>".$linha['email']."</p>
-                                                <a href='./detalhes_user.php?id_usuario=".$id_user_select."'>Mais detalhes</a>
-                                            </div>
-                                        </div>
-
-                                        <div class='quant'>";
-                                            echo "<p>".$admin."</p>
-                                        </div>
-
-                                        <div class='preco2'>
-                                            <a href='../back/reativar_user.php?id_usuario=".$linha['id_user']."'>Reativar</a>
-                                        </div>
-                                    </div>";
-                                }
-                            }
-                        }
+                        
                     ?>
                 </div>  
             </div>

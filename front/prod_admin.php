@@ -50,17 +50,16 @@
         <div class="internas">
                     <div class="row row-2">
                             <form class="pesq_text" action="../front/pesq_user.php" method="post">
-                                <input type="text" name="pesq" class="text" placeholder="Pesquisa">
+                                <input type="text" name="pesq" class="text" placeholder="Produto">
                                 <button type="submit" class="icon">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>
 
                             <div class="opcoes">
-                                <input type="radio" name="opcao" value="produto" checked> Produto
                                 <input type="radio" name="opcao" value="material"> Material
                                 <input type="radio" name="opcao" value="tamanho"> Tamanho
-                                <input type="radio" name="opcao" value="estoque"> Estoque
+                                <input type="number" name="opcao" value="estoque"> Estoque
                             </div>
             
                     </div>

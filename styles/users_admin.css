@@ -147,17 +147,18 @@ h2{
 .icon{
     position: absolute;
     color: #505f75;
-    margin-left: 18%; 
+    margin-left: 17%; 
     background-color: transparent;
     border: none;
     font-size: 23px;
     cursor: pointer;
+    margin-top: .5%;
 }
 
-input{
-    display: block;
-    width: 100%;
-    margin-top: 5px;
+.text{
+    width: 40%;
+    height: 20%;
+    margin-top: 1.5%;
     font-size: 18px;
     padding-bottom: 5px;
     border: none;
@@ -166,19 +167,54 @@ input{
     text-align: left;
 }
 
+select{
+    border-radius: 4px;
+    padding: 8px 15px;
+}
+
+select:focus{
+    outline: none;
+}
 .row-2{
     justify-content: space-between;
     margin: 70px 100px -5px;
 }
 
 .select button{
-    border-radius: 4px;
-    padding: 5px 10px;
-    border: 1px solid rgb(134, 134, 134);
+    border: none;
     cursor: pointer;
-    background-color: #fff;
+    background-color: transparent;
+    font-size: 30px;
+    padding-right: 5%;
+    outline: none;
 }
 
+.opcoes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 400px;
+    margin-left: 15%;
+    margin-top: 2%;
+}
+
+.options{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.options input{
+    margin-top: 2%;
+}
+
+.id{
+    text-align: left;
+}
+
+.ordena{
+    margin-top: 1%;
+}
+.select{
+    margin-top: 1%;
+}
 /*-----------------------------------------------------------------------------------------------------*/
 
 .small-container{

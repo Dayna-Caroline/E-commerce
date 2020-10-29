@@ -30,15 +30,13 @@ CREATE TABLE usuario
 INSERT INTO usuario  
 (id_user, nome, sobrenome, sexo, data_nascimento, cpf, email, senha, telefone, cep, excluido, data_exclusao, adm)
 VALUES
-(DEFAULT, 'Augusto', 'Creppe', 'M', '23/07/2004', '455.491.018-07', 'augusto.creppe@unesp.br', 'Y3Rp', '(14) 99678-6342', '17.018-786', false, null, true),
 (DEFAULT, 'Dayna', 'Caroline', 'F', '12/07/2004', '455.103.657-21', 'dayna.caroline@unesp.br', 'Y3Rp', '(14) 99101-5603', '17.033-410', false, null, true),
-(DEFAULT, 'Fernanda', 'Modolo', 'F', '08/12/2003', '435.231.987-01', 'fernanda.modolo@unesp.br', 'Y3Rp', '(14) 99428-0935', '17.563-142', false, null, false),
-
-(DEFAULT, 'Marcos', 'Silva', 'M', '08/12/2007', '656.546.942-56', 'marcos.silva@unesp.br', 'Y3Rp', '(14) 45465-5465', '54.564-565', false, null, false),
+(DEFAULT, 'Fernanda', 'Modolo', 'F', '08/12/2003', '435.231.987-01', 'modolo.fer@unesp.br', 'Y3Rp', '(14) 99428-0935', '17.563-142', false, null, false),
+(DEFAULT, 'Augusto', 'Creppe', 'M', '23/07/2004', '455.491.018-07', 'augusto.creppe@unesp.br', 'Y3Rp', '(14) 99678-6342', '17.018-786', false, null, true),
+(DEFAULT, 'Marcos', 'Silva', 'M', '08/12/2007', '656.546.942-56', 'silva.marcus@unesp.br', 'Y3Rp', '(14) 45465-5465', '54.564-565', false, null, false),
 (DEFAULT, 'Lucas', 'Freitas', 'M', '08/12/1998', '670.545.654-68', 'lucas.freitas@unesp.br', 'Y3Rp', '(14) 65654-9450', '64.456-465', false, null, false),
-(DEFAULT, 'Leticia', 'Lima', 'F', '08/12/1889', '671.655.656-56', 'leticia.lima@unesp.br', 'Y3Rp', '(14) 15984-2546', '32.456-659', true, null, false),
-
-(DEFAULT, 'Ana', 'Maria', 'F', '23/11/2002', '455.185.021-49', 'ana.maria@unesp.br', 'Y3Rp', '(14) 99155-9876', '19.641-601', true, null, false);
+(DEFAULT, 'Leticia', 'Lima', 'F', '08/12/1889', '671.655.656-56', 'lima.leticia@unesp.br', 'Y3Rp', '(14) 15984-2546', '32.456-659', true, null, false),
+(DEFAULT, 'Ana', 'Maria', 'F', '23/11/2002', '455.185.021-49', 'maria.ana@unesp.br', 'Y3Rp', '(14) 99155-9876', '19.641-601', true, null, false);
 
 /*------------------------------------------------------------------*/
 
