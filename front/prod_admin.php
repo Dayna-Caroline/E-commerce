@@ -51,17 +51,53 @@
                     <div class="row row-2">
                             <form class="pesq_text" action="../front/pesq_user.php" method="post">
                                 <input type="text" name="pesq" class="text" placeholder="Produto">
+                                <div class="selects">
+                                    <div class="mat">
+                                        <section>Material:</section>
+                                        <select name="pesq">
+                                            <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Todos</option>
+                                            <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>Alumínio</option>
+                                            <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>Acrílico</option>
+                                            <option value="4" <?php if($tipo_pesq == 4) echo "selected"?>>Cerâmica</option>
+                                            <option value="5" <?php if($tipo_pesq == 5) echo "selected"?>>Plástico</option>
+                                        </select>
+                                    </div>
+                                    <div class="cor">
+                                    <section>Cor:</section>
+                                        <select name="pesq">
+                                            <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Todas</option>
+                                            <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>Cinza</option>
+                                            <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>Azul</option>
+                                            <option value="4" <?php if($tipo_pesq == 4) echo "selected"?>>Preto</option>
+                                            <option value="5" <?php if($tipo_pesq == 5) echo "selected"?>>Rosa</option>
+                                            <option value="6" <?php if($tipo_pesq == 6) echo "selected"?>>Variada</option>
+                                        </select>
+                                    </div>
+                                    <div class="tam">
+                                        <section>Tamanho:</section>
+                                        <select name="pesq">
+                                            <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Todos</option>
+                                            <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>300mL</option>
+                                            <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>350mL</option>
+                                            <option value="4" <?php if($tipo_pesq == 4) echo "selected"?>>400mL</option>
+                                            <option value="5" <?php if($tipo_pesq == 5) echo "selected"?>>450mL</option>
+                                            <option value="6" <?php if($tipo_pesq == 6) echo "selected"?>>500mL</option>
+                                            <option value="7" <?php if($tipo_pesq == 7) echo "selected"?>>700mL</option>
+                                            <option value="8" <?php if($tipo_pesq == 8) echo "selected"?>>850mL</option>
+                                            <option value="9" <?php if($tipo_pesq == 9) echo "selected"?>>900mL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            
+                                <div class="preco">
+                                    Acima de R$<input type="number" name="acima">
+                                    Abaixo de R$<input type="number" name="abaixo">
+                                </div>
+                                
                                 <button type="submit" class="icon">
                                     <i class="fas fa-search"></i>
                                 </button>
-                            </form>
-
-                            <div class="opcoes">
-                                <input type="radio" name="opcao" value="material"> Material
-                                <input type="radio" name="opcao" value="tamanho"> Tamanho
-                                <input type="number" name="opcao" value="estoque"> Estoque
-                            </div>
-            
+                            </form>            
                     </div>
 
 
@@ -70,8 +106,8 @@
                             <div class="titulos">
                                 <div class="produto">Produto</div>
                                 <div class="quant">Material</div>
+                                <div class="quant">Cor</div>
                                 <div class="quant">Tamanho</div>
-                                <div class="quant">Estoque</div>
                                 <div class="preco">Preço</div>
                             </div>
 
@@ -104,11 +140,11 @@
                                             </div>
 
                                             <div class='quant'>
-                                                <span>".$linha['tamanho']."mL</span>
+                                                <span>".$linha['cor']."</span>
                                             </div>
 
                                             <div class='quant'>
-                                                <span>".$linha['quantidade']."</span>
+                                                <span>".$linha['tamanho']."mL</span>
                                             </div>
 
                                             <div class='preco1'>

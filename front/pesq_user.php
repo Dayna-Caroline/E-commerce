@@ -209,7 +209,7 @@
                                             <div class='img'>".$icon."</div>
                                             <div class='descricao'>
                                                 <br>
-                                                <p>".$linha['nome']." ".$linha['sobrenome']."</p>
+                                                <p>".$linha['id_user']." - ".$linha['nome']." ".$linha['sobrenome']."</p>
                                                 <p>".$linha['email']."</p>
                                                 <a href='./detalhes_user.php?id_usuario=".$id_user_select."'>Mais detalhes</a>
                                             </div>
@@ -276,7 +276,7 @@
                                             <div class='img'>".$icon."</div>
                                             <div class='descricao'>
                                                 <br>
-                                                <p>".$linha['nome']." ".$linha['sobrenome']."</p>
+                                                <p>".$linha['id_user']." - ".$linha['nome']." ".$linha['sobrenome']."</p>
                                                 <p>".$linha['email']."</p>
                                                 <a href='./detalhes_user.php?id_usuario=".$id_user_select."'>Mais detalhes</a>
                                             </div>

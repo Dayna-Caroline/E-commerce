@@ -147,16 +147,16 @@ h2{
 .icon{
     position: absolute;
     color: #505f75;
-    margin-left: 18%; 
+    margin-left: 16%; 
     background-color: transparent;
     border: none;
     font-size: 23px;
     cursor: pointer;
 }
 
-input{
+.text{
     display: block;
-    width: 100%;
+    width: 25%;
     margin-top: 5px;
     font-size: 18px;
     padding-bottom: 5px;
@@ -168,12 +168,36 @@ input{
 
 .row-2{
     justify-content: space-between;
-    margin: 70px 100px -5px;
+    margin: 70px 70px -5px;
 }
 
-.opcoes{
+.selects{
+    display: flex;
+    margin-left: 5%;
+}
+
+.tam, .cor, .mat{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cor select{
+    margin-left: -10%;
+    margin-right: 15%;
+}
+
+select{
+    border-radius: 4px;
+    padding: 8px 15px;
+}
+
+select:focus{
+    outline: none;
+}
+
+section{
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /*-----------------------------------------------------------------------------------------------------*/
