@@ -88,9 +88,9 @@
                                         </select>
                                     </div>
                                 </div>
-                            
+                             
                                 <div class="preco">
-                                    Acima de R$<input type="number" name="acima">
+                                    Acima de R$<input type="number" name="acima"> <br> <br>
                                     Abaixo de R$<input type="number" name="abaixo">
                                 </div>
                                 

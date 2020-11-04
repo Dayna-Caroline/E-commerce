@@ -142,22 +142,30 @@ h2{
 /*Pesquisa---------------------------------------------------------------------------------------------*/
 .pesq_text{
     display: flex;
+    margin-top: 5%;
+    margin-bottom: -5%;
+}
+
+.selects{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr  1fr 1fr 1fr;
 }
 
 .icon{
     position: absolute;
     color: #505f75;
-    margin-left: 16%; 
+    margin-left: 17%; 
     background-color: transparent;
     border: none;
     font-size: 23px;
     cursor: pointer;
+    margin-top: .5%;
 }
 
-.text{
-    display: block;
-    width: 25%;
-    margin-top: 5px;
+input{
+    width: 23%;
+    height: 20%;
+    margin-top: 1.5%;
     font-size: 18px;
     padding-bottom: 5px;
     border: none;
@@ -165,25 +173,12 @@ h2{
     border-bottom: 1px solid rgba(109, 93, 93, 0.4);
     text-align: left;
 }
-
-.row-2{
-    justify-content: space-between;
-    margin: 70px 70px -5px;
+.text{
+    margin-right: 5%;
 }
 
-.selects{
-    display: flex;
-    margin-left: 5%;
-}
-
-.tam, .cor, .mat{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.cor select{
-    margin-left: -10%;
-    margin-right: 15%;
+.preco{
+    margin-right:-10%;
 }
 
 select{
@@ -193,11 +188,6 @@ select{
 
 select:focus{
     outline: none;
-}
-
-section{
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
 /*-----------------------------------------------------------------------------------------------------*/
