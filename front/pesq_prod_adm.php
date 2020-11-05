@@ -116,7 +116,7 @@
                     </div>
 
 
-            <div class="small-container">
+                    <div class="small-container">
                         <div class="tabela">
                             <div class="titulos">
                                 <div class="produto">Produto</div>

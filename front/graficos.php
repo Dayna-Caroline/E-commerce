@@ -24,6 +24,7 @@
         <meta charset="UTF-8">
         <title>Cup&Mug</title>
         <link rel="stylesheet" href="../styles/graficos.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
     <body>
@@ -79,8 +80,58 @@
             </div>
 
             <div class="internas">
-                
+                <div class="small-container">
+                        <div class="tabela">
+                            <div class="titulos">
+                                <div class="produto">ID</div>
+                                <div class="quant">Data da compra</div>
+                                <div class="quant">Cliente</div>
+                            </div>
 
+                            <?php
+                                $sql = "SELECT compra.id_compra, compra.data_compra, usuario.nome, usuario.sobrenome, usuario.id_user, compra.excluido 
+                                FROM compra JOIN usuario ON compra.id_user=usuario.id_user
+                                WHERE compra.excluido=false ORDER BY compra.id_compra";
+                                
+                                $resultado = pg_query($conecta, $sql);
+                                $qtde = pg_num_rows($resultado);
+                                
+                                if($qtde > 0)
+                                {
+
+                                    for($cont=0; $cont < $qtde; $cont++)
+                                    {
+                                        $linha=pg_fetch_array($resultado);
+
+                                        echo "
+                                        <div class='produtos'>
+                                            <div class='produto completa'>
+                                                <a href='../back/remove_prod_carrinho.php?id_compra=".$linha['id_compra']."'><div class='img'><i class='fas fa-shopping-bag'></i></div></a>
+                                                <div class='descricao'>
+                                                    <br>
+                                                    <p>".$linha['id_compra']."</p>
+                                                </div>
+                                            </div>
+
+                                            <div class='quant'>
+                                                <span>".$linha['data_compra']."</span>
+                                            </div>
+
+                                            <div class='preco2'>
+                                                <span>".$linha['nome']." ".$linha['sobrenome']."</span>
+                                            </div>
+                                        </div>";
+                                    }
+                                }
+                                else
+                                {
+                                    echo "<center><br><br><br><br><br><br><br><br><br><br><br><br><h1><div class='tabela'><b> Seu carrinho está vazio </b></div></h1> <br><br><br><br><br><br><br></center>";
+                                }
+
+                            ?>
+                        </div> 
+                    
+                </div>
             </div> <!--Internas-->
 
             <div class="rodape">
