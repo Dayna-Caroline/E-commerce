@@ -230,7 +230,11 @@
                             }
                             else
                             {
-                                echo "<center><br><h1><div class='tabela'><b> Nenhum usuário encontrado </b></div></h1><br></center>";
+                                echo '<script language="javascript">
+                                    if(confirm("Erro: Não foi possível achar usuários com esses filtros)")){
+                                        window.location="./prod_admin.php";
+                                    }';
+                                    echo '</script>';
                             }
                                 
                             echo "</div></div>";

@@ -54,46 +54,40 @@
                                 <div class="selects">
                                     <div class="mat">
                                         <section>Material:</section>
-                                        <select name="mat" onchange="reloadWithParam()" id="pesq">
+                                        <select name="mat">
                                             <option value="1" <?php if($material == 1) echo "selected"?>>Todos</option>
-                                            <option value="2" <?php if($material == 'Alumínio') echo "selected"?>>Alumínio</option>
-                                            <option value="3" <?php if($material == 'Acrílico') echo "selected"?>>Acrílico</option>
-                                            <option value="4" <?php if($material == 'Cerâmica') echo "selected"?>>Cerâmica</option>
-                                            <option value="5" <?php if($material == 'Plástico') echo "selected"?>>Plástico</option>
+                                            <option value="Alumínio" <?php if($material == 'Alumínio') echo "selected"?>>Alumínio</option>
+                                            <option value="Acrílico" <?php if($material == 'Acrílico') echo "selected"?>>Acrílico</option>
+                                            <option value="Cerâmica" <?php if($material == 'Cerâmica') echo "selected"?>>Cerâmica</option>
+                                            <option value="Plástico" <?php if($material == 'Plástico') echo "selected"?>>Plástico</option>
                                         </select>
                                     </div>
                                     <div class="cor">
                                     <section>Cor:</section>
-                                        <select name="cor" onchange="reloadWithParam()" id="pesq">
+                                        <select name="cor">
                                             <option value="1" <?php if($cor == 1) echo "selected"?>>Todas</option>
-                                            <option value="2" <?php if($cor == 'Cinza') echo "selected"?>>Cinza</option>
-                                            <option value="3" <?php if($cor == 'Azul') echo "selected"?>>Azul</option>
-                                            <option value="4" <?php if($cor == 'Preto') echo "selected"?>>Preto</option>
-                                            <option value="5" <?php if($cor == 'Rosa') echo "selected"?>>Rosa</option>
-                                            <option value="6" <?php if($cor == 'Variada') echo "selected"?>>Variada</option>
+                                            <option value="Cinza" <?php if($cor == 'Cinza') echo "selected"?>>Cinza</option>
+                                            <option value="Azul" <?php if($cor == 'Azul') echo "selected"?>>Azul</option>
+                                            <option value="Preto" <?php if($cor == 'Preto') echo "selected"?>>Preto</option>
+                                            <option value="Rosa" <?php if($cor == 'Rosa') echo "selected"?>>Rosa</option>
+                                            <option value="Variada" <?php if($cor == 'Variada') echo "selected"?>>Variada</option>
                                         </select>
                                     </div>
                                     <div class="tam">
                                         <section>Tamanho:</section>
-                                        <select name="tam" onchange="reloadWithParam()" id="pesq">
+                                        <select name="tam">
                                             <option value="1" <?php if($tam == 1) echo "selected"?>>Todos</option>
-                                            <option value="2" <?php if($tam == 300) echo "selected"?>>300mL</option>
-                                            <option value="3" <?php if($tam == 350) echo "selected"?>>350mL</option>
-                                            <option value="4" <?php if($tam == 400) echo "selected"?>>400mL</option>
-                                            <option value="5" <?php if($tam == 450) echo "selected"?>>450mL</option>
-                                            <option value="6" <?php if($tam == 500) echo "selected"?>>500mL</option>
-                                            <option value="7" <?php if($tam == 700) echo "selected"?>>700mL</option>
-                                            <option value="8" <?php if($tam == 850) echo "selected"?>>850mL</option>
-                                            <option value="9" <?php if($tam == 900) echo "selected"?>>900mL</option>
+                                            <option value="300" <?php if($tam == 300) echo "selected"?>>300mL</option>
+                                            <option value="350" <?php if($tam == 350) echo "selected"?>>350mL</option>
+                                            <option value="400" <?php if($tam == 400) echo "selected"?>>400mL</option>
+                                            <option value="450" <?php if($tam == 450) echo "selected"?>>450mL</option>
+                                            <option value="500" <?php if($tam == 500) echo "selected"?>>500mL</option>
+                                            <option value="700" <?php if($tam == 700) echo "selected"?>>700mL</option>
+                                            <option value="850" <?php if($tam == 850) echo "selected"?>>850mL</option>
+                                            <option value="900" <?php if($tam == 900) echo "selected"?>>900mL</option>
                                         </select>
                                     </div>
                                 </div>
-                             
-                                <script>
-                                    function reloadWithParam(){
-                                        window.location.href="./pesq_prod_adm.php";
-                                    }
-                                </script>
 
                                 <div class="preco">
                                     Acima de R$<input type="number" name="acima"> <br> <br>
@@ -101,7 +95,7 @@
                                 </div>
                                 
                                 <button type="submit" class="icon">
-                                    <i class="fas fa-search"></i>
+                                    Filtrar
                                 </button>
                             </form>            
                     </div>
