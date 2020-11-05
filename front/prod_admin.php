@@ -49,46 +49,52 @@
 
         <div class="internas">
                     <div class="row row-2">
-                            <form class="pesq_text" action="../front/pesq_user.php" method="post">
+                            <form class="pesq_text" action="../front/pesq_prod_adm.php" method="post">
                                 <input type="text" name="pesq" class="text" placeholder="Produto">
                                 <div class="selects">
                                     <div class="mat">
                                         <section>Material:</section>
-                                        <select name="pesq">
-                                            <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Todos</option>
-                                            <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>Alumínio</option>
-                                            <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>Acrílico</option>
-                                            <option value="4" <?php if($tipo_pesq == 4) echo "selected"?>>Cerâmica</option>
-                                            <option value="5" <?php if($tipo_pesq == 5) echo "selected"?>>Plástico</option>
+                                        <select name="mat" onchange="reloadWithParam()" id="pesq">
+                                            <option value="1" <?php if($material == 1) echo "selected"?>>Todos</option>
+                                            <option value="2" <?php if($material == 'Alumínio') echo "selected"?>>Alumínio</option>
+                                            <option value="3" <?php if($material == 'Acrílico') echo "selected"?>>Acrílico</option>
+                                            <option value="4" <?php if($material == 'Cerâmica') echo "selected"?>>Cerâmica</option>
+                                            <option value="5" <?php if($material == 'Plástico') echo "selected"?>>Plástico</option>
                                         </select>
                                     </div>
                                     <div class="cor">
                                     <section>Cor:</section>
-                                        <select name="pesq">
-                                            <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Todas</option>
-                                            <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>Cinza</option>
-                                            <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>Azul</option>
-                                            <option value="4" <?php if($tipo_pesq == 4) echo "selected"?>>Preto</option>
-                                            <option value="5" <?php if($tipo_pesq == 5) echo "selected"?>>Rosa</option>
-                                            <option value="6" <?php if($tipo_pesq == 6) echo "selected"?>>Variada</option>
+                                        <select name="cor" onchange="reloadWithParam()" id="pesq">
+                                            <option value="1" <?php if($cor == 1) echo "selected"?>>Todas</option>
+                                            <option value="2" <?php if($cor == 'Cinza') echo "selected"?>>Cinza</option>
+                                            <option value="3" <?php if($cor == 'Azul') echo "selected"?>>Azul</option>
+                                            <option value="4" <?php if($cor == 'Preto') echo "selected"?>>Preto</option>
+                                            <option value="5" <?php if($cor == 'Rosa') echo "selected"?>>Rosa</option>
+                                            <option value="6" <?php if($cor == 'Variada') echo "selected"?>>Variada</option>
                                         </select>
                                     </div>
                                     <div class="tam">
                                         <section>Tamanho:</section>
-                                        <select name="pesq">
-                                            <option value="1" <?php if($tipo_pesq == 1) echo "selected"?>>Todos</option>
-                                            <option value="2" <?php if($tipo_pesq == 2) echo "selected"?>>300mL</option>
-                                            <option value="3" <?php if($tipo_pesq == 3) echo "selected"?>>350mL</option>
-                                            <option value="4" <?php if($tipo_pesq == 4) echo "selected"?>>400mL</option>
-                                            <option value="5" <?php if($tipo_pesq == 5) echo "selected"?>>450mL</option>
-                                            <option value="6" <?php if($tipo_pesq == 6) echo "selected"?>>500mL</option>
-                                            <option value="7" <?php if($tipo_pesq == 7) echo "selected"?>>700mL</option>
-                                            <option value="8" <?php if($tipo_pesq == 8) echo "selected"?>>850mL</option>
-                                            <option value="9" <?php if($tipo_pesq == 9) echo "selected"?>>900mL</option>
+                                        <select name="tam" onchange="reloadWithParam()" id="pesq">
+                                            <option value="1" <?php if($tam == 1) echo "selected"?>>Todos</option>
+                                            <option value="2" <?php if($tam == 300) echo "selected"?>>300mL</option>
+                                            <option value="3" <?php if($tam == 350) echo "selected"?>>350mL</option>
+                                            <option value="4" <?php if($tam == 400) echo "selected"?>>400mL</option>
+                                            <option value="5" <?php if($tam == 450) echo "selected"?>>450mL</option>
+                                            <option value="6" <?php if($tam == 500) echo "selected"?>>500mL</option>
+                                            <option value="7" <?php if($tam == 700) echo "selected"?>>700mL</option>
+                                            <option value="8" <?php if($tam == 850) echo "selected"?>>850mL</option>
+                                            <option value="9" <?php if($tam == 900) echo "selected"?>>900mL</option>
                                         </select>
                                     </div>
                                 </div>
                              
+                                <script>
+                                    function reloadWithParam(){
+                                        window.location.href="./pesq_prod_adm.php";
+                                    }
+                                </script>
+
                                 <div class="preco">
                                     Acima de R$<input type="number" name="acima"> <br> <br>
                                     Abaixo de R$<input type="number" name="abaixo">
