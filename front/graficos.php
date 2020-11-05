@@ -118,7 +118,7 @@
                                         $data = date('d/m/Y',  strtotime($linha['data_compra']));
 
                                         echo "
-                                        <a href='../back/remove_prod_carrinho.php?id_compra=".$linha['id_compra']."'>
+                                        <a href='../front/mais_venda.php?id_compra=".$linha['id_compra']."'>
                                         <div class='produtos'>
                                             <div class='produto completa'>
                                                 <div class='descricao'>
