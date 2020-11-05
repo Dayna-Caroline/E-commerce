@@ -135,45 +135,114 @@ p{
     margin-top: 70px;
 }
 
-/*Fotos e caracteríticas dos produtos-------------------------------------------------------*/
-.categories{
-    margin: 70px 0;
+/*Pesquisa---------------------------------------------------------------------------------------------*/
+.pesq_text{
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: -3%;
 }
 
-.col-3{
-    flex-basis: 30%;
-    min-width: 250px;
-    margin-bottom: 30px;
+.icon{
+    position: absolute;
+    color: #505f75;
+    margin-left: 57%; 
+    background-color: rgb(243, 233, 223);
+    border: 1px solid rgba(109, 93, 93, 0.4);
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 1%;
+    width: 8%;
+    height: 3%;
 }
 
-.col-3 img{
-    width: 100%;
+input{
+    height: 20%;
+    margin-top: 1.5%;
+    font-size: 18px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
+    text-align: left;
+    margin-right: 30%;
+    margin-left: -20%;
 }
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------------------------------------------*/
 
 .small-container{
     max-width: 1080px;
     margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-/*Vídeo-----------------------------------------------------------------------------*/
-.offer{
-    background: radial-gradient(#fff, #d6ddff);
-    margin: 80px;
-    padding: 40px 0; 
-}   
+.titulos, .produtos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 
-.offer-img{
+.titulos{
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+    background-color: rgb(255, 183, 116);
+}
+
+.produtos{
+    color: gray; 
+    padding: 10px 5px;
+    margin-bottom: .5%;
+    background-color: rgb(248, 242, 234);
+}
+
+.tabela{
+    margin: 80px auto;
     width: 100%;
-    height: 300px;
-    padding-right: 30px;
+    border-collapse: collapse;
 }
 
-small{
-    color: #555;
+.completa{
+    display: flex;
+    flex-wrap: wrap;
 }
 
+.qtde{
+    display: flex;
+    padding: 5px 15px;
+}
+
+.qtde button{
+    width: 20px;
+    border-radius: 4px;
+    background-color: rgb(255, 183, 116);
+    text-align: center;
+    border: 1px solid #555;
+}
+
+.qtde a{
+    margin-left: 15px;
+    margin-right: 15px;
+  font-size: 30px;
+}
+
+.produto p{
+    margin-left: 10px;
+    margin-top: -10px;
+}
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Graficos----------------------------------------------------------------------------------------------*/
+.internas h3{
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+/*-------------------------------------------------------------------------------------------------------*/
 
 /*Footer--------------------------------------------------------------------------------------------------*/
 .footer{

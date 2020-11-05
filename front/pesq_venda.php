@@ -17,6 +17,23 @@
         $nome = $_SESSION['nome']; 
         $sexo = $_SESSION['sexo'];
     }
+
+    $id = $_POST['id'];
+    $cliente = $_POST['cliente'];
+    $data = $_POST['data'];
+
+    $sql = "SELECT * FROM compra JOIN usuario ON compra.id_user=usuario.id_user
+    WHERE compra.excluido=false ";
+
+    if(!$id == ''){
+        $sql .= "AND compra.id_compra='$id' ";
+    }
+    if(!$cliente == ''){
+        $sql .= "AND usuario.nome LIKE '%$cliente%' ";
+    }
+    if(!$data == ''){
+        $sql .= "AND compra.data_compra='$data' ";
+    }
 ?>
 
 <html lang="pt-br">
@@ -102,10 +119,6 @@
                             </div>
 
                             <?php
-                                $sql = "SELECT compra.id_compra, compra.data_compra, usuario.nome, usuario.sobrenome, usuario.id_user, compra.excluido 
-                                FROM compra JOIN usuario ON compra.id_user=usuario.id_user
-                                WHERE compra.excluido=false ORDER BY compra.id_compra";
-                                
                                 $resultado = pg_query($conecta, $sql);
                                 $qtde = pg_num_rows($resultado);
                                 
@@ -140,7 +153,11 @@
                                 }
                                 else
                                 {
-                                    echo "<center><br><br><br><br><br><br><br><br><br><br><br><br><h1><div class='tabela'><b> Seu carrinho está vazio </b></div></h1> <br><br><br><br><br><br><br></center>";
+                                    echo '<script language="javascript">
+                                    if(confirm("Erro: Não foi possível achar vendas com esses filtros")){
+                                        window.location="./graficos.php";
+                                    }';
+                                    echo '</script>';
                                 }
 
                             ?>

@@ -168,8 +168,6 @@ h2{
 
 input{
     width: 15%;
-    height: 20%;
-    margin-top: 1.5%;
     font-size: 18px;
     padding-bottom: 5px;
     padding-left: 5px;
@@ -177,6 +175,11 @@ input{
     outline: none;
     border-bottom: 1px solid rgba(109, 93, 93, 0.4);
     text-align: left;
+}
+
+.text{
+    height: 20%;
+    margin-top: 1.5%;
 }
 
 .cor{
@@ -191,6 +194,10 @@ input{
 
 .preco{
     margin-left: -33%;
+}
+
+.preco input{
+    margin-left: .5%;
 }
 
 select{
