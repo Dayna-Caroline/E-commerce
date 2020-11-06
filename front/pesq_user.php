@@ -282,8 +282,7 @@
                                                 <br>
                                                 <p>".$linha['id_user']." - ".$linha['nome']." ".$linha['sobrenome']."</p>
                                                 <p>".$linha['email']."</p>
-                                                <a href='./detalhes_user.php?id_usuario=".$id_user_select."'>Mais detalhes</a>
-                                            </div>
+                                                </div>
                                         </div>
 
                                         <div class='quant'>";

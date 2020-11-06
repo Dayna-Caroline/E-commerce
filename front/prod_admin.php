@@ -131,7 +131,7 @@
                                                 <div class='descricao'>
                                                     <br>
                                                     <p>".$linha['produto']."</p>
-                                                    <a href='../back/remove_prod_carrinho.php?id_prod=".$linha['id_produto']."'>Mais detalhes</a>
+                                                    <a href='../front/detalhes_prod.php?id_prod=".$linha['id_produto']."'>Mais detalhes</a>
                                                 </div>
                                             </div>
 

@@ -149,6 +149,7 @@
                 </div>
 
                 <h3>Gráficos e estatísticas</h3>
+                <a href="selectgrafic.php">Gráficos</a>
             </div> <!--Internas-->
 
             <div class="rodape">

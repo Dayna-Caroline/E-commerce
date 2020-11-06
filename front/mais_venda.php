@@ -23,7 +23,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cup&Mug</title>
-    <link rel="stylesheet" href="../styles/users_admin.css">
+    <link rel="stylesheet" href="../styles/mais_venda.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
@@ -39,7 +39,7 @@
                         <nav>
                                 <ul id="MenuItems">
                                     <li><a href="../front/graficos.php">Vendas</a></li>
-                                    <li><a href="../front/users_admin.php"><span>Usuários</span></a></li>
+                                    <li><a href="../front/users_admin.php">Usuários</a></li>
                                     <li><a href="../front/prod_admin.php">Produtos</a></li>
                                     <li><a href="../index.php">Utilizar como cliente &#8594;</a></li>
                                 </ul>
@@ -50,6 +50,8 @@
         </div>
 
         <div class="internas">
+            <br><br>
+            <a href="./graficos.php" class="voltar">&#8592; Voltar</a>
                     <div class="small-container">
                         <div class="tabela">
                             <div class="titulos">
@@ -59,7 +61,7 @@
                             </div>
 
                             <?php   
-                                $sql = "SELECT compra.id_user, produto.produto, itens.quantidade, produto.preco, produto.imagem, usuario.nome, usuario.sobrenome, usuario.cep 
+                                $sql = "SELECT compra.id_user, produto.produto, itens.quantidade, produto.preco, produto.imagem, usuario.nome, usuario.sobrenome, usuario.cep, compra.data_compra 
                                 FROM compra JOIN itens ON itens.id_compra=compra.id_compra
                                 INNER JOIN produto ON itens.id_produto=produto.id_produto
                                 INNER JOIN usuario ON compra.id_user=usuario.id_user
@@ -102,16 +104,12 @@
                                         $total += $linha['preco']*$linha['quantidade'];
 
                                     }
-                                    echo "<div class='desc'>";
-                                    echo "Data da compra: ".$data;
-                                    echo "Preco total: R$".$total.",00";
-                                    echo "Cliente: ".$linha['nome']." ".$linha['sobrenome'];
-                                    echo "CEP: ".$linha['cep']; 
+                                    echo "<br><div class='desc'>";
+                                    echo "<section><span>Data da compra: </span>".$data."    </section>";
+                                    echo "<section><span>Preço total: </span>R$".$total.",00</section>";
+                                    echo "<section><span>Cliente: </span>".$linha['nome']." ".$linha['sobrenome']."    </section>";
+                                    echo "<section><span>CEP: </span>".$linha['cep']."</section>"; 
                                     echo "</div>";
-                                }
-                                else
-                                {
-                                    echo "<center><br><br><br><br><br><br><br><br><br><br><br><br><h1><div class='tabela'><b> Seu carrinho está vazio </b></div></h1> <br><br><br><br><br><br><br></center>";
                                 }
                             ?>
                         </div>  
