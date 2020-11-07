@@ -17,6 +17,58 @@
         $nome = $_SESSION['nome']; 
         $sexo = $_SESSION['sexo'];
     }
+
+    //Padrão String Produtos--------------------------------------------------------------------------------
+    $sql = "SELECT produto FROM produto";
+    $resultado = pg_query($conecta, $sql);
+    $qtde = pg_num_rows($resultado);
+    $sprod=array();
+    if($qtde > 0)
+    {
+        for($cont=0; $cont < $qtde; $cont++)
+        {
+            $linha=pg_fetch_array($resultado);
+            $produto = $linha['produto'];
+            $sprod[$cont] = $produto;
+        }
+    }
+
+    $ind_prod = count($sprod); 
+    //------------------------------------------------------------------------------------------------------
+
+    $sql3 = "SELECT itens.id_produto, itens.quantidade, produto.produto
+    FROM itens JOIN produto ON itens.id_produto=produto.id_produto
+    ORDER BY itens.id_produto";
+    $resultado3 = pg_query($conecta, $sql3);
+    $qtde3 = pg_num_rows($resultado3);
+    $squant3=array();
+    $spocentagem3=array();
+    $qtotal3=0;
+
+    if($qtde3 > 0)
+    {
+        for($cont3=0; $cont3 < $qtde3; $cont3++)
+        {
+            $linha3=pg_fetch_array($resultado3);
+            $id_produto3 = $linha3['id_produto'];
+            $quantidade3 = $linha3['quantidade'];
+            $squant3[$id_produto3] = $quantidade3;
+            $qtotal3 += $quantidade3; 
+        }
+    }
+    
+    for($x3=0; $x3 < $ind_prod; $x3++){
+        if(empty($squant3[$x3])){
+            $squant3[$x3] = 0;
+            $spocentagem3[$x3] = '0%';
+        }
+        else{
+            $por3 = ($squant3[$x3] * 100)/$qtotal3;
+            $spocentagem3[$x3] = $por3 . '%';
+        }
+    }
+    ksort($squant3); 
+    ksort($sporcentagem3);
 ?>
 
 <html lang="pt-br">
@@ -25,6 +77,32 @@
         <title>Cup&Mug</title>
         <link rel="stylesheet" href="../styles/graficos.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+            ['Produtos', 'Vendas'],
+            
+            for(var x = 0; x < <?php$ind_prod?>; x++){
+                ['<?php$sprod?>[x]', '<?php$sporcentagem3?>[x]'],
+            }
+            
+            ]);
+
+            var options = {
+            title: 'My Daily Activities'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+        </script>
     </head>
 
     <body>
@@ -149,7 +227,8 @@
                 </div>
 
                 <h3>Gráficos e estatísticas</h3>
-                <a href="selectgrafic.php">Gráficos</a>
+                
+                <div id="piechart" style="width: 900px; height: 500px;"></div>
             </div> <!--Internas-->
 
             <div class="rodape">
