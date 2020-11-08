@@ -59,17 +59,17 @@ CREATE TABLE produto
 INSERT INTO produto
 (id_produto, produto, cupormug, descricao, quantidade, preco, imagem, material, cor, tamanho, excluido, data_exclusao)
 VALUES
-(1, 'Caneca com Frase', 2, 'Caneca na cor cinza com frase colorida, disponível no tamanho de 450mL e feita de alumínio.', 	40, 30, '/imgs/produtos/caneca1.jpg', 	'Alumínio', 'Cinza',	450, FALSE, NULL),
-(2, 'Copo Twister', 	1, 'Copo twister, feito de acrílico, com tampa e canudo e capacidade para 700mL.', 					20, 50, '/imgs/produtos/copo1.jpg', 	'Acrílico', 'Variada',	700, FALSE, NULL),
-(3, 'Caneca Coffe',     2, 'Caneca de cerâmica com cores variadas, estampada com uma frase, 350mL.', 						50, 40, '/imgs/produtos/caneca2.jpg', 	'Cerâmica', 'Variada',	350, FALSE, NULL),
+(1, 'Caneca Long com Frase', 2, 'Caneca na cor cinza com frase colorida, disponível no tamanho de 450mL e feita de alumínio.', 	40, 30, '/imgs/produtos/caneca1.jpg', 	'Alumínio', 'Cinza',	450, FALSE, NULL),
+(2, 'Copo Twister', 	1, 'Copo twister, feito de acrílico, com tampa e canudo e capacidade para 700mL.', 					20, 50, '/imgs/produtos/copo1.jpg', 	'Acrílico', 'Azul',	700, FALSE, NULL),
+(3, 'Caneca Coffe',     2, 'Caneca de cerâmica com cores variadas, estampada com uma frase, 350mL.', 						50, 40, '/imgs/produtos/caneca2.jpg', 	'Cerâmica', 'Preta',	350, FALSE, NULL),
 (4, 'Copo com Luzes', 	1, 'Copo com luzes, estampado com uma frase e capacidade para 400mL.', 								10, 90, '/imgs/produtos/copo2.jpg', 	'Acrílico', 'Variada',	400, FALSE, NULL),
-(5,'Caneca com Tirante',2, 'Caneca com cores variadas estampada com uma frase, feita de acrílico e com tamanho de 400mL.', 	80, 35, '/imgs/produtos/caneca3.jpg', 	'Acrílico', 'Variada',	400, FALSE, NULL),
-(6, 'Copo com Canudo', 	1, 'Copo de acrílico com tampa e canuco, estampado com uma frase e capacidade para 700mL.', 		40, 60, '/imgs/produtos/copo3.jpg', 	'Acrílico', 'Variada',	700, FALSE, NULL),
-(7, 'Caneca com Frase', 2, 'Caneca de alumínio com 500mL, feita com cores variadas e com a estampa de uma frase.', 			40, 30, '/imgs/produtos/caneca4.jpg', 	'Alumínio', 'Variada',	500, FALSE, NULL),
+(5,'Caneca com Tirante',2, 'Caneca com cores variadas estampada com uma frase, feita de acrílico e com tamanho de 400mL.', 	80, 35, '/imgs/produtos/caneca3.jpg', 	'Acrílico', 'Preta',	400, FALSE, NULL),
+(6, 'Copo com Canudo', 	1, 'Copo de acrílico com tampa e canuco, estampado com uma frase e capacidade para 700mL.', 		40, 60, '/imgs/produtos/copo3.jpg', 	'Acrílico', 'Rosa',	700, FALSE, NULL),
+(7, 'Caneca com Frase', 2, 'Caneca de alumínio com 500mL, feita com cores variadas e com a estampa de uma frase.', 			40, 30, '/imgs/produtos/caneca4.jpg', 	'Alumínio', 'Peta',	500, FALSE, NULL),
 (8, 'Copo Long', 		1, 'Copo long, estampado com uma frase e capacidade para 300mL.', 									35, 45, '/imgs/produtos/copo4.jpg', 	'Acrílico', 'Variada',	300, FALSE, NULL),
-(9,'Caneca de Alumínio',2, 'Caneca feita de alumínio, com cores variadas e capacidade de 850mL.', 						    12, 39, '/imgs/produtos/caneca5.jpg', 	'Alumínio', 'Variada',	850, FALSE, NULL),
+(9,'Caneca de Alumínio',2, 'Caneca feita de alumínio, com cores variadas e capacidade de 850mL.', 						    12, 39, '/imgs/produtos/caneca5.jpg', 	'Alumínio', 'Preta',	850, FALSE, NULL),
 (10, 'Long Drink', 		1, 'Copo long, com cores variadas e capacidade para 300mL.', 										11, 57, '/imgs/produtos/copo5.jpg', 	'Acrílico', 'Variada',	300, FALSE, NULL),
-(11, 'Caneca Lisa', 	2, 'Caneca feita de alumínio, com cores variadas e capacidade para 500mL.', 						29, 30, '/imgs/produtos/caneca6.jpg', 	'Alumínio', 'Variada',	500, FALSE, NULL),
+(11, 'Caneca Lisa', 	2, 'Caneca feita de alumínio, com cores variadas e capacidade para 500mL.', 						29, 30, '/imgs/produtos/caneca6.jpg', 	'Alumínio', 'Preta',	500, FALSE, NULL),
 (12, 'Copo Yard', 		1, 'Copo yard, feito de plástico com tampa e canudo, e capacidade para 900mL.', 					40, 65, '/imgs/produtos/copo6.jpg', 	'Plástico', 'Variada', 	900, FALSE, NULL);
 
 /*------------------------------------------------------------------*/
