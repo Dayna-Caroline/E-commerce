@@ -2,7 +2,7 @@
     include "../../back/conexao.php";
 
     //Padrão String Produtos--------------------------------------------------------------------------------
-    $sql = "SELECT produto FROM produto";
+    $sql = "SELECT produto FROM produto ORDER BY id_produto";
     $resultado = pg_query($conecta, $sql);
     $qtde = pg_num_rows($resultado);
     $sprod=array();
@@ -50,9 +50,9 @@
             $sporcentagem3[$x3] = round($por3) . '%';
         }
     }
+    ksort($sprod);
     ksort($squant3); 
-    ksort($sporcentagem3);    
-
     //-------------------------------------------------------------------------------------------------------
+
 ?>
 

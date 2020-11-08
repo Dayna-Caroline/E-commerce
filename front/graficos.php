@@ -31,30 +31,27 @@
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <!--Gráfico 1------------------------------------------------------------------------------------------------------>
-        <script>
-            google.charts.load('current', {'packages':['bar']});
+        <script type="text/javascript">
+            google.charts.load("current", {packages:["corechart"]});
             google.charts.setOnLoadCallback(drawChart);
-
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                     ['Produtos', 'Vendas'],
                     <?php
                         for($x3=0; $x3 < $ind_prod; $x3++){
-                            print_r("['".$sprod[$x3]."', '".$squant3[$x3]."'],");
+                            print_r("['".$sprod[$x3]."', ".$squant3[$x3]."],");
                         }
                     ?>
                 ]);
 
                 var options = {
-                    chart: {
-                        title: 'Quantidade de vendas de todos os produtos.',
-                    },
-                    bars: 'horizontal', // Required for Material Bar Charts.
+                    title: 'Quantidade e porcentagem de vendas de todos os produtos.',
+                    is3D: true,
+                    pieSliceText: 'none'
                 };
 
-                var chart = new google.charts.Bar(document.getElementById('grafico1'));
-
-                chart.draw(data, google.charts.Bar.convertOptions(options));
+                var chart = new google.visualization.PieChart(document.getElementById('grafico1'));
+                chart.draw(data, options);
             }
         </script>
 
@@ -120,7 +117,7 @@
             google.charts.setOnLoadCallback(drawChart);
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                ['Pac Man', 'Percentage'],
+                ['Sexo', 'Quantidade de compras'],
                 ['Feminino', <?php echo $sf4;?>],
                 ['Masculino', <?php echo $sm4;?>]
                 ]);
@@ -275,6 +272,8 @@
                         <br><br>
                     </center>
                 </div>
+
+                <center><a href="../back/gerar_relatorio.php"><button class="gerar">Gerar relatório</button></a></center>
             </div> <!--Internas-->
 
             <div class="rodape">
