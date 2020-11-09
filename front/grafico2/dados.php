@@ -9,13 +9,10 @@ include "../../back/conexao.php";
 
     $resultado5 = pg_query($conecta, $sql5);
     $qtde5 = pg_num_rows($resultado5);
-    
-    $fvalores5 = array();
-    $sdatas = array('08/11/2020');
-    
-    $dt_ant5 = 0;
-    $compra = array();
-    $i = -1;
+    $sdatas = array();
+    $fvalores = array();
+    $qtdd = array();
+    $i = 0;
 
     if($qtde5 > 0)
     {
@@ -23,17 +20,26 @@ include "../../back/conexao.php";
         {
             $linha5=pg_fetch_array($resultado5);
             $data = date('d/m/Y',  strtotime($linha5['data_compra']));
-            $preco = ($linha5['preco']*$linha5['quantidade']);
+            $quant = $linha5['quantidade'];
+            $preco = $linha5['preco'];
 
-            if(!strtotime($data) == strtotime($dt_ant5)){
-                $i++;
-                array_push($sdatas, $data);
-                $fvalores5[$i+1] = $preco;
-                $compra[$i+1] = 1;
-                $dt_ant5 = $data;
-            }else{
-                $fvalores5[$i+1] += $preco;
-                $compra[$i+1] ++;
+            if(empty($sdatas[0])){
+                $sdatas[0] = $data;
+                $dt_ant = $data;
+                $fvalores[0] = ($quant * $preco);
+                $qtdd[0] = $quant;
+            }
+            else{
+                if(strtotime($dt_ant) == strtotime($data)){
+                    $fvalores[$i] += ($quant * $preco);
+                    $qtdd[$i] += $quant;
+                }else{
+                    array_push($sdatas, $data);
+                    $dt_ant = $data;
+                    array_push($fvalores, ($quant * $preco));
+                    array_push($qtdd, $quant);
+                    $i++;
+                }
             }
         }
     }

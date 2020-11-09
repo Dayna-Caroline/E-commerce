@@ -7,7 +7,7 @@
     include "../back/conexao.php";
     include "../front/grafico1/dados.php";
     include "../front/grafico2/dados.php";
-    include "../front/grafico3/dados.php";
+    //include "../front/grafico3/dados.php";
     include "../front/grafico4/dados.php";
     
     $logado = null;
@@ -63,16 +63,16 @@
 
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                ['Datas', 'Faturamento', 'Produtos vendidos'],
+                ['Datas', 'Faturamento(R$)', 'Produtos vendidos'],
                     <?php
                         for($x3=0; $x3 < count($sdatas); $x3++){
-                            print_r("['".$sdatas[$x3]."', ".$fvalores5[$x3].", ".$fcompra[$x3]."],");
+                            print_r("['".$sdatas[$x3]."', ".$fvalores[$x3].", ".$qtdd[$x3]."],");
                         }
                     ?>
                 ]);
 
                 var options = {
-                title: 'Company Performance',
+                title: 'Faturamento e quantidade de vendas por dia.',
                 curveType: 'function',
                 legend: { position: 'bottom' }
                 };
@@ -84,30 +84,25 @@
         </script>
 
         <!--Gráfico 3------------------------------------------------------------------------------------------------------>
-        <script>
-            google.charts.load('current', {'packages':['bar']});
-            google.charts.setOnLoadCallback(drawChart);
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['table']});
+            google.charts.setOnLoadCallback(drawTable);
 
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Produtos', 'Vendas'],
+            function drawTable() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Produto');
+                data.addColumn('string', 'Faixa etária');
+                data.addColumn('number', 'Quantidade de produtos');
+                data.addRows([
                     <?php
-                        for($x3=0; $x3 < $ind_prod; $x3++){
-                            print_r("['".$sprod[$x3]."', '".$sporcentagem3[$x3]."'],");
+                        for($x3=0; $x3 < count($sprod); $x3++){
+                            print_r("['".$sprod[$x3]."', ".$faixas[$x3].", ".$quantidade[$x3]."],");
                         }
                     ?>
                 ]);
 
-                var options = {
-                    chart: {
-                        title: 'Porcentagem de vendas de todos os produtos.',
-                    },
-                    bars: 'horizontal', // Required for Material Bar Charts.
-                };
-
-                var chart = new google.charts.Bar(document.getElementById('grafico3'));
-
-                chart.draw(data, google.charts.Bar.convertOptions(options));
+                var table = new google.visualization.Table(document.getElementById('grafico3'));
+                table.draw(data, {showRowNumber: true, width: '70%', height: '70%'});
             }
         </script>
 
@@ -265,9 +260,9 @@
                         <div id="grafico1" style="width: 900px; height: 500px;"></div>
                         <br><br>
                         <div id="grafico2" style="width: 900px; height: 500px;"></div>
-                        <br><br>
+                        <br><br><br><br><br><br>
+                        <h4>Produtos mais vendidos por faixa etária.</h4><br>
                         <div id="grafico3" style="width: 900px; height: 500px;"></div>
-                        <br><br>
                         <div id="grafico4" style="width: 900px; height: 500px;"></div>
                         <br><br>
                     </center>
