@@ -9,7 +9,7 @@
 
     $resultado9 = pg_query($conecta, $sql9);
     $qtde9 = pg_num_rows($resultado9);
-    $sfaixas = array('Abaixo de 16', '16 a 20', '20 a 40', 'Acima de 40 anos');
+    $sfaixas = array('Abaixo de 16', '17 a 20', '21 a 40', 'Acima de 41 anos');
     $faixas = array();
     $quantidade = array();
     $i = 0;
@@ -43,12 +43,26 @@
 
         for($a = 0; $a < 12; $a++){
             if(empty($data[$a])){
-                $faixas[$i] = '-';
-                $quantidade[$i] = 0;
+                $faixas[$a] = '-';
+                $quantidade[$a] = 0;
                 $data[$a] = 0;
             }
-
-            if($data[$a])
+            else{
+                if((2020 - $data[$a]) <= 16){
+                    $faixas[$a] = $sfaixas[1];
+                }
+                else if((2020 - $data[$a]) > 17 && $data[$a] <= 20){
+                    $faixas[$a] = $sfaixas[2];
+                }
+                else if((2020 - $data[$a]) > 21 && $data[$a] <= 40){
+                    $faixas[$a] = $sfaixas[3];
+                }
+                else if((2020 - $data[$a]) >= 41){
+                    $faixas[$a] = $sfaixas[4];
+                }
+            }
         }
+        ksort($quantidade);
+        ksort($faixas);
     }
 ?>

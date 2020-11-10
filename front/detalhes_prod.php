@@ -116,7 +116,7 @@
                                                 }
                                                 echo "<h4>R$".$linha['preco'].",00</h4>";
                                                 echo "
-                                                <br><button class='btn_voltar'><a href='./produtos.php'>Voltar</a></button>
+                                                <br><button class='btn_voltar'><a href='./prod_admin.php'>Voltar</a></button>
                                             </div>
                                         </div>";
                                         }

@@ -7,7 +7,7 @@
     include "../back/conexao.php";
     include "../front/grafico1/dados.php";
     include "../front/grafico2/dados.php";
-    //include "../front/grafico3/dados.php";
+    include "../front/grafico3/dados.php";
     include "../front/grafico4/dados.php";
     
     $logado = null;
@@ -92,16 +92,17 @@
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Produto');
                 data.addColumn('string', 'Faixa etária');
-                data.addColumn('number', 'Quantidade de produtos');
+                data.addColumn('number', 'Quantidade de vendas');
                 data.addRows([
                     <?php
-                        for($x3=0; $x3 < count($sprod); $x3++){
-                            print_r("['".$sprod[$x3]."', ".$faixas[$x3].", ".$quantidade[$x3]."],");
-                        }
+                        for($b = 0; $b < $ind_prod; $b++){
+                            print_r("['".$sprod[$b]."', '".$faixas[$b]."', ".$quantidade[$b]."],");
+                        }    
                     ?>
                 ]);
 
                 var table = new google.visualization.Table(document.getElementById('grafico3'));
+
                 table.draw(data, {showRowNumber: true, width: '70%', height: '70%'});
             }
         </script>
