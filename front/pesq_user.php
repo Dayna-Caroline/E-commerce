@@ -232,7 +232,7 @@
                             {
                                 echo '<script language="javascript">
                                     if(confirm("Erro: Não foi possível achar usuários com esses filtros)")){
-                                        window.location="./prod_admin.php";
+                                        window.location="./users_admin.php";
                                     }';
                                     echo '</script>';
                             }

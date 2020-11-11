@@ -16,7 +16,6 @@ body{
 
 .tudo{
     width: 1200px;
-    min-height: 1000px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
@@ -144,16 +143,15 @@ p{
 }
 
 .icon{
-    position: absolute;
     color: #505f75;
-    margin-left: 57%; 
+    margin-left: -150px; 
     background-color: rgb(243, 233, 223);
     border: 1px solid rgba(109, 93, 93, 0.4);
     border-radius: 4px;
     font-size: 18px;
     cursor: pointer;
     margin-top: 1%;
-    width: 8%;
+    padding: 5px 30px;
     height: 3%;
 }
 
@@ -168,7 +166,7 @@ input{
     border-bottom: 1px solid rgba(109, 93, 93, 0.4);
     text-align: left;
     margin-right: 30%;
-    margin-left: -20%;
+    margin-left: -23%;
 }
 
 /*-----------------------------------------------------------------------------------------------------*/

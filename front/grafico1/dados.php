@@ -35,8 +35,13 @@
             $linha3=pg_fetch_array($resultado3);
             $id_produto3 = $linha3['id_produto'];
             $quantidade3 = $linha3['quantidade'];
-            $squant3[$id_produto3-1] = $quantidade3;
-            $qtotal3 += $quantidade3; 
+            $qtotal3 += $quantidade3;
+            if(empty($squant3[$id_produto3 - 1])){
+                $squant3[$id_produto3 - 1] = $quantidade3;
+            }
+            else{
+                $squant3[$id_produto3-1] += $quantidade3;
+            } 
         }
     }
     

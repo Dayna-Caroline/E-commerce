@@ -5,6 +5,10 @@
 
 <?php
     include "../back/conexao.php";
+    include "../front/grafico1/dados.php";
+    include "../front/grafico2/dados.php";
+    include "../front/grafico3/dados.php";
+    include "../front/grafico4/dados.php";
     
     $logado = null;
 
@@ -42,6 +46,108 @@
         <title>Cup&Mug</title>
         <link rel="stylesheet" href="../styles/graficos.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!--Gráfico 1------------------------------------------------------------------------------------------------------>
+        <script type="text/javascript">
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Produtos', 'Vendas'],
+                    <?php
+                        for($x3=0; $x3 < $ind_prod; $x3++){
+                            print_r("['".$sprod[$x3]."', ".$squant3[$x3]."],");
+                        }
+                    ?>
+                ]);
+
+                var options = {
+                    title: 'Quantidade e porcentagem de vendas de todos os produtos.',
+                    is3D: true,
+                    pieSliceText: 'none'
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('grafico1'));
+                chart.draw(data, options);
+            }
+        </script>
+
+        <!--Gráfico 2------------------------------------------------------------------------------------------------------>
+ 
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ['Datas', 'Faturamento(R$)', 'Produtos vendidos'],
+                    <?php
+                        for($x3=0; $x3 < count($sdatas); $x3++){
+                            print_r("['".$sdatas[$x3]."', ".$fvalores[$x3].", ".$qtdd[$x3]."],");
+                        }
+                    ?>
+                ]);
+
+                var options = {
+                title: 'Faturamento e quantidade de vendas por dia.',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('grafico2'));
+
+                chart.draw(data, options);
+            }
+        </script>
+
+        <!--Gráfico 3------------------------------------------------------------------------------------------------------>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['table']});
+            google.charts.setOnLoadCallback(drawTable);
+
+            function drawTable() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Produto');
+                data.addColumn('string', 'Faixa etária');
+                data.addColumn('number', 'Quantidade de vendas');
+                data.addRows([
+                    <?php
+                        for($b = 0; $b < $ind_prod; $b++){
+                            print_r("['".$sprod[$b]."', '".$faixas[$b]."', ".$quantidade[$b]."],");
+                        }    
+                    ?>
+                ]);
+
+                var table = new google.visualization.Table(document.getElementById('grafico3'));
+
+                table.draw(data, {showRowNumber: true, width: '70%', height: '70%'});
+            }
+        </script>
+
+        <!--Gráfico 4------------------------------------------------------------------------------------------------------>
+        <script type="text/javascript">
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ['Sexo', 'Quantidade de compras'],
+                ['Feminino', <?php echo $sf4;?>],
+                ['Masculino', <?php echo $sm4;?>]
+                ]);
+
+                var options = {
+                title: 'Preferência de compra por gênero.',
+                is3D: true,
+                slices: {
+                    0: { color: 'purple' },
+                    1: { color: 'orange' }
+                }
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('grafico4'));
+                chart.draw(data, options);
+            }
+        </script>
     </head>
 
     <body>
@@ -101,7 +207,7 @@
                     <form class="pesq_text" action="./pesq_venda.php" name="form1" method="post">
                         <input type="number" name="id" class="id" placeholder="ID" autocomplete="off">
                         <input type="text" name="cliente" class="nome" placeholder="Cliente" autocomplete="off">
-                        <input type="text" name="data" class="data" onKeyPress="MascaraData(form1.data);" maxlength="10" placeholder="Data de Nascimento" autocomplete="off">
+                        <input type="text" name="data" class="data" onKeyPress="MascaraData(form1.data);" maxlength="10" placeholder="Data da compra" autocomplete="off">
 
                         <button type="submit" class="icon">
                             Filtrar
@@ -166,6 +272,20 @@
                 </div>
 
                 <h3>Gráficos e estatísticas</h3>
+                <div class="graficos">
+                    <center>
+                        <div id="grafico1" style="width: 900px; height: 500px;"></div>
+                        <br><br>
+                        <div id="grafico2" style="width: 900px; height: 500px;"></div>
+                        <br><br><br><br><br><br>
+                        <h4>Produtos mais vendidos por faixa etária.</h4><br>
+                        <div id="grafico3" style="width: 900px; height: 500px;"></div>
+                        <div id="grafico4" style="width: 900px; height: 500px;"></div>
+                        <br><br>
+                    </center>
+                </div>
+
+                <center><a href="../back/gerar_relatorio.php"><button class="gerar">Gerar relatório</button></a></center>
             </div> <!--Internas-->
 
             <div class="rodape">

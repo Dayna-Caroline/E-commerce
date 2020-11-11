@@ -41,7 +41,7 @@
         $linhas = pg_affected_rows($resultado);
         if($linhas > 0)
         {
-            header("Location: ../front/insere_user.php");
+            header("Location: ../front/users_admin.php");
         }
         else	
         {

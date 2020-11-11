@@ -15,9 +15,12 @@ body{
 
 .tudo{
     width: 1200px;
-    min-height: 600px;
     margin-left: auto;
     margin-right: auto;
+    background-color:white;
+}
+
+.internas{
     background-color:white;
 }
 
@@ -250,6 +253,7 @@ p{
 
 /*Footer--------------------------------------------------------------------------------------------------*/
 .footer{
+    margin-top: -90px;
     width: 1200px;
     color: #fff;
     background-color: black;

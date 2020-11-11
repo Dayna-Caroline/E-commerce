@@ -116,40 +116,46 @@
     $ind_prod = count($sprod); 
 
     //Dados gráfico 1----------------------------------------------------------------------------------------------
-    $sql3 = "SELECT itens.id_produto, itens.quantidade
-    FROM itens JOIN produto ON itens.id_produto=produto.id_produto
-    ORDER BY itens.id_produto";
-    $resultado3 = pg_query($conecta, $sql3);
-    $qtde3 = pg_num_rows($resultado3);
-    $squant3=array();
-    $sporcentagem3=array();
-    $qtotal3=0;
-
-    if($qtde3 > 0)
-    {
-        for($cont3=0; $cont3 < $qtde3; $cont3++)
-        {
-            $linha3=pg_fetch_array($resultado3);
-            $id_produto3 = $linha3['id_produto'];
-            $quantidade3 = $linha3['quantidade'];
-            $squant3[$id_produto3-1] = $quantidade3;
-            $qtotal3 += $quantidade3; 
-        }
-    }
+        $sql3 = "SELECT itens.id_produto, itens.quantidade
+        FROM itens JOIN produto ON itens.id_produto=produto.id_produto
+        ORDER BY itens.id_produto";
+        $resultado3 = pg_query($conecta, $sql3);
+        $qtde3 = pg_num_rows($resultado3);
+        $squant3=array();
+        $sporcentagem3=array();
+        $qtotal3=0;
     
-    for($x3=0; $x3 < $ind_prod; $x3++){
-        if(empty($squant3[$x3])){
-            $squant3[$x3] = 0;
-            $sporcentagem3[$x3] = '0%';
+        if($qtde3 > 0)
+        {
+            for($cont3=0; $cont3 < $qtde3; $cont3++)
+            {
+                $linha3=pg_fetch_array($resultado3);
+                $id_produto3 = $linha3['id_produto'];
+                $quantidade3 = $linha3['quantidade'];
+                if(empty($squant3[$id_produto3 - 1])){
+                    $squant3[$id_produto3 - 1] = $quantidade3;
+                }
+                else{
+                    $squant3[$id_produto3-1] += $quantidade3;
+                }
+                $qtotal3 += $quantidade3; 
+            }
         }
-        else{
-            $por3 = ($squant3[$x3] * 100)/$qtotal3;
-            $sporcentagem3[$x3] = round($por3) . '%';
+        
+        for($x3=0; $x3 < $ind_prod; $x3++){
+            if(empty($squant3[$x3])){
+                $squant3[$x3] = 0;
+                $sporcentagem3[$x3] = '0%';
+            }
+            else{
+                $por3 = ($squant3[$x3] * 100)/$qtotal3;
+                $sporcentagem3[$x3] = number_format($por3, 1) . '%';
+            }
         }
-    }
-    ksort($sprod);
-    ksort($squant3); 
+        ksort($sprod);
+        ksort($squant3); 
     //-------------------------------------------------------------------------------------------------------
+    
 
     //Gráfico 2-------------------------------------------------------------------------------------------------
         $sql5 = "SELECT compra.data_compra, produto.preco, itens.quantidade
@@ -196,7 +202,7 @@
 
     //----------------------------------------------------------------------------------------------
 
-    //Gráfico 3-------------------------------------------------------------------------------------
+        //Gráfico 3-------------------------------------------------------------------------------------
         $sql9 = "SELECT usuario.data_nascimento, itens.quantidade, produto.id_produto
         FROM compra JOIN itens ON itens.id_compra=compra.id_compra
         INNER JOIN produto ON itens.id_produto=produto.id_produto
@@ -205,7 +211,7 @@
 
         $resultado9 = pg_query($conecta, $sql9);
         $qtde9 = pg_num_rows($resultado9);
-        $sfaixas = array('Abaixo de 16', '17 a 20', '21 a 40', 'Acima de 41 anos');
+        $sfaixas = array('Abaixo de 16', '17 a 20', '21 a 40', 'Acima de 41 anos', '-', '+ de uma faixa');
         $faixas = array();
         $quantidade = array();
         $i = 0;
@@ -220,41 +226,46 @@
                 $id = $linha9['id_produto'];
                 list($ano, $mes, $dia) = explode('-', $linha9['data_nascimento']);
 
-                if(empty($data[$id])){
-                    $data[$id] = $ano;
-                    $quantidade[$id] = $quanti;
+                if(empty($data[$id-1])){
+                    $data[$id-1] = $ano;
+                    $quantidade[$id-1] = $quanti;
                 }
                 else{
-                    if($data[$id] == $ano){
-                        $quantidade[$id] += $quanti;
+                    if($data[$id-1] == $ano){
+                        $quantidade[$id-1] += $quanti;
                     }
                     else{
-                        if($quantidade[$id] < $quanti){
-                            $quantidade[$id] = $quanti;
-                            $data[$id] = $ano;
+                        if($quantidade[$id-1] < $quanti){
+                            $quantidade[$id-1] = $quanti;
+                            $data[$id-1] = $ano;
+                        }
+                        else if($quantidade[$id-1] == $quanti){
+                            $faixas[$id-1] = $sfaixas[6];
                         }
                     }
                 }
             }
 
             for($a = 0; $a < 12; $a++){
-                if(empty($data[$a])){
-                    $faixas[$a] = '-';
-                    $quantidade[$a] = 0;
-                    $data[$a] = 0;
-                }
-                else{
-                    if((2020 - $data[$a]) <= 16){
-                        $faixas[$a] = $sfaixas[1];
+                if(empty($faixas[$a])){
+                    if(empty($data[$a])){
+                        $faixas[$a] =  $sfaixas[5];
+                        $quantidade[$a] = 0;
+                        $data[$a] = 0;
                     }
-                    else if((2020 - $data[$a]) > 17 && $data[$a] <= 20){
-                        $faixas[$a] = $sfaixas[2];
-                    }
-                    else if((2020 - $data[$a]) > 21 && $data[$a] <= 40){
-                        $faixas[$a] = $sfaixas[3];
-                    }
-                    else if((2020 - $data[$a]) >= 41){
-                        $faixas[$a] = $sfaixas[4];
+                    else{
+                        if((2020 - $data[$a]) < 17){
+                            $faixas[$a] = $sfaixas[1];
+                        }
+                        else if((2020 - $data[$a]) < 21){
+                            $faixas[$a] = $sfaixas[2];
+                        }
+                        else if((2020 - $data[$a]) < 41){
+                            $faixas[$a] = $sfaixas[3];
+                        }
+                        else if((2020 - $data[$a]) > 40){
+                            $faixas[$a] = $sfaixas[3];
+                        }
                     }
                 }
             }

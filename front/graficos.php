@@ -9,7 +9,7 @@
     include "../front/grafico2/dados.php";
     include "../front/grafico3/dados.php";
     include "../front/grafico4/dados.php";
-    
+     
     $logado = null;
 
     session_start();
@@ -190,11 +190,9 @@
                     <form class="pesq_text" action="./pesq_venda.php" name="form1" method="post">
                         <input type="number" name="id" class="id" placeholder="ID" autocomplete="off">
                         <input type="text" name="cliente" class="nome" placeholder="Cliente" autocomplete="off">
-                        <input type="text" name="data" class="data" onKeyPress="MascaraData(form1.data);" maxlength="10" placeholder="Data de Nascimento" autocomplete="off">
+                        <input type="text" name="data" class="data" onKeyPress="MascaraData(form1.data);" maxlength="10" placeholder="Data da compra" autocomplete="off">
 
-                        <button type="submit" class="icon">
-                            Filtrar
-                        </button>
+                        <button type="submit" class="icon">Filtrar</button>
 
                     </form>
                 </div>
