@@ -137,6 +137,9 @@
                                 </button>
                             </form>            
                     </div>
+                    <div class='preco2'>
+                        <a href='./add_prod.php?id=".$id."' class='eu'><i class="fas fa-plus-circle"></i></a>
+                    </div>
 
 
                     <div class="small-container">
@@ -186,6 +189,11 @@
 
                                             <div class='preco1'>
                                                 <span>R$".$linha['preco'].",00</s´pan>
+                                            </div>
+
+                                            <div class='preco1'>
+                                                <a href='./alterar_prod.php?id=".$id."' class='oi'><i class='fas fa-marker'></i></a>
+                                                <a href='../back/exclusao_prod.php?id=".$id."' class='oi'><i class='fas fa-trash-alt'></i></a>
                                             </div>
                                         </div>";
                                     }

@@ -1,6 +1,3 @@
-/*Dayna Caroline - N°11 - Criação: 02/09*/
-
-
 *{
     margin: 0;
     padding: 0;
@@ -137,180 +134,110 @@ h2{
     margin-top: 70px;
 }
 
-/*Usuarios---------------------------------------------------------------------------------------------*/
-
-/*Pesquisa---------------------------------------------------------------------------------------------*/
-.pesq_text{
-    display: flex;
-    margin-top: 5%;
-    margin-bottom: -5%;
+/*Conta----------------------------------------------------------------------------------------------------*/
+.internas{
+    width: 1200px;
 }
 
-.selects{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr  1fr 1fr 1fr;
+.small-container{
+    margin: 5% auto;
+    width: 640px;
+    height: 100%;
+    padding: 30px 30px;
+    border: 6px solid  rgb(255, 183, 116);
+    border-radius: 10px;
+}
+
+form{
+    margin: 5% auto;
+    width: 640px;
+    height: 100%;
+    padding: 30px 10px;
+    border: 6px solid rgb(255, 183, 116);
+    border-radius: 10px;
+}
+
+.exclusao label a{
+    margin-left: -10%;
+}
+
+.exclusao .icon{
+    text-align: right;
+    margin-right: 30%;
+}
+
+h2{
     text-align: center;
+    margin-bottom: 10px;
+}
+
+label{
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+    margin: 5% 0; 
 }
 
 .icon{
-    color: #505f75;
-    margin-left: -160px;
-    background-color: rgb(243, 233, 223);
-    border: 1px solid rgba(109, 93, 93, 0.4);
-    border-radius: 4px;
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 1%;
-    padding: 5px 25px;
-    height: 5%;
+    text-align: right;
+    margin-right: 30%;
+}
+
+.tel{
+    margin-right: 21%;
+}
+
+.col-radio{
+    display: inline-flex;
+    margin-left: -85px;
+}
+  
+.col-radio p{
+    color: rgb(105, 101, 101);
+    margin-left: -90px;
+    margin-top: -3px;
+}
+
+.forca{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 70%;
+}
+
+p{
+    margin-left: -15%;
+}
+
+form .icon{
+    margin-right: 30%;
 }
 
 input{
-    width: 15%;
-    font-size: 18px;
-    padding-bottom: 5px;
+    width: 60%;
+    margin-left: -22.5%;
     padding-left: 5px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
-    text-align: left;
 }
 
-.text{
-    height: 20%;
-    margin-top: 1.5%;
-}
-
-.cor{
-    margin-left: 20%;
-    margin-right: 15%;
-}
-
-.text{
-    margin-right: 5%;
-    margin-left: 8%;
-}
-
-.preco{
-    margin-left: -33%;
-}
-
-.preco input{
-    margin-left: .5%;
-}
-
-select{
-    border-radius: 4px;
-    padding: 8px 15px;
-}
-
-select:focus{
-    outline: none;
-}
-
-/*-----------------------------------------------------------------------------------------------------*/
-.small-container{
-    max-width: 1080px;
-    margin: auto;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-top: -60px;
-}
-
-.titulos, .produtos{
+.botoes{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
-.titulos{
-    font-size: 18px;
-    color: white;
-    padding: 5px;
-    background-color: rgb(255, 183, 116);
-}
-
-.produtos{
-    color: gray; 
-    padding: 10px 5px;
-    margin-bottom: .5%;
-    background-color:rgb(238, 231, 221);
-}
-
-.tabela{
-    margin: 80px auto;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.completa{
-    text-align: left;
-}
-
-.produto a{
-    color:  rgb(255, 183, 116);
-}
-
-.produto img{
-    width: 80px;
-    height: 80px;
-    margin-bottom: -10px;
-}
-
-.qtde{
-    display: flex;
-    padding: 5px 15px; 
-}
-
-.qtde button{
-    width: 20px;
+button{
+    padding: 10px 15px;
+    margin: 1% auto;
+    width: 60%;
     border-radius: 4px;
+    border: 1px solid white;
     background-color: rgb(255, 183, 116);
-    text-align: center;
-    border: 1px solid #555;
+    outline: none;
+    color: #555;
 }
 
-.qtde a{
-    margin-left: 15px;
-    margin-right: 15px;
+button:hover{
+    background-color: rgb(243, 201, 162);
 }
+/*---------------------------------------------------------------------------------------------------------*/
 
-.total{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 3%;
-}
-
-.preco_compra{
-    margin-left: 20%;
-}
-
-.preco1 a{
-    margin-right: 10px;
-}
-.preco2{
-    margin-left: 1050px;
-    margin-top: 90px;
-}
-
-.oi{
-    font-size: 21px;
-}
-
-.eu{
-    font-size: 30px;
-}
-
-.botao button{
-    width: 30%;
-    padding: 5px 10px;
-    border-radius: 4px;  
-    background:rgb(255, 183, 116);  
-}
-
-.botao button:hover{
-    background: rgb(255, 183, 116);
-}
-/*-------------------------------------------------------------------------------------------------------*/
 
 /*Footer--------------------------------------------------------------------------------------------------*/
 .footer{

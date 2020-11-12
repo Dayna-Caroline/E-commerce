@@ -4,7 +4,7 @@
     $produto = $_POST['produto'];
     $cupormug = $_POST["cupormug"];
     $descricao = $_POST['descricao'];
-    $qtdd = $_POST['qtdd'];
+    $qtdd = $_POST['quantidade'];
     $preco = $_POST['preco'];
     $imagem = $_POST['imagem'];
     $material = $_POST['material'];
@@ -18,7 +18,7 @@
 
     if($linhas > 0)
     {
-        echo "Salvo com sucesso";
+        header("Location: ../front/prod_admin.php");
     }
     else	
     {

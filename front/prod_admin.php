@@ -97,7 +97,11 @@
                                 <button type="submit" class="icon">
                                     Filtrar
                                 </button>
-                            </form>            
+                            </form>    
+                            
+                    </div>
+                    <div class='preco2'>
+                        <a href='./add_prod.php?id=".$id."' class='eu'><i class="fas fa-plus-circle"></i></a>
                     </div>
 
 
@@ -108,7 +112,8 @@
                                 <div class="quant">Material</div>
                                 <div class="quant">Cor</div>
                                 <div class="quant">Tamanho</div>
-                                <div class="preco">Preço</div>
+                                <div class="preco1">Preço</div>
+                                <div class="preco1">Configurações</div>
                             </div>
 
                             <?php
@@ -123,6 +128,7 @@
                                     for($cont=0; $cont < $qtde; $cont++)
                                     {
                                         $linha=pg_fetch_array($resultado);
+                                        $id = $linha['id_produto'];
 
                                         echo "
                                         <div class='produtos'>
@@ -149,6 +155,10 @@
 
                                             <div class='preco1'>
                                                 <span>R$".$linha['preco'].",00</s´pan>
+                                            </div>
+                                            <div class='preco1'>
+                                                <a href='./alterar_prod.php?id=".$id."' class='oi'><i class='fas fa-marker'></i></a>
+                                                <a href='../back/exclusao_prod.php?id=".$id."' class='oi'><i class='fas fa-trash-alt'></i></a>
                                             </div>
                                         </div>";
                                     }

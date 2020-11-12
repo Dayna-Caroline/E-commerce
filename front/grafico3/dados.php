@@ -1,12 +1,13 @@
 <?php
     include "../../back/conexao.php";
+    include "../../front/grafico1/dados.php";
 
     //Gráfico 3-------------------------------------------------------------------------------------
         $sql9 = "SELECT usuario.data_nascimento, itens.quantidade, produto.id_produto
         FROM compra JOIN itens ON itens.id_compra=compra.id_compra
         INNER JOIN produto ON itens.id_produto=produto.id_produto
         INNER JOIN usuario ON compra.id_user=usuario.id_user
-        ORDER BY usuario.data_nascimento";
+        WHERE produto.excluido=FALSE ORDER BY usuario.data_nascimento";
 
         $resultado9 = pg_query($conecta, $sql9);
         $qtde9 = pg_num_rows($resultado9);
@@ -38,29 +39,33 @@
                             $quantidade[$id-1] = $quanti;
                             $data[$id-1] = $ano;
                         }
+                        else if($quanti == 0){
+                            $quantidade[$a] = 0;
+                        }
                         else if($quantidade[$id-1] == $quanti){
-                            $faixas[$id-1] = $sfaixas[6];
+                            $faixas[$id-1] = $sfaixas[5];
+                            $quantidade[$id-1] += $quanti;
                         }
                     }
                 }
             }
 
-            for($a = 0; $a < 12; $a++){
+            for($a = 0; $a < $ind_prod; $a++){
                 if(empty($faixas[$a])){
                     if(empty($data[$a])){
-                        $faixas[$a] =  $sfaixas[5];
+                        $faixas[$a] =  $sfaixas[4];
                         $quantidade[$a] = 0;
                         $data[$a] = 0;
                     }
                     else{
                         if((2020 - $data[$a]) < 17){
-                            $faixas[$a] = $sfaixas[1];
+                            $faixas[$a] = $sfaixas[0];
                         }
                         else if((2020 - $data[$a]) < 21){
-                            $faixas[$a] = $sfaixas[2];
+                            $faixas[$a] = $sfaixas[1];
                         }
                         else if((2020 - $data[$a]) < 41){
-                            $faixas[$a] = $sfaixas[3];
+                            $faixas[$a] = $sfaixas[2];
                         }
                         else if((2020 - $data[$a]) > 40){
                             $faixas[$a] = $sfaixas[3];
